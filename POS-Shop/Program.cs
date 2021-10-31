@@ -18,7 +18,7 @@ namespace POS_Shop
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            /*LoginForm loginForm = new LoginForm();
+            LoginForm loginForm = new LoginForm();
             if (loginForm.IsLogin == false)
                 Application.Run(loginForm);
 
@@ -26,8 +26,8 @@ namespace POS_Shop
             {
                 new FormAlertNotification().ShowAlert("Login Successfully", FormAlertNotification.Type.Success);
                 Application.Run(new ParentForm());
-            }*/
-            Application.Run(new ParentForm());
+            }
+            //Application.Run(new ParentForm());
 
         }
     }

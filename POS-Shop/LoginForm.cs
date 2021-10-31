@@ -63,7 +63,10 @@ namespace POS_Shop
 
         private void btnLogin_KeyPress(object sender, KeyPressEventArgs e)
         {
-            onLogin();
+           if(e.KeyChar == 13)
+            {
+                onLogin();
+            }
         }
     }
 }
