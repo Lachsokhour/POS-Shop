@@ -27,6 +27,16 @@ namespace POS_Shop.Models
             };
         }
 
+        public Position GetPositionByText(string text)
+        {
+            return GetPositions().Where(item => item.Text == text).First();
+        }
+
+        public Position GetPositionByValue(int value)
+        {
+            return GetPositions().Where(item => item.Value == value).First();
+        }
+
         public override string ToString()
         {
             return $"Value: {Value}, Text: {Text}";

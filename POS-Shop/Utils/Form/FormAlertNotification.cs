@@ -84,7 +84,7 @@ namespace POS_Shop.Utils
             this.StartPosition = FormStartPosition.Manual;
             string fname;
 
-            for (int i = 1; i < 10; i++)
+            for (int i = 1; i < 5; i++)
             {
                 fname = "alert" + i.ToString();
                 FormAlertNotification frm = (FormAlertNotification)Application.OpenForms[fname];

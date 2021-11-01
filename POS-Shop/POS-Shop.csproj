@@ -128,22 +128,22 @@
       <DependentUpon>SubForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\Constants\EmployeeConstants.cs" />
-    <Compile Include="Utils\UploadImageForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Utils\UploadImageForm.Designer.cs">
-      <DependentUpon>UploadImageForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Utils\AbstractCrud.cs" />
+    <Compile Include="Utils\Interface\AbstractCrud.cs" />
     <Compile Include="Utils\Constants\CategoryConstants.cs" />
-    <Compile Include="Utils\FormAlertNotification.cs">
+    <Compile Include="Utils\Form\FormAlertNotification.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Utils\FormAlertNotification.Designer.cs">
+    <Compile Include="Utils\Form\FormAlertNotification.Designer.cs">
       <DependentUpon>FormAlertNotification.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utils\FormatUtils.cs" />
-    <Compile Include="Utils\ICrud.cs" />
+    <Compile Include="Utils\Constants\FormatUtils.cs" />
+    <Compile Include="Utils\Interface\ICrud.cs" />
+    <Compile Include="Utils\UserControl\UploadImageControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utils\UserControl\UploadImageControl.Designer.cs">
+      <DependentUpon>UploadImageControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Categories\CategoryForm.resx">
       <DependentUpon>CategoryForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -179,11 +179,11 @@
     <EmbeddedResource Include="Settings\Exchange.resx">
       <DependentUpon>Exchange.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Utils\UploadImageForm.resx">
-      <DependentUpon>UploadImageForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Utils\FormAlertNotification.resx">
+    <EmbeddedResource Include="Utils\Form\FormAlertNotification.resx">
       <DependentUpon>FormAlertNotification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\UserControl\UploadImageControl.resx">
+      <DependentUpon>UploadImageControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

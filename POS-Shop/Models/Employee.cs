@@ -171,7 +171,7 @@ namespace POS_Shop.Models
                 sqlCmd.Parameters.AddWithValue(EmployeeConstants.Id, id);
                 sqlCmd.ExecuteNonQuery();
                 conn.Close();
-                ShowAlert("Updated successfully.", FormAlertNotification.Type.Success);
+                ShowAlert("Deleted successfully.", FormAlertNotification.Type.Success);
                 return true;
             }
             catch (Exception ex)

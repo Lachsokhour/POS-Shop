@@ -33,14 +33,7 @@ namespace POS_Shop.Categories
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panelUploadImage = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.labelFilename = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btnUpload = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.picImage = new System.Windows.Forms.PictureBox();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.uploadImageControl1 = new POS_Shop.Utils.UploadImageControl();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -50,9 +43,6 @@ namespace POS_Shop.Categories
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
-            this.panelUploadImage.SuspendLayout();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picImage)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,8 +84,7 @@ namespace POS_Shop.Categories
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.panelUploadImage);
-            this.panel2.Controls.Add(this.btnSave);
+            this.panel2.Controls.Add(this.uploadImageControl1);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.panel3);
@@ -106,112 +95,17 @@ namespace POS_Shop.Categories
             this.panel2.Size = new System.Drawing.Size(374, 561);
             this.panel2.TabIndex = 4;
             // 
-            // panelUploadImage
+            // uploadImageControl1
             // 
-            this.panelUploadImage.Controls.Add(this.panel4);
-            this.panelUploadImage.Location = new System.Drawing.Point(20, 55);
-            this.panelUploadImage.Name = "panelUploadImage";
-            this.panelUploadImage.Size = new System.Drawing.Size(337, 247);
-            this.panelUploadImage.TabIndex = 13;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.labelFilename);
-            this.panel4.Controls.Add(this.label5);
-            this.panel4.Controls.Add(this.btnUpload);
-            this.panel4.Controls.Add(this.btnClear);
-            this.panel4.Controls.Add(this.picImage);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Font = new System.Drawing.Font("Fira Mono", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(337, 247);
-            this.panel4.TabIndex = 4;
-            // 
-            // labelFilename
-            // 
-            this.labelFilename.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.labelFilename.AutoSize = true;
-            this.labelFilename.Location = new System.Drawing.Point(95, 228);
-            this.labelFilename.Name = "labelFilename";
-            this.labelFilename.Size = new System.Drawing.Size(31, 15);
-            this.labelFilename.TabIndex = 17;
-            this.labelFilename.Text = "...";
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(2, 228);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(87, 15);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "File name:";
-            // 
-            // btnUpload
-            // 
-            this.btnUpload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnUpload.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(158)))), ((int)(((byte)(231)))));
-            this.btnUpload.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnUpload.FlatAppearance.BorderSize = 0;
-            this.btnUpload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpload.ForeColor = System.Drawing.Color.White;
-            this.btnUpload.Location = new System.Drawing.Point(267, 172);
-            this.btnUpload.MaximumSize = new System.Drawing.Size(70, 40);
-            this.btnUpload.MinimumSize = new System.Drawing.Size(70, 40);
-            this.btnUpload.Name = "btnUpload";
-            this.btnUpload.Size = new System.Drawing.Size(70, 40);
-            this.btnUpload.TabIndex = 14;
-            this.btnUpload.Text = "Upload";
-            this.btnUpload.UseVisualStyleBackColor = false;
-            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(158)))), ((int)(((byte)(231)))));
-            this.btnClear.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnClear.FlatAppearance.BorderSize = 0;
-            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(267, 127);
-            this.btnClear.MaximumSize = new System.Drawing.Size(70, 40);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(70, 40);
-            this.btnClear.TabIndex = 15;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = false;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // picImage
-            // 
-            this.picImage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.picImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picImage.Location = new System.Drawing.Point(1, 0);
-            this.picImage.Name = "picImage";
-            this.picImage.Size = new System.Drawing.Size(257, 212);
-            this.picImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picImage.TabIndex = 1;
-            this.picImage.TabStop = false;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(158)))), ((int)(((byte)(231)))));
-            this.btnSave.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(292, 502);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(69, 40);
-            this.btnSave.TabIndex = 12;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.uploadImageControl1.BtnClear = null;
+            this.uploadImageControl1.Font = new System.Drawing.Font("Fira Mono", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uploadImageControl1.LabelFilename = "...";
+            this.uploadImageControl1.Location = new System.Drawing.Point(20, 55);
+            this.uploadImageControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.uploadImageControl1.Name = "uploadImageControl1";
+            this.uploadImageControl1.PicImage = null;
+            this.uploadImageControl1.Size = new System.Drawing.Size(339, 283);
+            this.uploadImageControl1.TabIndex = 10;
             // 
             // label4
             // 
@@ -283,10 +177,6 @@ namespace POS_Shop.Categories
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panelUploadImage.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picImage)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
@@ -304,14 +194,7 @@ namespace POS_Shop.Categories
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Panel panelUploadImage;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label labelFilename;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnUpload;
-        private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.PictureBox picImage;
+        private Utils.UploadImageControl uploadImageControl1;
     }
 }

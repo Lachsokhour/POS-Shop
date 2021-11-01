@@ -17,5 +17,5 @@ D:\RUPP-Year4\OOAD\POS-Shop\POS-Shop\obj\Debug\POS_Shop.Products.AddNewProduct.r
 D:\RUPP-Year4\OOAD\POS-Shop\POS-Shop\obj\Debug\POS_Shop.Utils.FormAlertNotification.resources
 D:\RUPP-Year4\OOAD\POS-Shop\POS-Shop\obj\Debug\POS_Shop.Reports.ReportForm.resources
 D:\RUPP-Year4\OOAD\POS-Shop\POS-Shop\obj\Debug\POS_Shop.Categories.CategoryForm.resources
-D:\RUPP-Year4\OOAD\POS-Shop\POS-Shop\obj\Debug\POS_Shop.UploadImageForm.resources
 D:\RUPP-Year4\OOAD\POS-Shop\POS-Shop\obj\Debug\POS_Shop.Employees.FormEmployee.resources
+D:\RUPP-Year4\OOAD\POS-Shop\POS-Shop\obj\Debug\POS_Shop.Utils.UploadImageControl.resources

@@ -135,6 +135,9 @@ namespace POS_Shop.Employees
             SetValueToFieldWhenEditMode();
         }
 
+        /// <summary>
+        /// Set label of title for inform to user.
+        /// </summary>
         private void SetLabelTitle()
         {
             labelTitle.Text = addMode ? "Add Employee" : "Edit Employee";
@@ -150,6 +153,7 @@ namespace POS_Shop.Employees
                 txtAddress.Text = currentEmp.Address;
                 txtPhone.Text = currentEmp.Phone;
                 txtPassword.Text = currentEmp.Password;
+                comboBoxPosition.SelectedValue = new Position().GetPositionByText(currentEmp.Position).Value;
                 id = currentEmp.Id;
             }
         }
@@ -161,6 +165,11 @@ namespace POS_Shop.Employees
             this.ClearValue();
         }
 
+        /// <summary>
+        /// Show alert pop up message
+        /// </summary>
+        /// <param name="msg">message</param>
+        /// <param name="type">type of message</param>
         private void ShowAlertMsg(string msg, FormAlertNotification.Type type)
         {
             FormAlertNotification formAlert = new FormAlertNotification();

@@ -1,5 +1,4 @@
-﻿using POS_Shop.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,12 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace POS_Shop
+namespace POS_Shop.Utils
 {
-    public partial class UploadImageForm : Form
+    public partial class UploadImageControl : UserControl
     {
-        private string filename = "";
-        public UploadImageForm()
+        public UploadImageControl()
         {
             InitializeComponent();
         }
@@ -29,8 +27,7 @@ namespace POS_Shop
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     picImage.Image = new Bitmap(dialog.FileName);
-                    filename = System.IO.Path.GetFileName(dialog.FileName);
-                    labelFilename.Text = filename;
+                    labelFilename.Text = System.IO.Path.GetFileName(dialog.FileName);
                 }
             }
             catch (Exception ex)
