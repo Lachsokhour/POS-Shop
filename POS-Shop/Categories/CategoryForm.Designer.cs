@@ -33,7 +33,7 @@ namespace POS_Shop.Categories
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.uploadImageControl1 = new POS_Shop.Utils.UploadImageControl();
+            this.uploadImageControl = new POS_Shop.Utils.UploadImageControl();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -84,7 +84,7 @@ namespace POS_Shop.Categories
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.uploadImageControl1);
+            this.panel2.Controls.Add(this.uploadImageControl);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.panel3);
@@ -95,17 +95,18 @@ namespace POS_Shop.Categories
             this.panel2.Size = new System.Drawing.Size(374, 561);
             this.panel2.TabIndex = 4;
             // 
-            // uploadImageControl1
+            // uploadImageControl
             // 
-            this.uploadImageControl1.BtnClear = null;
-            this.uploadImageControl1.Font = new System.Drawing.Font("Fira Mono", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uploadImageControl1.LabelFilename = "...";
-            this.uploadImageControl1.Location = new System.Drawing.Point(20, 55);
-            this.uploadImageControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.uploadImageControl1.Name = "uploadImageControl1";
-            this.uploadImageControl1.PicImage = null;
-            this.uploadImageControl1.Size = new System.Drawing.Size(339, 283);
-            this.uploadImageControl1.TabIndex = 10;
+            this.uploadImageControl.BtnClear = null;
+            this.uploadImageControl.Font = new System.Drawing.Font("Fira Mono", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uploadImageControl.LabelFilename = "...";
+            this.uploadImageControl.Location = new System.Drawing.Point(20, 55);
+            this.uploadImageControl.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.uploadImageControl.Name = "uploadImageControl";
+            this.uploadImageControl.FilePath = null;
+            this.uploadImageControl.PicImage = null;
+            this.uploadImageControl.Size = new System.Drawing.Size(339, 244);
+            this.uploadImageControl.TabIndex = 10;
             // 
             // label4
             // 
@@ -195,6 +196,6 @@ namespace POS_Shop.Categories
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private Utils.UploadImageControl uploadImageControl1;
+        private Utils.UploadImageControl uploadImageControl;
     }
 }

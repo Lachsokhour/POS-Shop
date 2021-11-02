@@ -128,6 +128,7 @@
       <DependentUpon>SubForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\Constants\EmployeeConstants.cs" />
+    <Compile Include="Utils\FileStorageUtils.cs" />
     <Compile Include="Utils\Interface\AbstractCrud.cs" />
     <Compile Include="Utils\Constants\CategoryConstants.cs" />
     <Compile Include="Utils\Form\FormAlertNotification.cs">
@@ -220,7 +221,7 @@
     <None Include="Resources\header_logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="images\" />
+    <Folder Include="Images\" />
     <Folder Include="Stock\" />
   </ItemGroup>
   <ItemGroup>

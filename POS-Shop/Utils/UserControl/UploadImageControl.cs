@@ -12,6 +12,8 @@ namespace POS_Shop.Utils
 {
     public partial class UploadImageControl : UserControl
     {
+        FileStorageUtils fileStorage = new FileStorageUtils();
+
         public UploadImageControl()
         {
             InitializeComponent();
@@ -23,11 +25,14 @@ namespace POS_Shop.Utils
             {
                 OpenFileDialog dialog = new OpenFileDialog();
                 dialog.Title = "Open Image File";
-                dialog.Filter = "Image Only(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png";
+                dialog.Filter = FormatUtils.FileFilter;
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     picImage.Image = new Bitmap(dialog.FileName);
-                    labelFilename.Text = System.IO.Path.GetFileName(dialog.FileName);
+                    
+                    fileStorage.UploadImage(dialog);
+                    FilePath = fileStorage.FilePath;
+                    LabelFilename = fileStorage.FileName;
                 }
             }
             catch (Exception ex)
@@ -38,8 +43,9 @@ namespace POS_Shop.Utils
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            fileStorage.RemoveFile();
             picImage.Image = null;
-            labelFilename.Text = "...";
+            LabelFilename = "";
         }
     }
 }
