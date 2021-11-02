@@ -8,14 +8,12 @@ namespace POS_Shop.Utils
 {
     static class ConstantsCategory
     {
-        public const string Id = "@CategoryId";
-        public const string Name = "@CategoryName";
-        public const string Photo = "@CategoryPhoto";
-        public const string Note = "@CategoryNote";
-        public const string OperationType = "@OperationType";
+        public const string Id = "@Id";
+        public const string Name = "@Name";
+        public const string Photo = "@Photo";
+        public const string Note = "@Note";
 
-        public static string ScriptInsert = $"INSERT INTO category VALUES ({Id},{Name},{Photo}, {Note})";
-        //public static string StriptDelete = $"DELETE ";
-        public static string ScriptSelect = $"Select * from category";
+        public static string CreateCategoryStoreProcedure = "CreateCategory";
+        public static string SelectAllCategoryStoreProcedure = "SelectAllCategory";
     }
 }

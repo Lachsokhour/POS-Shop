@@ -9,5 +9,6 @@ namespace POS_Shop.Utils
     static class FormatUtils
     {
         public const string dollar = "";
+        public const string FileFilter = "Image Only(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png";
     }
 }

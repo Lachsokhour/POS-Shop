@@ -14,7 +14,7 @@ namespace POS_Shop.Models
     class Category : AbstractCrud<Category>
     {
         public int Id { get; set; }
-        public byte[] Photo { get; set; }
+        public string Photo { get; set; }
         public string Name { get; set; }
         public string Note { get; set; }
         public DateTime CreatedAt { get ; set ; }
@@ -45,22 +45,6 @@ namespace POS_Shop.Models
         public override Category readById(int id)
         {
             throw new NotImplementedException();
-        }
-
-        // convert image to byte array
-        public byte[] imageToByteArray(Image imageIn)
-        {
-            MemoryStream ms = new MemoryStream();
-            imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-            return ms.ToArray();
-        }
-
-        //Byte array to photo
-        public Image byteArrayToImage(byte[] byteArrayIn)
-        {
-            MemoryStream ms = new MemoryStream(byteArrayIn);
-            Image returnImage = Image.FromStream(ms);
-            return returnImage;
         }
     }
 }
