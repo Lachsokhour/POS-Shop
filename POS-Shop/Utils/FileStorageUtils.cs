@@ -24,24 +24,6 @@ namespace POS_Shop.Utils
         public string FileName { get => fileName; set => fileName = value; }
         public string FilePath { get => filePath; set => filePath = value; }
 
-
-
-        // convert image to byte array
-        public byte[] imageToByteArray(Image imageIn)
-        {
-            MemoryStream ms = new MemoryStream();
-            imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-            return ms.ToArray();
-        }
-
-        //Byte array to photo
-        public Image byteArrayToImage(byte[] byteArrayIn)
-        {
-            MemoryStream ms = new MemoryStream(byteArrayIn);
-            Image returnImage = Image.FromStream(ms);
-            return returnImage;
-        }
-
         public void UploadImage(OpenFileDialog fileOpen)
         {
            try
@@ -85,7 +67,7 @@ namespace POS_Shop.Utils
             }
         }
 
-        public void RemoveFile()
+        public bool RemoveFile()
         {
             try
             {
@@ -95,15 +77,39 @@ namespace POS_Shop.Utils
                     // If file found, delete it    
                     File.Delete(Path.Combine(dir, fileName));
                     ShowAlert("File deleted.", FormAlertNotification.Type.Success);
+                    return true;
                 }
                 else
                 {
                     this.ShowAlert("File not found.", FormAlertNotification.Type.Warning);
+                    return true;
                 }
             }
             catch (IOException ioExp)
             {
                 ShowAlert(ioExp.Message, FormAlertNotification.Type.Error);
+                return false;
+            }
+        }
+
+        public Image LoadImage(string filePath)
+        {
+            try
+            {
+                if (File.Exists(filePath))
+                {
+                    return Image.FromFile(filePath);
+                }
+                else
+                {
+                    ShowAlert("File not exist", FormAlertNotification.Type.Warning);
+                    return null;
+                }
+            }
+            catch(Exception ex)
+            {
+                ShowAlert(ex.Message, FormAlertNotification.Type.Error);
+                return null;
             }
         }
 

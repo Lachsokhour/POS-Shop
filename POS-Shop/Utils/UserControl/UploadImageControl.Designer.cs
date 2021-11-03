@@ -110,7 +110,7 @@ namespace POS_Shop.Utils
         private Button btnUpload;
 
         public Image PicImage { get => picImage.Image; set => picImage.Image = value; }
-        public string LabelFilename { get; set; }
+        public string FileName { get; set; }
         public Button BtnClear { get => btnClear; set => btnClear =value; }
         public Button BtnUpload { get => btnUpload; set => btnUpload = value; }
         public string FilePath { get; set; }

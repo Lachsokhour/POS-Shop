@@ -32,7 +32,7 @@ namespace POS_Shop.Utils
                     
                     fileStorage.UploadImage(dialog);
                     FilePath = fileStorage.FilePath;
-                    LabelFilename = fileStorage.FileName;
+                    FileName = fileStorage.FileName;
                 }
             }
             catch (Exception ex)
@@ -43,9 +43,12 @@ namespace POS_Shop.Utils
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            fileStorage.RemoveFile();
-            picImage.Image = null;
-            LabelFilename = "";
+            if(fileStorage.RemoveFile(FileName))
+            {
+                picImage.Image = null;
+                FileName = "";
+            }
+            
         }
     }
 }
