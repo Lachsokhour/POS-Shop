@@ -17,6 +17,7 @@ namespace POS_Shop.Utils
         public UploadImageControl()
         {
             InitializeComponent();
+            IsAddMode = true;
         }
 
         private void btnUpload_Click(object sender, EventArgs e)
@@ -43,11 +44,29 @@ namespace POS_Shop.Utils
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            if(fileStorage.RemoveFile(FileName))
+            if(IsAddMode)
             {
-                picImage.Image = null;
-                FileName = "";
+                if (fileStorage.RemoveFile(FileName))
+                {
+                    picImage.Image = null;
+                    FileName = "";
+                }
             }
+            else
+            {
+                var confirmResult = MessageBox.Show("Are you sure to delete this item?",
+                                     "Confirm Delete",
+                                     MessageBoxButtons.YesNo);
+                if (confirmResult == DialogResult.Yes)
+                {
+                    if (fileStorage.RemoveFile(FileName))
+                    {
+                        picImage.Image = null;
+                        FileName = "";
+                    }
+                }
+            }
+            
             
         }
     }

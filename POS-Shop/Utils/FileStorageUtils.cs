@@ -62,7 +62,8 @@ namespace POS_Shop.Utils
             }
             catch (IOException ioExp)
             {
-                ShowAlert(ioExp.Message,FormAlertNotification.Type.Error);
+                //ShowAlert(ioExp.Message,FormAlertNotification.Type.Error);
+                MessageBox.Show(ioExp.Message);
                 return false;
             }
         }
@@ -74,7 +75,9 @@ namespace POS_Shop.Utils
                 // Check if file exists with its full path    
                 if (File.Exists(Path.Combine(dir, fileName)))
                 {
-                    // If file found, delete it    
+                    // If file found, delete it
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
                     File.Delete(Path.Combine(dir, fileName));
                     ShowAlert("File deleted.", FormAlertNotification.Type.Success);
                     return true;

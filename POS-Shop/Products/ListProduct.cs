@@ -21,7 +21,14 @@ namespace POS_Shop.Products
         {
             ParentForm form = Application.OpenForms["ParentForm"] as ParentForm;
             if (form != null)
-                form.openChildFormInPanel(new AddNewProduct());
+                form.openChildFormInPanel(new AddNewProduct(true, null));
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            ParentForm form = Application.OpenForms["ParentForm"] as ParentForm;
+            if (form != null)
+                form.openChildFormInPanel(new AddNewProduct(false, null));
         }
     }
 }

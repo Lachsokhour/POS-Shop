@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace POS_Shop.Categories
 {
-    public partial class CategoryForm : SubForm
+    public partial class CategoryForm : Form
     {
         private int id = 0;
         private BindingSource source;
@@ -21,6 +21,7 @@ namespace POS_Shop.Categories
         public CategoryForm()
         {
             InitializeComponent();
+            SetLabelTitle();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -28,10 +29,20 @@ namespace POS_Shop.Categories
             if (SetValue() != null)
             {
                 Category category = SetValue();
-                if (category.create())
+                if(isAddMode)
                 {
-                    this.ClearValue();
-                    LoadCategoryValue();
+                    if (category.create())
+                    {
+                        this.ClearValue();
+                        LoadCategoryValue();
+                    }
+                }else
+                {
+                    if(category.update())
+                    {
+                        ClearValue();
+                        LoadCategoryValue();
+                    }
                 }
             }
         }
@@ -56,7 +67,22 @@ namespace POS_Shop.Categories
                 category.Note = txtNote.Text.Trim();
                 category.Photo = uploadImageControl.FileName;
                 category.FilePath = uploadImageControl.FilePath;
+                category.Id = id;
                 return category;
+            }
+        }
+
+        private void SetValueToFieldWhenEditMode()
+        {
+            if(!isAddMode)
+            {
+                currentCate = (Category)source.Current;
+                this.id = currentCate.Id;
+                txtName.Text = currentCate.Name;
+                txtNote.Text = currentCate.Note;
+                uploadImageControl.FileName = currentCate.Photo;
+                uploadImageControl.FilePath = currentCate.FilePath;
+                uploadImageControl.PicImage = currentCate.CateImage;
             }
         }
 
@@ -69,6 +95,8 @@ namespace POS_Shop.Categories
             uploadImageControl.FilePath = "";
             uploadImageControl.PicImage = null;
             isAddMode = true;
+            uploadImageControl.IsAddMode = true;
+            SetLabelTitle();
         }
 
         private void LoadCategoryValue()
@@ -84,6 +112,7 @@ namespace POS_Shop.Categories
             gridCategory.Columns["Photo"].Visible = false;
             gridCategory.Columns["CateImage"].HeaderText = "Photo";
             gridCategory.Columns["CateImage"].DisplayIndex = 0;
+            SetValueToFieldWhenEditMode();
             gridCategory.Refresh();
         }
 
@@ -101,6 +130,7 @@ namespace POS_Shop.Categories
         private void btnCreate_Click(object sender, EventArgs e)
         {
             isAddMode = true;
+            uploadImageControl.IsAddMode = true;
             SetLabelTitle();
             ClearValue();
         }
@@ -108,6 +138,9 @@ namespace POS_Shop.Categories
         private void btnEdit_Click(object sender, EventArgs e)
         {
             isAddMode = false;
+            uploadImageControl.IsAddMode = false;
+            SetLabelTitle();
+            SetValueToFieldWhenEditMode();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -119,9 +152,9 @@ namespace POS_Shop.Categories
                                      MessageBoxButtons.YesNo);
             if (confirmResult == DialogResult.Yes)
             {
-                var result = new Category().delete(id);
-                if (result)
+                if (new Category().delete(id))
                 {
+                    //new FileStorageUtils().RemoveFile(cate.Photo);
                     LoadCategoryValue();
                 }
             }

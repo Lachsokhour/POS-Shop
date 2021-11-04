@@ -1,4 +1,5 @@
 ﻿using POS_Shop.DB;
+using POS_Shop.Models;
 using POS_Shop.Utils;
 using System;
 using System.Collections.Generic;
@@ -43,7 +44,9 @@ namespace POS_Shop
             }
             else
             {
-                if (username == "sokhour" && password == "123")
+                UserLogin login = new UserLogin(username, password);
+                
+                if (login.Login())
                 {
                     IsLogin = true;
                     this.Close();

@@ -15,10 +15,12 @@ namespace POS_Shop.Utils.Constants
         public const string Address = "@Address";
         public const string PositionId = "@PositionId";
         public const string Phone = "@Phone";
+        public const string Username = "@Username";
 
         public const string CreateEmployeeStoreProcedure = "CreateEmployee";
         public const string SelectAllEmployeeStoreProcedure = "SelectAllEmployee";
         public const string DeleteEmployeeStoreProcedure = "DelectEmployeeById";
         public const string UpdateEmployeeStoreProcedure = "UpdateEmployee";
+        public const string UserLoginStoreProcedure = "SelectUserByUserAndPassword";
     }
 }

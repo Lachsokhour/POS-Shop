@@ -180,7 +180,7 @@ namespace POS_Shop.Employees
         {
             var emp = (Employee)source.Current;
             this.id = emp.Id;
-            var confirmResult = MessageBox.Show("Are you sure to delete this item ??",
+            var confirmResult = MessageBox.Show("Are you sure to delete this item?",
                                      "Confirm Delete",
                                      MessageBoxButtons.YesNo);
             if (confirmResult == DialogResult.Yes)

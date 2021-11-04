@@ -114,5 +114,6 @@ namespace POS_Shop.Utils
         public Button BtnClear { get => btnClear; set => btnClear =value; }
         public Button BtnUpload { get => btnUpload; set => btnUpload = value; }
         public string FilePath { get; set; }
+        public bool IsAddMode { get; set; }
     }
 }
