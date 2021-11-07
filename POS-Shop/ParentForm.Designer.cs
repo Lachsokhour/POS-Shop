@@ -123,6 +123,7 @@ namespace POS_Shop
             this.btnExchange.Text = "Exchange";
             this.btnExchange.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnExchange.UseVisualStyleBackColor = true;
+            this.btnExchange.Click += new System.EventHandler(this.btnExchange_Click);
             // 
             // btnEmployee
             // 
@@ -169,6 +170,7 @@ namespace POS_Shop
             this.btnStock.Text = "Stock";
             this.btnStock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnStock.UseVisualStyleBackColor = true;
+            this.btnStock.Click += new System.EventHandler(this.btnStock_Click);
             // 
             // btnCategory
             // 

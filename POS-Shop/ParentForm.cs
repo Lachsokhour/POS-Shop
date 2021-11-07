@@ -12,6 +12,8 @@ using POS_Shop.Employees;
 using POS_Shop.Categories;
 using POS_Shop.Products;
 using POS_Shop.Reports;
+using POS_Shop.Settings;
+using POS_Shop.Stock;
 
 namespace POS_Shop
 {
@@ -60,7 +62,7 @@ namespace POS_Shop
 
         private void btnProduct_Click(object sender, EventArgs e)
         {
-            openChildFormInPanel(new ListProduct());
+            openChildFormInPanel(new FormListProduct());
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -71,6 +73,16 @@ namespace POS_Shop
         private void btnReport_Click(object sender, EventArgs e)
         {
             openChildFormInPanel(new ReportForm());
+        }
+
+        private void btnExchange_Click(object sender, EventArgs e)
+        {
+            openChildFormInPanel(new ExchangeForm());
+        }
+
+        private void btnStock_Click(object sender, EventArgs e)
+        {
+            openChildFormInPanel(new FormListStockIn());
         }
     }
 }

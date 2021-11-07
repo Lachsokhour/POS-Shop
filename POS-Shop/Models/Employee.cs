@@ -23,8 +23,6 @@ namespace POS_Shop.Models
         protected int positionId;
         protected string position;
 
-        private SqlConnection conn = Connection.getConnection();
-
         public Employee() { }
 
         public Employee(int id, string nameEn, string nameKh, string phone, string address, string password, int positionId)
@@ -179,12 +177,6 @@ namespace POS_Shop.Models
                 ShowAlert(ex.Message, FormAlertNotification.Type.Error);
                 return false;
             }
-        }
-
-        private void ShowAlert(string msg, FormAlertNotification.Type type)
-        {
-            FormAlertNotification formAlert = new FormAlertNotification();
-            formAlert.ShowAlert(msg, type);
         }
     }
 }

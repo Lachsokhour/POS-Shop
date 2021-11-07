@@ -33,6 +33,8 @@ namespace POS_Shop.Products
         {
             this.labelTitle = new System.Windows.Forms.Label();
             this.panelProductForm = new System.Windows.Forms.Panel();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.txtNote = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -41,10 +43,13 @@ namespace POS_Shop.Products
             this.label8 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtNameEn = new System.Windows.Forms.TextBox();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.txtPriceOut = new System.Windows.Forms.TextBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.txtBarcode = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtNameKh = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,6 +57,7 @@ namespace POS_Shop.Products
             this.panelProductForm.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -69,23 +75,65 @@ namespace POS_Shop.Products
             // 
             // panelProductForm
             // 
-            this.panelProductForm.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelProductForm.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panelProductForm.Controls.Add(this.btnBack);
+            this.panelProductForm.Controls.Add(this.btnClear);
             this.panelProductForm.Controls.Add(this.btnSave);
             this.panelProductForm.Controls.Add(this.txtNote);
             this.panelProductForm.Controls.Add(this.label4);
             this.panelProductForm.Controls.Add(this.panel6);
             this.panelProductForm.Controls.Add(this.label8);
             this.panelProductForm.Controls.Add(this.panel2);
+            this.panelProductForm.Controls.Add(this.panel1);
             this.panelProductForm.Controls.Add(this.panel5);
             this.panelProductForm.Controls.Add(this.panel3);
+            this.panelProductForm.Controls.Add(this.label1);
             this.panelProductForm.Controls.Add(this.label3);
             this.panelProductForm.Controls.Add(this.label5);
             this.panelProductForm.Controls.Add(this.label2);
             this.panelProductForm.Controls.Add(this.uploadImageControl);
-            this.panelProductForm.Location = new System.Drawing.Point(26, 65);
+            this.panelProductForm.Location = new System.Drawing.Point(26, 63);
             this.panelProductForm.Name = "panelProductForm";
-            this.panelProductForm.Size = new System.Drawing.Size(880, 450);
+            this.panelProductForm.Size = new System.Drawing.Size(880, 510);
             this.panelProductForm.TabIndex = 2;
+            // 
+            // btnBack
+            // 
+            this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBack.BackColor = System.Drawing.Color.Red;
+            this.btnBack.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.Location = new System.Drawing.Point(625, 435);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnBack.MaximumSize = new System.Drawing.Size(70, 40);
+            this.btnBack.MinimumSize = new System.Drawing.Size(70, 40);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(70, 40);
+            this.btnBack.TabIndex = 42;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(158)))), ((int)(((byte)(231)))));
+            this.btnClear.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.ForeColor = System.Drawing.Color.White;
+            this.btnClear.Location = new System.Drawing.Point(703, 435);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnClear.MaximumSize = new System.Drawing.Size(70, 40);
+            this.btnClear.MinimumSize = new System.Drawing.Size(70, 40);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(70, 40);
+            this.btnClear.TabIndex = 42;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnSave
             // 
@@ -95,7 +143,7 @@ namespace POS_Shop.Products
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(781, 364);
+            this.btnSave.Location = new System.Drawing.Point(781, 435);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnSave.MaximumSize = new System.Drawing.Size(70, 40);
             this.btnSave.MinimumSize = new System.Drawing.Size(70, 40);
@@ -111,7 +159,7 @@ namespace POS_Shop.Products
             this.txtNote.Location = new System.Drawing.Point(33, 299);
             this.txtNote.Multiline = true;
             this.txtNote.Name = "txtNote";
-            this.txtNote.Size = new System.Drawing.Size(322, 105);
+            this.txtNote.Size = new System.Drawing.Size(322, 176);
             this.txtNote.TabIndex = 41;
             // 
             // label4
@@ -128,7 +176,7 @@ namespace POS_Shop.Products
             this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel6.BackColor = System.Drawing.Color.White;
             this.panel6.Controls.Add(this.comboBoxCategory);
-            this.panel6.Location = new System.Drawing.Point(510, 299);
+            this.panel6.Location = new System.Drawing.Point(510, 380);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(339, 40);
             this.panel6.TabIndex = 16;
@@ -148,7 +196,7 @@ namespace POS_Shop.Products
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label8.Location = new System.Drawing.Point(507, 274);
+            this.label8.Location = new System.Drawing.Point(507, 355);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(79, 15);
             this.label8.TabIndex = 15;
@@ -173,15 +221,15 @@ namespace POS_Shop.Products
             this.txtNameEn.Size = new System.Drawing.Size(330, 16);
             this.txtNameEn.TabIndex = 0;
             // 
-            // panel5
+            // panel1
             // 
-            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.Controls.Add(this.txtPriceOut);
-            this.panel5.Location = new System.Drawing.Point(510, 207);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(341, 40);
-            this.panel5.TabIndex = 6;
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.txtPriceOut);
+            this.panel1.Location = new System.Drawing.Point(510, 299);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(341, 40);
+            this.panel1.TabIndex = 6;
             // 
             // txtPriceOut
             // 
@@ -191,6 +239,25 @@ namespace POS_Shop.Products
             this.txtPriceOut.Name = "txtPriceOut";
             this.txtPriceOut.Size = new System.Drawing.Size(330, 16);
             this.txtPriceOut.TabIndex = 0;
+            // 
+            // panel5
+            // 
+            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.Controls.Add(this.txtBarcode);
+            this.panel5.Location = new System.Drawing.Point(510, 207);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(341, 40);
+            this.panel5.TabIndex = 6;
+            // 
+            // txtBarcode
+            // 
+            this.txtBarcode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBarcode.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBarcode.Location = new System.Drawing.Point(9, 12);
+            this.txtBarcode.Name = "txtBarcode";
+            this.txtBarcode.Size = new System.Drawing.Size(330, 16);
+            this.txtBarcode.TabIndex = 0;
             // 
             // panel3
             // 
@@ -206,10 +273,21 @@ namespace POS_Shop.Products
             // 
             this.txtNameKh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNameKh.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNameKh.Location = new System.Drawing.Point(9, 12);
+            this.txtNameKh.Font = new System.Drawing.Font("Kh Battambang", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNameKh.Location = new System.Drawing.Point(9, 8);
             this.txtNameKh.Name = "txtNameKh";
-            this.txtNameKh.Size = new System.Drawing.Size(330, 16);
+            this.txtNameKh.Size = new System.Drawing.Size(330, 25);
             this.txtNameKh.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(507, 271);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(119, 15);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Price Out* ($)";
             // 
             // label3
             // 
@@ -227,9 +305,9 @@ namespace POS_Shop.Products
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(507, 179);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(87, 15);
+            this.label5.Size = new System.Drawing.Size(71, 15);
             this.label5.TabIndex = 5;
-            this.label5.Text = "Proce Out*";
+            this.label5.Text = "Barcode*";
             // 
             // label2
             // 
@@ -258,18 +336,21 @@ namespace POS_Shop.Products
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(939, 569);
+            this.ClientSize = new System.Drawing.Size(939, 629);
             this.Controls.Add(this.panelProductForm);
             this.Controls.Add(this.labelTitle);
             this.Font = new System.Drawing.Font("Fira Mono", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "AddNewProduct";
             this.Text = "AddNewProduct";
+            this.Load += new System.EventHandler(this.AddNewProduct_Load);
             this.panelProductForm.ResumeLayout(false);
             this.panelProductForm.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -291,7 +372,7 @@ namespace POS_Shop.Products
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox txtPriceOut;
+        private System.Windows.Forms.TextBox txtBarcode;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.ComboBox comboBoxCategory;
@@ -299,5 +380,10 @@ namespace POS_Shop.Products
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.TextBox txtNote;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox txtPriceOut;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Button btnClear;
     }
 }

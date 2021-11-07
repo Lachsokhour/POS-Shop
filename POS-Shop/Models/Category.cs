@@ -42,17 +42,18 @@ namespace POS_Shop.Models
             this.cateImage = cateImage;
         }
 
+        public Category(int id, string name)
+        {
+            this.id = id;
+            this.name = name;
+        }
+
         public int Id { get => id; set => id = value; }
         public string Photo { get => photo; set => photo = value; }
         public string FilePath { get => filePath; set => filePath = value; }
         public string Name { get => name; set => name = value; }
         public string Note { get => note; set => note = value; }
         public Image CateImage { get => cateImage; set => cateImage = value; }
-
-        /// <summary>
-        /// Connect to DB server.
-        /// </summary>
-        private SqlConnection conn = Connection.getConnection();
 
         public override bool create()
         {
@@ -143,7 +144,7 @@ namespace POS_Shop.Models
                             reader["note"].ToString(),
                             cateImage
                             )
-                        ); ;
+                        );
                 }
                 reader.Close();
                 conn.Close();
@@ -157,10 +158,34 @@ namespace POS_Shop.Models
             }
         }
 
-        private void ShowAlert(string msg, FormAlertNotification.Type type)
+        public List<Category> GetCategories()
         {
-            FormAlertNotification formAlert = new FormAlertNotification();
-            formAlert.ShowAlert(msg, type);
+            try
+            {
+                List<Category> categories = new List<Category>();
+                conn.Open();
+                SqlCommand sqlCmd = new SqlCommand(CategoryConstants.SelectAllCategoryStoreProcedure, conn);
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                SqlDataReader reader = sqlCmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    categories.Add(
+                        new Category(
+                            int.Parse(reader["id"].ToString()),
+                            reader["name"].ToString()
+                            )
+                        );
+                }
+                reader.Close();
+                conn.Close();
+                return categories;
+            }
+            catch (Exception ex)
+            {
+                //ShowAlert(ex.Message, FormAlertNotification.Type.Error);
+                MessageBox.Show(ex.Message);
+                return new List<Category>();
+            }
         }
     }
 }

@@ -61,9 +61,11 @@
       <DependentUpon>FormEmployee.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\Exchange.cs" />
     <Compile Include="Models\FileUpload.cs" />
     <Compile Include="Models\Position.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\StockIn.cs" />
     <Compile Include="Models\UserLogin.cs" />
     <Compile Include="ParentForm.cs">
       <SubType>Form</SubType>
@@ -85,11 +87,11 @@
     <Compile Include="Products\AddNewProduct.Designer.cs">
       <DependentUpon>AddNewProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="Products\ListProduct.cs">
+    <Compile Include="Products\FormListProduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Products\ListProduct.Designer.cs">
-      <DependentUpon>ListProduct.cs</DependentUpon>
+    <Compile Include="Products\FormListProduct.Designer.cs">
+      <DependentUpon>FormListProduct.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -116,14 +118,28 @@
     <Compile Include="Sales\Sale.Designer.cs">
       <DependentUpon>Sale.cs</DependentUpon>
     </Compile>
-    <Compile Include="Settings\Exchange.cs">
+    <Compile Include="Settings\FormExchange.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Settings\Exchange.Designer.cs">
-      <DependentUpon>Exchange.cs</DependentUpon>
+    <Compile Include="Settings\FormExchange.Designer.cs">
+      <DependentUpon>FormExchange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stock\FormListStockIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stock\FormListStockIn.Designer.cs">
+      <DependentUpon>FormListStockIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stock\FormStockIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stock\FormStockIn.Designer.cs">
+      <DependentUpon>FormStockIn.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\Constants\EmployeeConstants.cs" />
+    <Compile Include="Utils\Constants\ExchangeConstants.cs" />
     <Compile Include="Utils\Constants\ProductConstants.cs" />
+    <Compile Include="Utils\Constants\StockInConstants.cs" />
     <Compile Include="Utils\FileStorageUtils.cs" />
     <Compile Include="Utils\Interface\AbstractCrud.cs" />
     <Compile Include="Utils\Constants\CategoryConstants.cs" />
@@ -134,6 +150,7 @@
       <DependentUpon>FormAlertNotification.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\Constants\FormatUtils.cs" />
+    <Compile Include="Utils\Interface\BaseEntity.cs" />
     <Compile Include="Utils\Interface\IBehaviorForm.cs" />
     <Compile Include="Utils\Interface\ICrud.cs" />
     <Compile Include="Utils\UserControl\UploadImageControl.cs">
@@ -157,8 +174,8 @@
     <EmbeddedResource Include="Products\AddNewProduct.resx">
       <DependentUpon>AddNewProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Products\ListProduct.resx">
-      <DependentUpon>ListProduct.cs</DependentUpon>
+    <EmbeddedResource Include="Products\FormListProduct.resx">
+      <DependentUpon>FormListProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -174,8 +191,14 @@
     <EmbeddedResource Include="Sales\Sale.resx">
       <DependentUpon>Sale.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Settings\Exchange.resx">
-      <DependentUpon>Exchange.cs</DependentUpon>
+    <EmbeddedResource Include="Settings\FormExchange.resx">
+      <DependentUpon>FormExchange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stock\FormListStockIn.resx">
+      <DependentUpon>FormListStockIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stock\FormStockIn.resx">
+      <DependentUpon>FormStockIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utils\Form\FormAlertNotification.resx">
       <DependentUpon>FormAlertNotification.cs</DependentUpon>
@@ -219,7 +242,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />
-    <Folder Include="Stock\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\dashboard img.png" />
@@ -250,6 +272,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\create.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_info.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

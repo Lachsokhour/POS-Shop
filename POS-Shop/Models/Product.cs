@@ -25,16 +25,18 @@ namespace POS_Shop.Models
         private string filename;
         private string filePath;
         private Image proImage;
+        private string cateName;
         public Product() { }
         public Product(
-            int id, 
-            string barcode, 
-            float priceOut, 
-            string nameEn, 
-            string nameKh, 
+            int id,
+            string barcode,
+            float priceOut,
+            string nameEn,
+            string nameKh,
             string filename,
             string filePath,
-            int cateId, 
+            int cateId,
+            string cateName,
             Image proImage,
             string note)
         {
@@ -48,6 +50,7 @@ namespace POS_Shop.Models
             this.filename = filename;
             this.filePath = filePath;
             this.proImage = proImage;
+            this.cateName = cateName;
         }
 
         public int Id { get => id; set => id = value; }
@@ -60,12 +63,7 @@ namespace POS_Shop.Models
         public string Filename { get => filename; set => filename = value; }
         public string FilePath { get => filePath; set => filePath = value; }
         public Image ProImage { get => proImage; set => proImage = value; }
-
-
-        // <summary>
-        /// Connect to DB server.
-        /// </summary>
-        private SqlConnection conn = Connection.getConnection();
+        public string CateName { get => cateName; set => cateName = value; }
 
         public override bool create()
         {
@@ -81,14 +79,16 @@ namespace POS_Shop.Models
                 sqlCmd.Parameters.AddWithValue(ProductConstants.FilePath, filePath);
                 sqlCmd.Parameters.AddWithValue(ProductConstants.CategoryId, categoryId);
                 sqlCmd.Parameters.AddWithValue(ProductConstants.Note, note);
+                sqlCmd.Parameters.AddWithValue(ProductConstants.PriceOut, priceOut);
                 sqlCmd.ExecuteNonQuery();
+                sqlCmd.Dispose();
                 conn.Close();
                 ShowAlert("Created successfully.", FormAlertNotification.Type.Success);
                 return true;
             }
             catch (Exception ex)
             {
-                this.ShowAlert(ex.Message, FormAlertNotification.Type.Error);
+                MessageBox.Show(ex.Message);
                 return false;
             }
 
@@ -99,9 +99,9 @@ namespace POS_Shop.Models
             try
             {
                 conn.Open();
-                SqlCommand sqlCmd = new SqlCommand(CategoryConstants.UpdateCategoryStoreProcedure, conn);
+                SqlCommand sqlCmd = new SqlCommand(ProductConstants.UpdateProductStoreProcedure, conn);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
-                sqlCmd.Parameters.AddWithValue(CategoryConstants.Id, id);
+                sqlCmd.Parameters.AddWithValue(ProductConstants.Id, id);
                 sqlCmd.Parameters.AddWithValue(ProductConstants.Barcode, barcode);
                 sqlCmd.Parameters.AddWithValue(ProductConstants.NameEn, nameEn);
                 sqlCmd.Parameters.AddWithValue(ProductConstants.NameKh, nameKh);
@@ -109,14 +109,16 @@ namespace POS_Shop.Models
                 sqlCmd.Parameters.AddWithValue(ProductConstants.FilePath, filePath);
                 sqlCmd.Parameters.AddWithValue(ProductConstants.CategoryId, categoryId);
                 sqlCmd.Parameters.AddWithValue(ProductConstants.Note, note);
+                sqlCmd.Parameters.AddWithValue(ProductConstants.PriceOut, priceOut);
                 sqlCmd.ExecuteNonQuery();
+                sqlCmd.Dispose();
                 conn.Close();
                 ShowAlert("Updated successfully.", FormAlertNotification.Type.Success);
                 return true;
             }
             catch (Exception ex)
             {
-                this.ShowAlert(ex.Message, FormAlertNotification.Type.Error);
+                MessageBox.Show(ex.Message);
                 return false;
             }
         }
@@ -130,13 +132,14 @@ namespace POS_Shop.Models
                 sqlCmd.CommandType = CommandType.StoredProcedure;
                 sqlCmd.Parameters.AddWithValue(CategoryConstants.Id, id);
                 sqlCmd.ExecuteNonQuery();
+                sqlCmd.Dispose();
                 conn.Close();
                 ShowAlert("Deleted successfully.", FormAlertNotification.Type.Success);
                 return true;
             }
             catch (Exception ex)
             {
-                ShowAlert(ex.Message, FormAlertNotification.Type.Error);
+                MessageBox.Show(ex.Message);
                 return false;
             }
         }
@@ -147,24 +150,30 @@ namespace POS_Shop.Models
             {
                 List<Product> products = new List<Product>();
                 conn.Open();
-                SqlCommand sqlCmd = new SqlCommand(CategoryConstants.SelectAllCategoryStoreProcedure, conn);
+                SqlCommand sqlCmd = new SqlCommand(ProductConstants.SelectAllProductStoreProcedure, conn);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
                 SqlDataReader reader = sqlCmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    /*cateImage = new FileStorageUtils().LoadImage(reader["file_path"].ToString());
-                    category.Add(
-                        new Category(
+                    proImage = new FileStorageUtils().LoadImage(reader["file_path"].ToString());
+                    products.Add(
+                        new Product(
                             int.Parse(reader["id"].ToString()),
-                            reader["photo"].ToString(),
+                            reader["barcode"].ToString(),
+                            float.Parse(reader["price_out"].ToString()),
+                            reader["name_en"].ToString(),
+                            reader["name_kh"].ToString(),
+                            reader["filename"].ToString(),
                             reader["file_path"].ToString(),
-                            reader["name"].ToString(),
-                            reader["note"].ToString(),
-                            cateImage
+                            int.Parse(reader["cate_id"].ToString()),
+                            reader["cate_name"].ToString(),
+                            proImage,
+                            reader["note"].ToString()
                             )
-                        ); ;*/
+                        );
                 }
                 reader.Close();
+                sqlCmd.Dispose();
                 conn.Close();
                 return products;
             }
@@ -174,12 +183,6 @@ namespace POS_Shop.Models
                 MessageBox.Show(ex.Message);
                 return new List<Product>();
             }
-        }
-
-        private void ShowAlert(string msg, FormAlertNotification.Type type)
-        {
-            FormAlertNotification formAlert = new FormAlertNotification();
-            formAlert.ShowAlert(msg, type);
         }
     }
 }

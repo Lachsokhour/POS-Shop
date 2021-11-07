@@ -8,7 +8,8 @@ namespace POS_Shop.Utils
 {
     static class FormatUtils
     {
-        public const string dollar = "";
+        public const string dollar = "$#,##0.00";
+        public const string dateTime = "dd-MM-yyyy hh:mm:ss";
         public const string FileFilter = "Image Only(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png";
     }
 }
