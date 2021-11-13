@@ -19,5 +19,6 @@ namespace POS_Shop.Utils
         public static string SelectAllCategoryStoreProcedure = "SelectAllCategory";
         public static string DeleteCategoryStoreProcedure = "DeleteCategoryById";
         public static string UpdateCategoryStoreProcedure = "UpdateCategory";
+        public static string ValidateCategoryNameStoreProcedure = "ValidateCategoryName";
     }
 }

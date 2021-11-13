@@ -126,7 +126,7 @@ namespace POS_Shop.Products
             this.Controls.Add(this.gridProduct);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("Fira Mono", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Kh Battambang", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FormListProduct";
             this.Text = "List Product";

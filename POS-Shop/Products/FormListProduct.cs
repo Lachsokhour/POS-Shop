@@ -42,22 +42,37 @@ namespace POS_Shop.Products
             source.ResetBindings(false);
             gridProduct.AllowUserToAddRows = false;
             gridProduct.RowTemplate.Height = 100;
+
+            // hidden columns
             gridProduct.Columns["Id"].Visible = false;
             gridProduct.Columns["Filename"].Visible = false;
             gridProduct.Columns["FilePath"].Visible = false;
             gridProduct.Columns["CategoryId"].Visible = false;
+            gridProduct.Columns["UpdatedAt"].Visible = false;
+
+            // move index
             gridProduct.Columns["ProImage"].DisplayIndex = 0;
             gridProduct.Columns["Barcode"].DisplayIndex = 1;
-            gridProduct.Columns["NameEn"].HeaderText = "Name (En)";
             gridProduct.Columns["NameEn"].DisplayIndex = 2;
-            gridProduct.Columns["NameKh"].HeaderText = "Name (Kh)";
             gridProduct.Columns["NameKh"].DisplayIndex = 3;
-            gridProduct.Columns["NameKh"].DefaultCellStyle.Font = new Font("Kh Battambang", 10);
-            gridProduct.Columns["PriceOut"].HeaderText = "Price out";
             gridProduct.Columns["PriceOut"].DisplayIndex = 4;
-            gridProduct.Columns["PriceOut"].DefaultCellStyle.Format = FormatUtils.dollar;
-            gridProduct.Columns["CateName"].HeaderText = "Category";
             gridProduct.Columns["CateName"].DisplayIndex = 5;
+            gridProduct.Columns["Note"].DisplayIndex = gridProduct.ColumnCount -1;
+
+            // change header name
+            gridProduct.Columns["NameEn"].HeaderText = "Name (En)";
+            gridProduct.Columns["NameKh"].HeaderText = "Name (Kh)";
+            gridProduct.Columns["CateName"].HeaderText = "Category";
+            gridProduct.Columns["PriceOut"].HeaderText = "Price out";
+            gridProduct.Columns["CreatedAt"].HeaderText = "Created At";
+
+            // change format
+            gridProduct.Columns["PriceOut"].DefaultCellStyle.Format = FormatUtils.dollar;
+            gridProduct.Columns["NameKh"].DefaultCellStyle.Font = new Font("Kh Battambang", 10);
+
+            // change width
+            gridProduct.Columns["PriceOut"].Width = 50;
+
             gridProduct.Refresh();
         }
 

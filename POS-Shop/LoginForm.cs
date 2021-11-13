@@ -49,6 +49,10 @@ namespace POS_Shop
                 if (login.Login())
                 {
                     IsLogin = true;
+                    Properties.Settings.Default.username = txtUsername.Text;
+                    Properties.Settings.Default.password = txtPassword.Text;
+                    Properties.Settings.Default.isLogin = true;
+                    Properties.Settings.Default.Save();
                     this.Close();
                 }
                 else
@@ -70,6 +74,11 @@ namespace POS_Shop
             {
                 onLogin();
             }
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+            txtUsername.Focus();
         }
     }
 }

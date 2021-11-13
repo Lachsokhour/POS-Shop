@@ -30,7 +30,7 @@ namespace POS_Shop.Models
             DateTime dateIn,
             DateTime dateExpired,
             string note,
-            int qty, string proName)
+            int qty, string proName, DateTime createdAt)
         {
             this.id = id;
             this.productId = proId;
@@ -39,6 +39,8 @@ namespace POS_Shop.Models
             this.dateIn = dateIn;
             this.qty = qty;
             this.productName = proName;
+            this.note = note;
+            base.CreatedAt = createdAt;
         }
 
         public int Id { get => id; set => id = value; }
@@ -103,7 +105,8 @@ namespace POS_Shop.Models
                             DateTime.Parse(reader["date_expired"].ToString()),
                             reader["note"].ToString(),
                             int.Parse(reader["qty"].ToString()),
-                            reader["pro_name_en"].ToString()
+                            reader["pro_name_en"].ToString(),
+                            DateTime.Parse(reader["created_at"].ToString())
                             )
                         );
                 }
@@ -116,6 +119,26 @@ namespace POS_Shop.Models
             {
                 MessageBox.Show(ex.Message);
                 return new List<StockIn>();
+            }
+        }
+
+        public override bool delete(int id)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand sqlCmd = new SqlCommand(StockInConstants.DeleteStockInByIdStoreProcedure, conn);
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.Parameters.AddWithValue(CategoryConstants.Id, id);
+                sqlCmd.ExecuteNonQuery();
+                conn.Close();
+                ShowAlert("Deleted successfully.", FormAlertNotification.Type.Success);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                ShowAlert(ex.Message, FormAlertNotification.Type.Error);
+                return false;
             }
         }
 

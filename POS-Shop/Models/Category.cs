@@ -32,7 +32,7 @@ namespace POS_Shop.Models
             this.note = note;
         }
 
-        public Category(int id, string photo, string filePath, string name, string note, Image cateImage)
+        public Category(int id, string photo, string filePath, string name, string note, Image cateImage, DateTime createdAt)
         {
             this.id = id;
             this.photo = photo;
@@ -40,6 +40,7 @@ namespace POS_Shop.Models
             this.name = name;
             this.note = note;
             this.cateImage = cateImage;
+            CreatedAt = createdAt;
         }
 
         public Category(int id, string name)
@@ -142,7 +143,8 @@ namespace POS_Shop.Models
                             reader["file_path"].ToString(),
                             reader["name"].ToString(),
                             reader["note"].ToString(),
-                            cateImage
+                            cateImage,
+                            DateTime.Parse(reader["created_at"].ToString())
                             )
                         );
                 }
@@ -185,6 +187,27 @@ namespace POS_Shop.Models
                 //ShowAlert(ex.Message, FormAlertNotification.Type.Error);
                 MessageBox.Show(ex.Message);
                 return new List<Category>();
+            }
+        }
+
+        public bool ValidateCategoryName(string name)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand sqlCmd = new SqlCommand(CategoryConstants.ValidateCategoryNameStoreProcedure, conn);
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.Parameters.AddWithValue(CategoryConstants.Name, name);
+                sqlCmd.Parameters.AddWithValue(CategoryConstants.Id, id);
+                int count = (Int32)sqlCmd.ExecuteScalar();
+                sqlCmd.Dispose();
+                conn.Close();
+                return count > 0 ? true : false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
             }
         }
     }

@@ -17,7 +17,7 @@ namespace POS_Shop.Categories
         private int id = 0;
         private BindingSource source;
         private bool isAddMode = true;
-        private Category currentCate;
+        private Category currentCate = new Category();
         public CategoryForm()
         {
             InitializeComponent();
@@ -29,16 +29,17 @@ namespace POS_Shop.Categories
             if (SetValue() != null)
             {
                 Category category = SetValue();
-                if(isAddMode)
+                if (isAddMode)
                 {
                     if (category.create())
                     {
                         this.ClearValue();
                         LoadCategoryValue();
                     }
-                }else
+                }
+                else
                 {
-                    if(category.update())
+                    if (category.update())
                     {
                         ClearValue();
                         LoadCategoryValue();
@@ -54,27 +55,41 @@ namespace POS_Shop.Categories
 
         private Category SetValue()
         {
-            if (txtName.Text == "")
+            try
             {
-                this.ShowAlert("Please enter category name.", FormAlertNotification.Type.Warning);
-                txtName.Focus();
-                return null;
+                if (txtName.Text == "")
+                {
+                    this.ShowAlert("Please enter category name.", FormAlertNotification.Type.Warning);
+                    txtName.Focus();
+                    return null;
+                }
+                else if (currentCate.ValidateCategoryName(txtName.Text))
+                {
+                    this.ShowAlert("This category already exist.", FormAlertNotification.Type.Warning);
+                    txtName.Focus();
+                    return null;
+                }
+                else
+                {
+                    Category category = new Category();
+                    category.Name = txtName.Text.Trim();
+                    category.Note = txtNote.Text.Trim();
+                    category.Photo = uploadImageControl.FileName;
+                    category.FilePath = uploadImageControl.FilePath;
+                    category.Id = id;
+                    return category;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Category category = new Category();
-                category.Name = txtName.Text.Trim();
-                category.Note = txtNote.Text.Trim();
-                category.Photo = uploadImageControl.FileName;
-                category.FilePath = uploadImageControl.FilePath;
-                category.Id = id;
-                return category;
+                MessageBox.Show(ex.Message);
+                return null;
             }
         }
 
         private void SetValueToFieldWhenEditMode()
         {
-            if(!isAddMode)
+            if (!isAddMode)
             {
                 currentCate = (Category)source.Current;
                 this.id = currentCate.Id;
@@ -107,12 +122,30 @@ namespace POS_Shop.Categories
             source.ResetBindings(false);
             gridCategory.AllowUserToAddRows = false;
             gridCategory.RowTemplate.Height = 80;
+
+            // hidden columns
             gridCategory.Columns["Id"].Visible = false;
             gridCategory.Columns["FilePath"].Visible = false;
             gridCategory.Columns["Photo"].Visible = false;
+            gridCategory.Columns["UpdatedAt"].Visible = false;
+
+            // change header
             gridCategory.Columns["CateImage"].HeaderText = "Photo";
+            gridCategory.Columns["CreatedAt"].HeaderText = "Created At";
+
+            // change size
+            gridCategory.Columns["CreatedAt"].Width = 100;
+            gridCategory.Columns["CateImage"].Width = 80;
+            gridCategory.Columns["Name"].Width = 100;
+            gridCategory.Columns["Note"].Width = 150;
+
+            // change format
+            gridCategory.Columns["CreatedAt"].DefaultCellStyle.Format = FormatUtils.DateTimeWithoutHour;
+
+            // move index
             gridCategory.Columns["CateImage"].DisplayIndex = 0;
-            SetValueToFieldWhenEditMode();
+            gridCategory.Columns["Note"].DisplayIndex = gridCategory.Columns.Count - 1;
+
             gridCategory.Refresh();
         }
 

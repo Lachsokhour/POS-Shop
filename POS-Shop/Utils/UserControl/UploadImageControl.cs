@@ -17,7 +17,6 @@ namespace POS_Shop.Utils
         public UploadImageControl()
         {
             InitializeComponent();
-            IsAddMode = true;
         }
 
         private void btnUpload_Click(object sender, EventArgs e)
@@ -30,7 +29,7 @@ namespace POS_Shop.Utils
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     picImage.Image = new Bitmap(dialog.FileName);
-                    
+
                     fileStorage.UploadImage(dialog);
                     FilePath = fileStorage.FilePath;
                     FileName = fileStorage.FileName;
@@ -44,7 +43,7 @@ namespace POS_Shop.Utils
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            if(IsAddMode)
+            if (IsAddMode)
             {
                 if (fileStorage.RemoveFile(FileName))
                 {
@@ -66,8 +65,15 @@ namespace POS_Shop.Utils
                     }
                 }
             }
-            
-            
+
+        }
+
+        private void UploadImageControl_Load(object sender, EventArgs e)
+        {
+            IsAddMode = true;
+            FilePath = "";
+            FileName = "";
+            picImage.Image = null;
         }
     }
 }

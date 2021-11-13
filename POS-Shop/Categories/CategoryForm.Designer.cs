@@ -32,36 +32,36 @@ namespace POS_Shop.Categories
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CategoryForm));
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.btnCreate = new System.Windows.Forms.PictureBox();
+            this.btnEdit = new System.Windows.Forms.PictureBox();
+            this.btnDelete = new System.Windows.Forms.PictureBox();
             this.gridCategory = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnSave = new System.Windows.Forms.Button();
             this.uploadImageControl = new POS_Shop.Utils.UploadImageControl();
+            this.btnSave = new System.Windows.Forms.Button();
             this.labelTitle = new System.Windows.Forms.Label();
             this.txtNote = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.btnCreate = new System.Windows.Forms.PictureBox();
-            this.btnEdit = new System.Windows.Forms.PictureBox();
-            this.btnDelete = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridCategory)).BeginInit();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCreate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridCategory)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 24);
+            this.label1.Location = new System.Drawing.Point(9, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(127, 15);
+            this.label1.Size = new System.Drawing.Size(96, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "List Categories";
             // 
@@ -74,125 +74,11 @@ namespace POS_Shop.Categories
             this.panel1.Controls.Add(this.panel7);
             this.panel1.Controls.Add(this.gridCategory);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(392, 12);
+            this.panel1.Location = new System.Drawing.Point(343, 32);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(507, 561);
+            this.panel1.Size = new System.Drawing.Size(593, 598);
             this.panel1.TabIndex = 1;
-            // 
-            // gridCategory
-            // 
-            this.gridCategory.AllowUserToAddRows = false;
-            this.gridCategory.AllowUserToDeleteRows = false;
-            this.gridCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridCategory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.gridCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridCategory.Location = new System.Drawing.Point(15, 64);
-            this.gridCategory.Name = "gridCategory";
-            this.gridCategory.ReadOnly = true;
-            this.gridCategory.Size = new System.Drawing.Size(477, 478);
-            this.gridCategory.TabIndex = 1;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.btnSave);
-            this.panel2.Controls.Add(this.uploadImageControl);
-            this.panel2.Controls.Add(this.labelTitle);
-            this.panel2.Controls.Add(this.txtNote);
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(12, 12);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(374, 561);
-            this.panel2.TabIndex = 4;
-            this.panel2.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(158)))), ((int)(((byte)(231)))));
-            this.btnSave.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(291, 503);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnSave.MaximumSize = new System.Drawing.Size(70, 40);
-            this.btnSave.MinimumSize = new System.Drawing.Size(70, 40);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(70, 40);
-            this.btnSave.TabIndex = 39;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // uploadImageControl
-            // 
-            this.uploadImageControl.BtnClear = null;
-            this.uploadImageControl.FileName = "...";
-            this.uploadImageControl.FilePath = null;
-            this.uploadImageControl.Font = new System.Drawing.Font("Fira Mono", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uploadImageControl.Location = new System.Drawing.Point(20, 64);
-            this.uploadImageControl.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.uploadImageControl.Name = "uploadImageControl";
-            this.uploadImageControl.PicImage = null;
-            this.uploadImageControl.Size = new System.Drawing.Size(339, 244);
-            this.uploadImageControl.TabIndex = 10;
-            // 
-            // labelTitle
-            // 
-            this.labelTitle.AutoSize = true;
-            this.labelTitle.Location = new System.Drawing.Point(17, 24);
-            this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(103, 15);
-            this.labelTitle.TabIndex = 9;
-            this.labelTitle.Text = "Add Category";
-            // 
-            // txtNote
-            // 
-            this.txtNote.Location = new System.Drawing.Point(20, 422);
-            this.txtNote.Multiline = true;
-            this.txtNote.Name = "txtNote";
-            this.txtNote.Size = new System.Drawing.Size(341, 75);
-            this.txtNote.TabIndex = 5;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.txtName);
-            this.panel3.Location = new System.Drawing.Point(20, 343);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(341, 40);
-            this.panel3.TabIndex = 4;
-            // 
-            // txtName
-            // 
-            this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtName.Location = new System.Drawing.Point(9, 12);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(330, 16);
-            this.txtName.TabIndex = 0;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 397);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 15);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Description";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 315);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 15);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Name";
             // 
             // panel7
             // 
@@ -201,9 +87,10 @@ namespace POS_Shop.Categories
             this.panel7.Controls.Add(this.btnEdit);
             this.panel7.Controls.Add(this.btnDelete);
             this.panel7.Cursor = System.Windows.Forms.Cursors.Default;
-            this.panel7.Location = new System.Drawing.Point(375, 16);
+            this.panel7.Location = new System.Drawing.Point(479, 13);
+            this.panel7.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(117, 42);
+            this.panel7.Size = new System.Drawing.Size(100, 36);
             this.panel7.TabIndex = 4;
             // 
             // btnCreate
@@ -211,9 +98,10 @@ namespace POS_Shop.Categories
             this.btnCreate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCreate.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnCreate.Image = global::POS_Shop.Properties.Resources.create;
-            this.btnCreate.Location = new System.Drawing.Point(8, 6);
+            this.btnCreate.Location = new System.Drawing.Point(6, 5);
+            this.btnCreate.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(25, 25);
+            this.btnCreate.Size = new System.Drawing.Size(24, 24);
             this.btnCreate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnCreate.TabIndex = 20;
             this.btnCreate.TabStop = false;
@@ -224,9 +112,10 @@ namespace POS_Shop.Categories
             this.btnEdit.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnEdit.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnEdit.Image = global::POS_Shop.Properties.Resources.edit;
-            this.btnEdit.Location = new System.Drawing.Point(44, 6);
+            this.btnEdit.Location = new System.Drawing.Point(37, 5);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(25, 25);
+            this.btnEdit.Size = new System.Drawing.Size(24, 24);
             this.btnEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnEdit.TabIndex = 19;
             this.btnEdit.TabStop = false;
@@ -237,37 +126,159 @@ namespace POS_Shop.Categories
             this.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnDelete.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
-            this.btnDelete.Location = new System.Drawing.Point(80, 6);
+            this.btnDelete.Location = new System.Drawing.Point(69, 5);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(25, 25);
+            this.btnDelete.Size = new System.Drawing.Size(24, 24);
             this.btnDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnDelete.TabIndex = 18;
             this.btnDelete.TabStop = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // gridCategory
+            // 
+            this.gridCategory.AllowUserToAddRows = false;
+            this.gridCategory.AllowUserToDeleteRows = false;
+            this.gridCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridCategory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gridCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridCategory.Location = new System.Drawing.Point(13, 59);
+            this.gridCategory.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.gridCategory.Name = "gridCategory";
+            this.gridCategory.ReadOnly = true;
+            this.gridCategory.Size = new System.Drawing.Size(566, 516);
+            this.gridCategory.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.uploadImageControl);
+            this.panel2.Controls.Add(this.btnSave);
+            this.panel2.Controls.Add(this.labelTitle);
+            this.panel2.Controls.Add(this.txtNote);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Location = new System.Drawing.Point(10, 32);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(327, 598);
+            this.panel2.TabIndex = 4;
+            this.panel2.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // uploadImageControl
+            // 
+            this.uploadImageControl.FileName = null;
+            this.uploadImageControl.FilePath = null;
+            this.uploadImageControl.Font = new System.Drawing.Font("Kh Battambang", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uploadImageControl.IsAddMode = true;
+            this.uploadImageControl.Location = new System.Drawing.Point(18, 41);
+            this.uploadImageControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uploadImageControl.Name = "uploadImageControl";
+            this.uploadImageControl.PicImage = null;
+            this.uploadImageControl.Size = new System.Drawing.Size(305, 249);
+            this.uploadImageControl.TabIndex = 40;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(158)))), ((int)(((byte)(231)))));
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(253, 535);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(70, 40);
+            this.btnSave.TabIndex = 39;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // labelTitle
+            // 
+            this.labelTitle.AutoSize = true;
+            this.labelTitle.Location = new System.Drawing.Point(22, 12);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.Size = new System.Drawing.Size(87, 24);
+            this.labelTitle.TabIndex = 9;
+            this.labelTitle.Text = "Add Category";
+            // 
+            // txtNote
+            // 
+            this.txtNote.Font = new System.Drawing.Font("Kh Battambang", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNote.Location = new System.Drawing.Point(17, 407);
+            this.txtNote.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txtNote.Multiline = true;
+            this.txtNote.Name = "txtNote";
+            this.txtNote.Size = new System.Drawing.Size(306, 118);
+            this.txtNote.TabIndex = 5;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.txtName);
+            this.panel3.Location = new System.Drawing.Point(18, 324);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(305, 40);
+            this.panel3.TabIndex = 4;
+            // 
+            // txtName
+            // 
+            this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtName.Font = new System.Drawing.Font("Kh Battambang", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.Location = new System.Drawing.Point(8, 8);
+            this.txtName.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(293, 25);
+            this.txtName.TabIndex = 0;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(14, 378);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(75, 24);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Description";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(15, 295);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 24);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Name";
+            // 
             // CategoryForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(929, 585);
+            this.ClientSize = new System.Drawing.Size(962, 647);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Font = new System.Drawing.Font("Fira Mono", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Kh Battambang", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "CategoryForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "ListCategory";
             this.Load += new System.EventHandler(this.CategoryForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnCreate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridCategory)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnCreate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -284,11 +295,11 @@ namespace POS_Shop.Categories
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.DataGridView gridCategory;
-        private Utils.UploadImageControl uploadImageControl;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.PictureBox btnCreate;
         private System.Windows.Forms.PictureBox btnEdit;
         private System.Windows.Forms.PictureBox btnDelete;
+        private Utils.UploadImageControl uploadImageControl;
     }
 }

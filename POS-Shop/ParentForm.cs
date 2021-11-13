@@ -84,5 +84,16 @@ namespace POS_Shop
         {
             openChildFormInPanel(new FormListStockIn());
         }
+
+        private void timerCurrent_Tick(object sender, EventArgs e)
+        {
+            labelCurrentDate.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy hh:mm:ss");
+        }
+
+        private void ParentForm_Load(object sender, EventArgs e)
+        {
+            timerCurrent.Start();
+            labelUsername.Text = Properties.Settings.Default.username;
+        }
     }
 }

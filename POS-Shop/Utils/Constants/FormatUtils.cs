@@ -10,6 +10,8 @@ namespace POS_Shop.Utils
     {
         public const string dollar = "$#,##0.00";
         public const string dateTime = "dd-MM-yyyy hh:mm:ss";
+        public const string DateTimeWithoutHour = "dd-MM-yyyy";
+        public const string DateTimetHour = "hh:mm:ss";
         public const string FileFilter = "Image Only(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png";
     }
 }

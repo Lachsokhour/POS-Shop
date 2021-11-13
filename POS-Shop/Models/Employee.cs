@@ -178,5 +178,62 @@ namespace POS_Shop.Models
                 return false;
             }
         }
+
+        public bool ValidateEmployeeName(string nameEn)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand sqlCmd = new SqlCommand(EmployeeConstants.ValidateEmployeeNameStoreProcedure, conn);
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.Parameters.AddWithValue(EmployeeConstants.NameEn, nameEn);
+                sqlCmd.Parameters.AddWithValue(EmployeeConstants.Id, id);
+                int count = (Int32)sqlCmd.ExecuteScalar();
+                sqlCmd.Dispose();
+                conn.Close();
+                return count > 0 ? true : false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+
+        public Employee getEmployeeByUsername(string username)
+        {
+            try
+            {
+                var employee = new Employee();
+                conn.Open();
+                SqlCommand sqlCmd = new SqlCommand(EmployeeConstants.GetEmployeeByUsernameStoreProcedure, conn);
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.Parameters.AddWithValue(EmployeeConstants.NameEn, username);
+                SqlDataReader reader = sqlCmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Position = reader["position_id"].ToString();
+
+                    employee = new Employee(
+                            int.Parse(reader["id"].ToString()),
+                            reader["name_en"].ToString(),
+                            reader["name_kh"].ToString(),
+                            reader["phone"].ToString(),
+                            reader["address"].ToString(),
+                            Position,
+                            reader["password"].ToString(),
+                            int.Parse(reader["position_id"].ToString())
+                            );
+                }
+                reader.Close();
+                conn.Close();
+                return employee;
+            }
+            catch (Exception ex)
+            {
+                ShowAlert(ex.Message, FormAlertNotification.Type.Error);
+                return null;
+            }
+        }
     }
 }

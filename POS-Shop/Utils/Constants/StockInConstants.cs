@@ -18,5 +18,6 @@ namespace POS_Shop.Utils.Constants
 
         public const string CreateUpdateStockInStoreProcedure = "CreateUpdateStockIn";
         public const string SelectStockInStoreProcedure = "SelectAllStockIn";
+        public const string DeleteStockInByIdStoreProcedure = "DeleteStockInById";
     }
 }

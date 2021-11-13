@@ -44,9 +44,9 @@ namespace POS_Shop.Utils
             | System.Windows.Forms.AnchorStyles.Right)));
             this.picImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picImage.Location = new System.Drawing.Point(0, 1);
-            this.picImage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.picImage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.picImage.Name = "picImage";
-            this.picImage.Size = new System.Drawing.Size(240, 240);
+            this.picImage.Size = new System.Drawing.Size(250, 243);
             this.picImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picImage.TabIndex = 33;
             this.picImage.TabStop = false;
@@ -58,10 +58,11 @@ namespace POS_Shop.Utils
             this.btnClear.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnClear.FlatAppearance.BorderSize = 0;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Font = new System.Drawing.Font("Kh Battambang", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(251, 152);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnClear.MaximumSize = new System.Drawing.Size(93, 46);
+            this.btnClear.Location = new System.Drawing.Point(252, 157);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnClear.MaximumSize = new System.Drawing.Size(81, 74);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(70, 40);
             this.btnClear.TabIndex = 39;
@@ -76,29 +77,30 @@ namespace POS_Shop.Utils
             this.btnUpload.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnUpload.FlatAppearance.BorderSize = 0;
             this.btnUpload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpload.Font = new System.Drawing.Font("Kh Battambang", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpload.ForeColor = System.Drawing.Color.White;
-            this.btnUpload.Location = new System.Drawing.Point(251, 201);
-            this.btnUpload.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnUpload.MaximumSize = new System.Drawing.Size(70, 40);
-            this.btnUpload.MinimumSize = new System.Drawing.Size(70, 40);
+            this.btnUpload.Location = new System.Drawing.Point(252, 204);
+            this.btnUpload.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnUpload.MaximumSize = new System.Drawing.Size(81, 74);
             this.btnUpload.Name = "btnUpload";
             this.btnUpload.Size = new System.Drawing.Size(70, 40);
-            this.btnUpload.TabIndex = 38;
+            this.btnUpload.TabIndex = 39;
             this.btnUpload.Text = "Upload";
             this.btnUpload.UseVisualStyleBackColor = false;
             this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
             // 
             // UploadImageControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnUpload);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.picImage);
-            this.Font = new System.Drawing.Font("Fira Mono", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Font = new System.Drawing.Font("Kh Battambang", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "UploadImageControl";
             this.Size = new System.Drawing.Size(322, 244);
+            this.Load += new System.EventHandler(this.UploadImageControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picImage)).EndInit();
             this.ResumeLayout(false);
 

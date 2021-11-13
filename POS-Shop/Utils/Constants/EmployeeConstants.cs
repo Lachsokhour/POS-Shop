@@ -22,5 +22,7 @@ namespace POS_Shop.Utils.Constants
         public const string DeleteEmployeeStoreProcedure = "DelectEmployeeById";
         public const string UpdateEmployeeStoreProcedure = "UpdateEmployee";
         public const string UserLoginStoreProcedure = "SelectUserByUserAndPassword";
+        public const string ValidateEmployeeNameStoreProcedure = "ValidateEmployeeName";
+        public const string GetEmployeeByUsernameStoreProcedure = "GetEmployeeByUsername";
     }
 }

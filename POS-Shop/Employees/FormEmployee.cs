@@ -17,6 +17,7 @@ namespace POS_Shop.Employees
         private bool addMode = true;
         private BindingSource source = new BindingSource();
         private int id = 0;
+        private Employee currentEmp = new Employee();
         public FormEmployee()
         {
             InitializeComponent();
@@ -73,18 +74,23 @@ namespace POS_Shop.Employees
                 txtPhone.Focus();
                 return null;
             }
+            else if (currentEmp.ValidateEmployeeName(txtNameEn.Text))
+            {
+                ShowAlertMsg("Username (En) already exits.", FormAlertNotification.Type.Warning);
+                txtNameEn.Focus();
+                return null;
+            }
             else
             {
-                Employee emp = new Employee();
                 Position position = (Position)comboBoxPosition.SelectedItem;
-                emp.NameEn = txtNameEn.Text.Trim();
-                emp.NameKh = txtNameKh.Text.Trim();
-                emp.Phone = txtPhone.Text.Trim();
-                emp.Password = txtPassword.Text.Trim();
-                emp.Address = txtAddress.Text.Trim();
-                emp.PositionId = position.Value;
-                emp.Id = this.id;
-                return emp;
+                currentEmp.NameEn = txtNameEn.Text.Trim();
+                currentEmp.NameKh = txtNameKh.Text.Trim();
+                currentEmp.Phone = txtPhone.Text.Trim();
+                currentEmp.Password = txtPassword.Text.Trim();
+                currentEmp.Address = txtAddress.Text.Trim();
+                currentEmp.PositionId = position.Value;
+                currentEmp.Id = this.id;
+                return currentEmp;
             }
         }
 
@@ -97,13 +103,23 @@ namespace POS_Shop.Employees
             source.ResetBindings(false);
             gridEmployee.AllowUserToAddRows = false;
             gridEmployee.RowTemplate.Height = 30;
+
+            // hidden column
             gridEmployee.Columns["Id"].Visible = false;
             gridEmployee.Columns["PositionId"].Visible = false;
             gridEmployee.Columns["Password"].Visible = false;
+            gridEmployee.Columns["UpdatedAt"].Visible = false;
+
+            // change header name
             gridEmployee.Columns["NameEn"].HeaderText = "Username (En)";
             gridEmployee.Columns["NameKh"].HeaderText = "Username (Kh)";
+            gridEmployee.Columns["CreatedAt"].HeaderText = "Created At";
+
+            // change format
             gridEmployee.Columns["NameKh"].DefaultCellStyle.Font = new Font("Kh Battambang", 10);
-            SetValueToFieldWhenEditMode();
+
+            // move index
+
             gridEmployee.Refresh();
         }
 
@@ -147,7 +163,7 @@ namespace POS_Shop.Employees
         {
             if(!addMode)
             {
-                var currentEmp = (Employee)source.Current;
+                currentEmp = (Employee)source.Current;
                 txtNameEn.Text = currentEmp.NameEn;
                 txtNameKh.Text = currentEmp.NameKh;
                 txtAddress.Text = currentEmp.Address;

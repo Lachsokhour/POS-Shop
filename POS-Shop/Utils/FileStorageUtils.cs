@@ -111,7 +111,7 @@ namespace POS_Shop.Utils
             }
             catch(Exception ex)
             {
-                ShowAlert(ex.Message, FormAlertNotification.Type.Error);
+                MessageBox.Show(ex.Message);
                 return null;
             }
         }
@@ -125,6 +125,35 @@ namespace POS_Shop.Utils
         private string getUniqueFilename(string filename)
         {
             return DateTime.Now.ToString("yyyyMMddHHmmssfff") + "_" + filename;
+        }
+
+        // convert image to byte array
+        public byte[] imageToByteArray(Image imageIn)
+        {
+            MemoryStream ms = new MemoryStream();
+            imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+            return ms.ToArray();
+        }
+
+        //Byte array to photo
+        public Image byteArrayToImage(byte[] byteArrayIn)
+        {
+            MemoryStream ms = new MemoryStream(byteArrayIn);
+            Image returnImage = Image.FromStream(ms);
+            return returnImage;
+        }
+
+        public Image LoadByteArrayToImage(string filePath)
+        {
+            try
+            {
+                byte[] byteImg = imageToByteArray(LoadImage(filePath));
+                return byteArrayToImage(byteImg);
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
         }
     }
 }

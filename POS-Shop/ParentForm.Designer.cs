@@ -29,6 +29,7 @@ namespace POS_Shop
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnReport = new System.Windows.Forms.Button();
@@ -43,10 +44,12 @@ namespace POS_Shop
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.labelCurrentDate = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelUsername = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelChildForm = new System.Windows.Forms.Panel();
+            this.timerCurrent = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -260,6 +263,7 @@ namespace POS_Shop
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(158)))), ((int)(((byte)(231)))));
+            this.panel3.Controls.Add(this.labelCurrentDate);
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(220, 0);
@@ -267,27 +271,40 @@ namespace POS_Shop
             this.panel3.Size = new System.Drawing.Size(714, 76);
             this.panel3.TabIndex = 1;
             // 
+            // labelCurrentDate
+            // 
+            this.labelCurrentDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelCurrentDate.AutoSize = true;
+            this.labelCurrentDate.Font = new System.Drawing.Font("Fira Mono", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCurrentDate.ForeColor = System.Drawing.Color.White;
+            this.labelCurrentDate.Location = new System.Drawing.Point(3, 31);
+            this.labelCurrentDate.Name = "labelCurrentDate";
+            this.labelCurrentDate.Size = new System.Drawing.Size(109, 19);
+            this.labelCurrentDate.TabIndex = 3;
+            this.labelCurrentDate.Text = "12/11/2021";
+            // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.label1);
+            this.panel5.Controls.Add(this.labelUsername);
             this.panel5.Controls.Add(this.pictureBox1);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel5.Location = new System.Drawing.Point(535, 0);
+            this.panel5.Location = new System.Drawing.Point(485, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(179, 76);
+            this.panel5.Size = new System.Drawing.Size(229, 76);
             this.panel5.TabIndex = 0;
             // 
-            // label1
+            // labelUsername
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Fira Mono", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(86, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 24);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Admin";
+            this.labelUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelUsername.AutoSize = true;
+            this.labelUsername.Font = new System.Drawing.Font("Fira Mono", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUsername.ForeColor = System.Drawing.Color.White;
+            this.labelUsername.Location = new System.Drawing.Point(83, 26);
+            this.labelUsername.Name = "labelUsername";
+            this.labelUsername.Size = new System.Drawing.Size(70, 24);
+            this.labelUsername.TabIndex = 1;
+            this.labelUsername.Text = "Admin";
             // 
             // pictureBox1
             // 
@@ -308,6 +325,10 @@ namespace POS_Shop
             this.panelChildForm.Size = new System.Drawing.Size(714, 485);
             this.panelChildForm.TabIndex = 2;
             // 
+            // timerCurrent
+            // 
+            this.timerCurrent.Tick += new System.EventHandler(this.timerCurrent_Tick);
+            // 
             // ParentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -322,10 +343,12 @@ namespace POS_Shop
             this.Name = "ParentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "POS Shop";
+            this.Load += new System.EventHandler(this.ParentForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -350,9 +373,11 @@ namespace POS_Shop
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelUsername;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panelChildForm;
+        private System.Windows.Forms.Label labelCurrentDate;
+        private System.Windows.Forms.Timer timerCurrent;
     }
 }
 

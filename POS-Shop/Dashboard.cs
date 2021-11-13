@@ -1,4 +1,5 @@
-﻿using System;
+﻿using POS_Shop.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -53,6 +54,11 @@ namespace POS_Shop.Sales
             ParentForm form = Application.OpenForms["ParentForm"] as ParentForm;
             if(form != null)
                 form.openChildFormInPanel(new SaleForm());
+        }
+
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
+            labelCountProduct.Text = new Product().CountAllProduct().ToString();
         }
     }
 }

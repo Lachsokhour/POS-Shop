@@ -1,4 +1,5 @@
-﻿using System;
+﻿using POS_Shop.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,6 +19,19 @@ namespace POS_Shop.Sales
         }
 
         private void SaleForm_Load(object sender, EventArgs e)
+        {
+            LoadDicount();
+        }
+
+        private void LoadDicount()
+        {
+            var discounts = new Discount().GetDiscounts();
+            comboBoxDiscount.DataSource = discounts;
+            comboBoxDiscount.ValueMember = "Value";
+            comboBoxDiscount.DisplayMember = "Text";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }

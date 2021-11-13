@@ -17,7 +17,7 @@ namespace POS_Shop.Products
     {
         private int id = 0;
         private bool isAddMode = true;
-        private Product currentPro;
+        private Product currentPro = new Product();
         public AddNewProduct()
         {
             InitializeComponent();
@@ -60,7 +60,7 @@ namespace POS_Shop.Products
 
         public void SetLabelTitle()
         {
-            labelTitle.Text = isAddMode ? "Add Product" : "Edit Product";
+            groupBoxProduct.Text = isAddMode ? "Add Product" : "Edit Product";
         }
 
         private Product SetValue()
@@ -81,6 +81,11 @@ namespace POS_Shop.Products
             {
                 ShowAlert("Please enter price out.", FormAlertNotification.Type.Warning);
                 txtPriceOut.Focus();
+                return null;
+            }else if(currentPro.ValidateBarcodeProduct(txtBarcode.Text))
+            {
+                ShowAlert("Barcode's already exist.", FormAlertNotification.Type.Warning);
+                txtBarcode.Focus();
                 return null;
             }
             else

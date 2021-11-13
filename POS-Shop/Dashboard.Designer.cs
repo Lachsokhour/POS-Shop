@@ -30,11 +30,10 @@ namespace POS_Shop.Sales
         private void InitializeComponent()
         {
             this.panelShowWelcome = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panelShowDashboard = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -46,7 +45,8 @@ namespace POS_Shop.Sales
             this.btnSummaryItem = new System.Windows.Forms.Button();
             this.btnDetailSale = new System.Windows.Forms.Button();
             this.btnStartSale = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelCountProduct = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.panelShowWelcome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panelShowDashboard.SuspendLayout();
@@ -67,15 +67,27 @@ namespace POS_Shop.Sales
             this.panelShowWelcome.Size = new System.Drawing.Size(698, 120);
             this.panelShowWelcome.TabIndex = 1;
             // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.Font = new System.Drawing.Font("Fira Mono", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.label1.Location = new System.Drawing.Point(220, 78);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(259, 26);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Welcome to POS-Shop";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // pictureBox3
             // 
             this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox3.Image = global::POS_Shop.Properties.Resources.dashboard_img;
-            this.pictureBox3.Location = new System.Drawing.Point(300, 17);
+            this.pictureBox3.Location = new System.Drawing.Point(299, 16);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(100, 50);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 1;
+            this.pictureBox3.TabIndex = 5;
             this.pictureBox3.TabStop = false;
             // 
             // panelShowDashboard
@@ -95,33 +107,11 @@ namespace POS_Shop.Sales
             this.panel8.AutoSize = true;
             this.panel8.BackColor = System.Drawing.Color.White;
             this.panel8.Controls.Add(this.label6);
-            this.panel8.Controls.Add(this.label7);
+            this.panel8.Controls.Add(this.labelCountProduct);
             this.panel8.Location = new System.Drawing.Point(481, 21);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(200, 84);
             this.panel8.TabIndex = 4;
-            // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(56, 57);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(95, 15);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Total Items";
-            // 
-            // label7
-            // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Fira Mono", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(93)))), ((int)(((byte)(93)))));
-            this.label7.Location = new System.Drawing.Point(86, 20);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(34, 24);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "60";
             // 
             // panel7
             // 
@@ -139,7 +129,6 @@ namespace POS_Shop.Sales
             // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(34, 57);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(127, 15);
@@ -149,7 +138,6 @@ namespace POS_Shop.Sales
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Fira Mono", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(214)))), ((int)(((byte)(75)))));
             this.label5.Location = new System.Drawing.Point(85, 20);
@@ -172,7 +160,6 @@ namespace POS_Shop.Sales
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(54, 57);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(95, 15);
@@ -263,17 +250,25 @@ namespace POS_Shop.Sales
             this.btnStartSale.MouseLeave += new System.EventHandler(this.btnStartSale_MouseLeave);
             this.btnStartSale.MouseHover += new System.EventHandler(this.btnStartSale_MouseHover);
             // 
-            // label1
+            // labelCountProduct
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Fira Mono", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label1.Location = new System.Drawing.Point(221, 79);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(259, 26);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Welcome to POS-Shop";
+            this.labelCountProduct.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelCountProduct.Font = new System.Drawing.Font("Fira Mono", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCountProduct.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(93)))), ((int)(((byte)(93)))));
+            this.labelCountProduct.Location = new System.Drawing.Point(86, 20);
+            this.labelCountProduct.Name = "labelCountProduct";
+            this.labelCountProduct.Size = new System.Drawing.Size(34, 24);
+            this.labelCountProduct.TabIndex = 0;
+            this.labelCountProduct.Text = "60";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.Location = new System.Drawing.Point(56, 57);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(95, 15);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Total Items";
             // 
             // Dashboard
             // 
@@ -283,15 +278,13 @@ namespace POS_Shop.Sales
             this.Controls.Add(this.panelChildForm);
             this.Name = "Dashboard";
             this.Text = "Dashboard";
+            this.Load += new System.EventHandler(this.Dashboard_Load);
             this.panelShowWelcome.ResumeLayout(false);
-            this.panelShowWelcome.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panelShowDashboard.ResumeLayout(false);
             this.panelShowDashboard.PerformLayout();
             this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
             this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.panelChildForm.ResumeLayout(false);
@@ -302,11 +295,8 @@ namespace POS_Shop.Sales
 
         #endregion
         private System.Windows.Forms.Panel panelShowWelcome;
-        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Panel panelShowDashboard;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -319,5 +309,8 @@ namespace POS_Shop.Sales
         private System.Windows.Forms.Button btnDetailSale;
         private System.Windows.Forms.Button btnStartSale;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label labelCountProduct;
     }
 }

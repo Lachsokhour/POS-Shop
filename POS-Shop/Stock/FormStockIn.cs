@@ -31,6 +31,7 @@ namespace POS_Shop.Stock
             if (source != null)
             {
                 curStockIn = (StockIn)source.Current;
+                SetValueToFieldWhenEditMode();
             }
 
         }
@@ -61,14 +62,22 @@ namespace POS_Shop.Stock
             txtNote.Text = "";
             txtPriceIn.Text = "";
             txtQty.Text = "";
-            comboBoxProduct.SelectedItem = 0;
+            comboBoxProduct.SelectedIndex = 0;
             dateExpired.Value = DateTime.Now;
             dateIn.Value = DateTime.Now;
         }
 
         public void SetValueToFieldWhenEditMode()
         {
-            throw new NotImplementedException();
+            if(!isAddMode)
+            {
+                txtNote.Text = curStockIn.Note;
+                txtPriceIn.Text = curStockIn.PriceIn.ToString();
+                txtQty.Text = curStockIn.Qty.ToString();
+                dateExpired.Value = curStockIn.DateExpired;
+                dateIn.Value = curStockIn.DateIn;
+                comboBoxProduct.SelectedValue = curStockIn.ProductId;
+            }
         }
 
         public void LoadValue()
@@ -93,7 +102,11 @@ namespace POS_Shop.Stock
             if(stockIn != null)
             {
                 if(stockIn.create())
-                {
+                {   
+                    if(!isAddMode)
+                    {
+                        BackToList();
+                    }
                     ClearValue();
                 }
             }
@@ -128,7 +141,7 @@ namespace POS_Shop.Stock
             else if (dateExpired.Value < dateIn.Value || dateExpired.Value == dateIn.Value)
             {
                 ShowAlert("Date expired should be bigger \n than date in.", FormAlertNotification.Type.Warning);
-                txtQty.Focus();
+                dateExpired.Focus();
                 return null;
             }
             else

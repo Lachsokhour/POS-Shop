@@ -3,6 +3,7 @@ using POS_Shop.Utils;
 using POS_Shop.Utils.Constants;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -55,6 +56,7 @@ namespace POS_Shop.Models
 
         public int Id { get => id; set => id = value; }
         public string Barcode { get => barcode; set => barcode = value; }
+        [Display(Name = "Price Out")]
         public float PriceOut { get => priceOut; set => priceOut = value; }
         public string NameEn { get => nameEn; set => nameEn = value; }
         public string NameKh { get => nameKh; set => nameKh = value; }
@@ -182,6 +184,46 @@ namespace POS_Shop.Models
                 //ShowAlert(ex.Message, FormAlertNotification.Type.Error);
                 MessageBox.Show(ex.Message);
                 return new List<Product>();
+            }
+        }
+
+        public int CountAllProduct()
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand sqlCmd = new SqlCommand(ProductConstants.CountAllProductStoreProcedure, conn);
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                int count = (Int32)sqlCmd.ExecuteScalar();
+                sqlCmd.Dispose();
+                conn.Close();
+                return count;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return 0;
+            }
+        }
+
+        public bool ValidateBarcodeProduct(string barcode)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand sqlCmd = new SqlCommand(ProductConstants.ValidateBarcodeProductStoreProcedure, conn);
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.Parameters.AddWithValue(ProductConstants.Barcode, barcode);
+                sqlCmd.Parameters.AddWithValue(ProductConstants.Id, id);
+                int count = (Int32)sqlCmd.ExecuteScalar();
+                sqlCmd.Dispose();
+                conn.Close();
+                return count > 0 ? true : false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
             }
         }
     }

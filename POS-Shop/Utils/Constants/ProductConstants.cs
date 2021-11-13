@@ -22,6 +22,8 @@ namespace POS_Shop.Utils.Constants
         public const string UpdateProductStoreProcedure = "UpdateProduct";
         public const string SelectAllProductStoreProcedure = "SelectAllProduct";
         public const string DeleteProductStoreProcedure = "DeleteProduct";
+        public const string CountAllProductStoreProcedure = "CountAllProduct";
+        public const string ValidateBarcodeProductStoreProcedure = "ValidateBarcodeProduct";
 
     }
 }
