@@ -22,7 +22,7 @@ namespace POS_Shop
         public ParentForm()
         {
             InitializeComponent();
-            openChildFormInPanel(new Dashboard());
+            ManangePermission();
         }
 
         public Form activeForm = null;
@@ -94,6 +94,30 @@ namespace POS_Shop
         {
             timerCurrent.Start();
             labelUsername.Text = Properties.Settings.Default.username;
+        }
+
+        // manange permission of users.
+        private void ManangePermission()
+        {
+            btnCustomer.Visible = false;
+            btnReport.Visible = false;
+            
+            // for addmins
+            if (Properties.Settings.Default.position.ToLower().Equals("admin"))
+            {
+                openChildFormInPanel(new Dashboard());
+            }
+            else
+            {
+                // for cashiers.
+                openChildFormInPanel(new SaleForm());
+                btnEmployee.Visible = false;
+                btnDashboard.Visible = false;
+                btnExchange.Visible = false;
+                btnProduct.Visible = false;
+                btnStock.Visible = false;
+                btnCategory.Visible = false;
+            }
         }
     }
 }

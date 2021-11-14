@@ -35,7 +35,7 @@ namespace POS_Shop
             this.btnReport = new System.Windows.Forms.Button();
             this.btnExchange = new System.Windows.Forms.Button();
             this.btnEmployee = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnCustomer = new System.Windows.Forms.Button();
             this.btnStock = new System.Windows.Forms.Button();
             this.btnCategory = new System.Windows.Forms.Button();
             this.btnProduct = new System.Windows.Forms.Button();
@@ -66,7 +66,7 @@ namespace POS_Shop
             this.panel1.Controls.Add(this.btnReport);
             this.panel1.Controls.Add(this.btnExchange);
             this.panel1.Controls.Add(this.btnEmployee);
-            this.panel1.Controls.Add(this.button5);
+            this.panel1.Controls.Add(this.btnCustomer);
             this.panel1.Controls.Add(this.btnStock);
             this.panel1.Controls.Add(this.btnCategory);
             this.panel1.Controls.Add(this.btnProduct);
@@ -144,20 +144,20 @@ namespace POS_Shop
             this.btnEmployee.UseVisualStyleBackColor = true;
             this.btnEmployee.Click += new System.EventHandler(this.btnEmployee_Click);
             // 
-            // button5
+            // btnCustomer
             // 
-            this.button5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(0, 276);
-            this.button5.Name = "button5";
-            this.button5.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.button5.Size = new System.Drawing.Size(220, 40);
-            this.button5.TabIndex = 11;
-            this.button5.Text = "Customers";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnCustomer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCustomer.FlatAppearance.BorderSize = 0;
+            this.btnCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCustomer.ForeColor = System.Drawing.Color.White;
+            this.btnCustomer.Location = new System.Drawing.Point(0, 276);
+            this.btnCustomer.Name = "btnCustomer";
+            this.btnCustomer.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btnCustomer.Size = new System.Drawing.Size(220, 40);
+            this.btnCustomer.TabIndex = 11;
+            this.btnCustomer.Text = "Customers";
+            this.btnCustomer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCustomer.UseVisualStyleBackColor = true;
             // 
             // btnStock
             // 
@@ -365,7 +365,7 @@ namespace POS_Shop
         private System.Windows.Forms.Button btnReport;
         private System.Windows.Forms.Button btnExchange;
         private System.Windows.Forms.Button btnEmployee;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnCustomer;
         private System.Windows.Forms.Button btnStock;
         private System.Windows.Forms.Button btnCategory;
         private System.Windows.Forms.Button btnProduct;

@@ -48,10 +48,12 @@ namespace POS_Shop
                 
                 if (login.Login())
                 {
+                    var employee = new Employee().getEmployeeByUsername(txtUsername.Text.Trim());
                     IsLogin = true;
                     Properties.Settings.Default.username = txtUsername.Text;
                     Properties.Settings.Default.password = txtPassword.Text;
                     Properties.Settings.Default.isLogin = true;
+                    Properties.Settings.Default.position = employee.Position;
                     Properties.Settings.Default.Save();
                     this.Close();
                 }

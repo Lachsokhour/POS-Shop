@@ -58,5 +58,17 @@ namespace POS_Shop.Properties {
                 this["isLogin"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string position {
+            get {
+                return ((string)(this["position"]));
+            }
+            set {
+                this["position"] = value;
+            }
+        }
     }
 }
