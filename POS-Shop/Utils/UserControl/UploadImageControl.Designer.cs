@@ -100,7 +100,6 @@ namespace POS_Shop.Utils
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "UploadImageControl";
             this.Size = new System.Drawing.Size(322, 244);
-            this.Load += new System.EventHandler(this.UploadImageControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picImage)).EndInit();
             this.ResumeLayout(false);
 

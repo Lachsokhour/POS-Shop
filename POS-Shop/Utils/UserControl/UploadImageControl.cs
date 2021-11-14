@@ -13,10 +13,12 @@ namespace POS_Shop.Utils
     public partial class UploadImageControl : UserControl
     {
         FileStorageUtils fileStorage = new FileStorageUtils();
+        int countMessage = 1;
 
         public UploadImageControl()
         {
             InitializeComponent();
+            IsAddMode = true;
         }
 
         private void btnUpload_Click(object sender, EventArgs e)
@@ -43,20 +45,9 @@ namespace POS_Shop.Utils
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            if (IsAddMode)
+            if (!string.IsNullOrEmpty(FileName))
             {
-                if (fileStorage.RemoveFile(FileName))
-                {
-                    picImage.Image = null;
-                    FileName = "";
-                }
-            }
-            else
-            {
-                var confirmResult = MessageBox.Show("Are you sure to delete this item?",
-                                     "Confirm Delete",
-                                     MessageBoxButtons.YesNo);
-                if (confirmResult == DialogResult.Yes)
+                if (IsAddMode)
                 {
                     if (fileStorage.RemoveFile(FileName))
                     {
@@ -64,16 +55,31 @@ namespace POS_Shop.Utils
                         FileName = "";
                     }
                 }
+                else
+                {
+                    var confirmResult = MessageBox.Show("Are you sure to delete this item?",
+                                         "Confirm Delete",
+                                         MessageBoxButtons.YesNo);
+                    if (confirmResult == DialogResult.Yes)
+                    {
+                        if (fileStorage.RemoveFile(FileName))
+                        {
+                            picImage.Image = null;
+                            FileName = "";
+                        }
+                    }
+                }
             }
+            else
+            {
+                if (countMessage == 1)
+                {
+                    countMessage++;
+                    new FormAlertNotification().ShowAlert("File not found.", FormAlertNotification.Type.Warning);
+                }
+            }
+            
 
-        }
-
-        private void UploadImageControl_Load(object sender, EventArgs e)
-        {
-            IsAddMode = true;
-            FilePath = "";
-            FileName = "";
-            picImage.Image = null;
         }
     }
 }
