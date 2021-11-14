@@ -32,7 +32,7 @@ namespace POS_Shop.Utils.MyUserControl
             this.panelItem.SendToBack();
 
             // change border
-            panelItem.BorderStyle = BorderStyle.None;
+            //panelItem.BorderStyle = BorderStyle.None;
             panelItem.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panelItem.Width, panelItem.Height, 20, 20));
         }
 
@@ -40,5 +40,16 @@ namespace POS_Shop.Utils.MyUserControl
         {
         }
 
+        public int Qty { get; set; }
+
+        private void picOrder_Click(object sender, EventArgs e)
+        {
+            Qty++;
+        }
+
+        private void labelPrice_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

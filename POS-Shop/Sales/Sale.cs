@@ -14,15 +14,6 @@ namespace POS_Shop.Sales
 {
     public partial class SaleForm : Form
     {
-        private ItemProductControl itemProduct = new ItemProductControl();
-        private ItemProductControl[] itemProducts =
-        {
-           new ItemProductControl(),new ItemProductControl(),new ItemProductControl(),new ItemProductControl(),
-           new ItemProductControl(),new ItemProductControl(),new ItemProductControl(),new ItemProductControl(),
-           new ItemProductControl(),new ItemProductControl(),new ItemProductControl(),new ItemProductControl(),
-           new ItemProductControl(),new ItemProductControl(),new ItemProductControl(),new ItemProductControl(),
-           new ItemProductControl(),new ItemProductControl(),new ItemProductControl(),new ItemProductControl()
-        };
         public SaleForm()
         {
             InitializeComponent();
@@ -30,8 +21,10 @@ namespace POS_Shop.Sales
 
         private void SaleForm_Load(object sender, EventArgs e)
         {
+            LoadCategory();
             LoadDicount();
             LoadProducts();
+            
 
             // Exchange
             var exchange = LoadValue();
@@ -54,26 +47,52 @@ namespace POS_Shop.Sales
 
         }
 
-        int c = 1, r = 0;
 
         private void LoadProducts()
         {
-            foreach (var item in itemProducts)
+            var category = (Category)comboBoxCategory.SelectedItem;
+            var itemProducts = new Product().readAllByCategoryId(category.Id, txtSearch.Text);
+            if(itemProducts.Count != tableLayoutPanel.Controls.Count)
             {
-                tableLayoutPanel.Controls.Add(item, c, r);
-                c++;
-                if (c > 3)
+                int c = 1, r = 0;
+                tableLayoutPanel.Controls.Clear();
+                tableLayoutPanel.RowStyles.Clear(); ;
+                tableLayoutPanel.ColumnStyles.Clear();
+
+                foreach (var item in itemProducts)
                 {
-                    c = 1;
-                    r++;
+                    tableLayoutPanel.Controls.Add(item, c, r);
+                    c++;
+                    if (c > 3)
+                    {
+                        c = 1;
+                        r++;
+                    }
                 }
             }
-
         }
 
         private Exchange LoadValue()
         {
             return new Exchange().SelectFirstExchange();
+        }
+
+        private void comboBoxCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show(e.ToString());
+            LoadProducts();
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            LoadProducts();
+        }
+
+        private void LoadCategory()
+        {
+            comboBoxCategory.DataSource = new Category().GetCategories();
+            comboBoxCategory.DisplayMember = "Name";
+            comboBoxCategory.ValueMember = "Id";
         }
     }
 }

@@ -33,6 +33,7 @@ namespace POS_Shop.Utils.MyUserControl
         {
             this.panelItem = new System.Windows.Forms.Panel();
             this.labelPrice = new System.Windows.Forms.Label();
+            this.labelBarcode = new System.Windows.Forms.Label();
             this.labelProductName = new System.Windows.Forms.Label();
             this.picProImage = new System.Windows.Forms.PictureBox();
             this.picOrder = new System.Windows.Forms.PictureBox();
@@ -45,11 +46,12 @@ namespace POS_Shop.Utils.MyUserControl
             // 
             this.panelItem.BackColor = System.Drawing.Color.White;
             this.panelItem.Controls.Add(this.labelPrice);
+            this.panelItem.Controls.Add(this.labelBarcode);
             this.panelItem.Controls.Add(this.labelProductName);
             this.panelItem.Controls.Add(this.picProImage);
             this.panelItem.Location = new System.Drawing.Point(4, 0);
             this.panelItem.Name = "panelItem";
-            this.panelItem.Size = new System.Drawing.Size(157, 211);
+            this.panelItem.Size = new System.Drawing.Size(157, 251);
             this.panelItem.TabIndex = 0;
             // 
             // labelPrice
@@ -57,21 +59,33 @@ namespace POS_Shop.Utils.MyUserControl
             this.labelPrice.AutoSize = true;
             this.labelPrice.Font = new System.Drawing.Font("Kh Battambang", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPrice.ForeColor = System.Drawing.Color.Red;
-            this.labelPrice.Location = new System.Drawing.Point(59, 181);
+            this.labelPrice.Location = new System.Drawing.Point(49, 216);
             this.labelPrice.Name = "labelPrice";
             this.labelPrice.Size = new System.Drawing.Size(47, 19);
             this.labelPrice.TabIndex = 7;
             this.labelPrice.Text = "$12.00";
+            this.labelPrice.Click += new System.EventHandler(this.labelPrice_Click);
+            // 
+            // labelBarcode
+            // 
+            this.labelBarcode.AutoSize = true;
+            this.labelBarcode.Font = new System.Drawing.Font("Kh Battambang", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBarcode.Location = new System.Drawing.Point(-1, 163);
+            this.labelBarcode.Name = "labelBarcode";
+            this.labelBarcode.Size = new System.Drawing.Size(57, 19);
+            this.labelBarcode.TabIndex = 5;
+            this.labelBarcode.Text = "Barcode";
+            this.labelBarcode.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelProductName
             // 
-            this.labelProductName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelProductName.AutoSize = true;
-            this.labelProductName.Location = new System.Drawing.Point(35, 162);
+            this.labelProductName.Location = new System.Drawing.Point(3, 191);
             this.labelProductName.Name = "labelProductName";
             this.labelProductName.Size = new System.Drawing.Size(78, 19);
             this.labelProductName.TabIndex = 5;
             this.labelProductName.Text = "Product Name";
+            this.labelProductName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // picProImage
             // 
@@ -90,12 +104,13 @@ namespace POS_Shop.Utils.MyUserControl
             this.picOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.picOrder.BackColor = System.Drawing.Color.Transparent;
             this.picOrder.Image = global::POS_Shop.Properties.Resources.add_11;
-            this.picOrder.Location = new System.Drawing.Point(116, 193);
+            this.picOrder.Location = new System.Drawing.Point(112, 236);
             this.picOrder.Name = "picOrder";
             this.picOrder.Size = new System.Drawing.Size(37, 27);
             this.picOrder.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picOrder.TabIndex = 6;
             this.picOrder.TabStop = false;
+            this.picOrder.Click += new System.EventHandler(this.picOrder_Click);
             // 
             // ItemProductControl
             // 
@@ -106,7 +121,7 @@ namespace POS_Shop.Utils.MyUserControl
             this.Font = new System.Drawing.Font("Kh Battambang", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ItemProductControl";
-            this.Size = new System.Drawing.Size(180, 223);
+            this.Size = new System.Drawing.Size(180, 266);
             this.Load += new System.EventHandler(this.ItemProductControl_Load);
             this.panelItem.ResumeLayout(false);
             this.panelItem.PerformLayout();
@@ -123,9 +138,14 @@ namespace POS_Shop.Utils.MyUserControl
         private System.Windows.Forms.Label labelProductName;
         private System.Windows.Forms.PictureBox picProImage;
         private System.Windows.Forms.PictureBox picOrder;
+        private System.Windows.Forms.Label labelBarcode;
 
         public Image ProImage { get => picProImage.Image; set => picProImage.Image = value; }
         public string LabelProductName { get => labelProductName.Text; set => labelProductName.Text = value; }
         public string LabelPrice { get => labelPrice.Text; set => labelPrice.Text = value; }
+        public int ProductId { get; set; }
+
+        public string LabelBarcode { get => labelBarcode.Text; set => labelBarcode.Text = value; }
+        
     }
 }

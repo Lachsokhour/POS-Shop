@@ -1,6 +1,7 @@
 ﻿using POS_Shop.DB;
 using POS_Shop.Utils;
 using POS_Shop.Utils.Constants;
+using POS_Shop.Utils.MyUserControl;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -224,6 +225,41 @@ namespace POS_Shop.Models
             {
                 MessageBox.Show(ex.Message);
                 return false;
+            }
+        }
+        public List<ItemProductControl> readAllByCategoryId(int categoryId, string filter)
+        {
+            try
+            {
+                List<ItemProductControl> itemProducts = new List<ItemProductControl>();
+                conn.Open();
+                SqlCommand sqlCmd = new SqlCommand(ProductConstants.SelectAllProductsByCategoryIdAndFilterStoreProcedure, conn);
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.Parameters.AddWithValue(ProductConstants.CategoryId, categoryId);
+                sqlCmd.Parameters.AddWithValue(ProductConstants.Filter, filter);
+                SqlDataReader reader = sqlCmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    proImage = new FileStorageUtils().LoadImage(reader["file_path"].ToString());
+                    var proName = string.IsNullOrEmpty(reader["name_en"].ToString()) ? reader["name_kh"].ToString() : reader["name_en"].ToString();
+                    var itemProduct = new ItemProductControl();
+                    itemProduct.ProImage = proImage;
+                    itemProduct.LabelBarcode = reader["barcode"].ToString();
+                    itemProduct.LabelProductName = proName;
+                    itemProduct.ProductId = int.Parse(reader["cate_id"].ToString());
+                    itemProduct.LabelPrice = reader["price_out"].ToString();
+                    itemProducts.Add(itemProduct);
+                }
+                reader.Close();
+                sqlCmd.Dispose();
+                conn.Close();
+                return itemProducts;
+            }
+            catch (Exception ex)
+            {
+                //ShowAlert(ex.Message, FormAlertNotification.Type.Error);
+                MessageBox.Show(ex.Message);
+                return new List<ItemProductControl>();
             }
         }
     }

@@ -17,6 +17,7 @@ namespace POS_Shop.Utils.Constants
         public const string CategoryId = "@CategoryId";
         public const string PriceOut = "@PriceOut";
         public const string Barcode = "@Barcode";
+        public const string Filter = "@Filter";
 
         public const string CreateProductStoreProcedure = "CreateProduct";
         public const string UpdateProductStoreProcedure = "UpdateProduct";
@@ -24,6 +25,7 @@ namespace POS_Shop.Utils.Constants
         public const string DeleteProductStoreProcedure = "DeleteProduct";
         public const string CountAllProductStoreProcedure = "CountAllProduct";
         public const string ValidateBarcodeProductStoreProcedure = "ValidateBarcodeProduct";
+        public const string SelectAllProductsByCategoryIdAndFilterStoreProcedure = "SelectAllProductsByCategoryIdAndFilter";
 
     }
 }

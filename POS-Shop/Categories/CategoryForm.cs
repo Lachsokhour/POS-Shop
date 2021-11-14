@@ -14,7 +14,6 @@ namespace POS_Shop.Categories
 {
     public partial class CategoryForm : Form
     {
-        private int id = 0;
         private BindingSource source;
         private bool isAddMode = true;
         private Category currentCate = new Category();
@@ -76,7 +75,6 @@ namespace POS_Shop.Categories
                     category.Note = txtNote.Text.Trim();
                     category.Photo = uploadImageControl.FileName;
                     category.FilePath = uploadImageControl.FilePath;
-                    category.Id = id;
                     return category;
                 }
             }
@@ -92,7 +90,6 @@ namespace POS_Shop.Categories
             if (!isAddMode)
             {
                 currentCate = (Category)source.Current;
-                this.id = currentCate.Id;
                 txtName.Text = currentCate.Name;
                 txtNote.Text = currentCate.Note;
                 uploadImageControl.FileName = currentCate.Photo;
@@ -103,7 +100,6 @@ namespace POS_Shop.Categories
 
         private void ClearValue()
         {
-            this.id = 0;
             txtName.Text = "";
             txtNote.Text = "";
             uploadImageControl.FileName = "";
@@ -182,13 +178,12 @@ namespace POS_Shop.Categories
         private void btnDelete_Click(object sender, EventArgs e)
         {
             var cate = (Category)source.Current;
-            this.id = cate.Id;
             var confirmResult = MessageBox.Show("Are you sure to delete this item?",
                                      "Confirm Delete",
                                      MessageBoxButtons.YesNo);
             if (confirmResult == DialogResult.Yes)
             {
-                if (new Category().delete(id))
+                if (new Category().delete(cate.Id))
                 {
                     //new FileStorageUtils().RemoveFile(cate.Photo);
                     LoadCategoryValue();
