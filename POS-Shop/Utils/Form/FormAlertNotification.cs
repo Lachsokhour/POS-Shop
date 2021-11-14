@@ -107,6 +107,7 @@ namespace POS_Shop.Utils
                 case Type.Success:
                     this.pictureBox1.Image = Resources.success;
                     this.BackColor = Color.SeaGreen;
+                    Icon = Resources.icon_success;
                     break;
                 case Type.Error:
                     this.pictureBox1.Image = Resources.error;
@@ -119,6 +120,7 @@ namespace POS_Shop.Utils
                 case Type.Warning:
                     this.pictureBox1.Image = Resources.warning;
                     this.BackColor = Color.DarkOrange;
+                    Icon = Resources.icon_warning;
                     break;
             }
 

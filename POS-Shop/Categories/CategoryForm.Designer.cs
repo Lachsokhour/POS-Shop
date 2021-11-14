@@ -31,6 +31,10 @@ namespace POS_Shop.Categories
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.btnCreate = new System.Windows.Forms.PictureBox();
+            this.btnEdit = new System.Windows.Forms.PictureBox();
+            this.btnDelete = new System.Windows.Forms.PictureBox();
             this.gridCategory = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.uploadImageControl = new POS_Shop.Utils.UploadImageControl();
@@ -41,18 +45,14 @@ namespace POS_Shop.Categories
             this.txtName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.btnCreate = new System.Windows.Forms.PictureBox();
-            this.btnEdit = new System.Windows.Forms.PictureBox();
-            this.btnDelete = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridCategory)).BeginInit();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCreate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridCategory)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -73,11 +73,62 @@ namespace POS_Shop.Categories
             this.panel1.Controls.Add(this.panel7);
             this.panel1.Controls.Add(this.gridCategory);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(343, 32);
+            this.panel1.Location = new System.Drawing.Point(343, 5);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(593, 598);
             this.panel1.TabIndex = 1;
+            // 
+            // panel7
+            // 
+            this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel7.Controls.Add(this.btnCreate);
+            this.panel7.Controls.Add(this.btnEdit);
+            this.panel7.Controls.Add(this.btnDelete);
+            this.panel7.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panel7.Location = new System.Drawing.Point(462, 12);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(117, 42);
+            this.panel7.TabIndex = 4;
+            // 
+            // btnCreate
+            // 
+            this.btnCreate.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCreate.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnCreate.Image = global::POS_Shop.Properties.Resources.add_1;
+            this.btnCreate.Location = new System.Drawing.Point(8, 6);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(25, 25);
+            this.btnCreate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnCreate.TabIndex = 20;
+            this.btnCreate.TabStop = false;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnEdit.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnEdit.Image = global::POS_Shop.Properties.Resources.edit_1;
+            this.btnEdit.Location = new System.Drawing.Point(44, 6);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(25, 25);
+            this.btnEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnEdit.TabIndex = 19;
+            this.btnEdit.TabStop = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnDelete.Image = global::POS_Shop.Properties.Resources.delete_1;
+            this.btnDelete.Location = new System.Drawing.Point(80, 6);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(25, 25);
+            this.btnDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnDelete.TabIndex = 18;
+            this.btnDelete.TabStop = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // gridCategory
             // 
@@ -104,7 +155,7 @@ namespace POS_Shop.Categories
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(10, 32);
+            this.panel2.Location = new System.Drawing.Point(10, 5);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(327, 598);
@@ -199,57 +250,6 @@ namespace POS_Shop.Categories
             this.label2.TabIndex = 3;
             this.label2.Text = "Name*";
             // 
-            // panel7
-            // 
-            this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel7.Controls.Add(this.btnCreate);
-            this.panel7.Controls.Add(this.btnEdit);
-            this.panel7.Controls.Add(this.btnDelete);
-            this.panel7.Cursor = System.Windows.Forms.Cursors.Default;
-            this.panel7.Location = new System.Drawing.Point(462, 12);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(117, 42);
-            this.panel7.TabIndex = 4;
-            // 
-            // btnCreate
-            // 
-            this.btnCreate.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCreate.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnCreate.Image = global::POS_Shop.Properties.Resources.add_1;
-            this.btnCreate.Location = new System.Drawing.Point(8, 6);
-            this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(25, 25);
-            this.btnCreate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnCreate.TabIndex = 20;
-            this.btnCreate.TabStop = false;
-            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnEdit.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnEdit.Image = global::POS_Shop.Properties.Resources.edit_1;
-            this.btnEdit.Location = new System.Drawing.Point(44, 6);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(25, 25);
-            this.btnEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnEdit.TabIndex = 19;
-            this.btnEdit.TabStop = false;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnDelete.Image = global::POS_Shop.Properties.Resources.delete_1;
-            this.btnDelete.Location = new System.Drawing.Point(80, 6);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(25, 25);
-            this.btnDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnDelete.TabIndex = 18;
-            this.btnDelete.TabStop = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
             // CategoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 24F);
@@ -265,15 +265,15 @@ namespace POS_Shop.Categories
             this.Load += new System.EventHandler(this.CategoryForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnCreate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridCategory)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnCreate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).EndInit();
             this.ResumeLayout(false);
 
         }
