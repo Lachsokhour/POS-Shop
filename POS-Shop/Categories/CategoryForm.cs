@@ -146,6 +146,9 @@ namespace POS_Shop.Categories
             gridCategory.Columns["CateImage"].DisplayIndex = 0;
             gridCategory.Columns["Note"].DisplayIndex = gridCategory.Columns.Count - 1;
 
+            DataGridViewImageColumn imageColumn = (DataGridViewImageColumn)gridCategory.Columns["CateImage"];
+            imageColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
+
             gridCategory.Refresh();
         }
 

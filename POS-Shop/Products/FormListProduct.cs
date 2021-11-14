@@ -65,6 +65,7 @@ namespace POS_Shop.Products
             gridProduct.Columns["CateName"].HeaderText = "Category";
             gridProduct.Columns["PriceOut"].HeaderText = "Price out";
             gridProduct.Columns["CreatedAt"].HeaderText = "Created At";
+            gridProduct.Columns["ProImage"].HeaderText = "Photo";
 
             // change format
             gridProduct.Columns["PriceOut"].DefaultCellStyle.Format = FormatUtils.dollar;
@@ -72,6 +73,9 @@ namespace POS_Shop.Products
 
             // change width
             gridProduct.Columns["PriceOut"].Width = 50;
+
+            DataGridViewImageColumn imageColumn = (DataGridViewImageColumn)gridProduct.Columns["ProImage"];
+            imageColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
 
             gridProduct.Refresh();
         }
