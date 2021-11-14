@@ -158,6 +158,12 @@
     <Compile Include="Utils\Interface\BaseEntity.cs" />
     <Compile Include="Utils\Interface\IBehaviorForm.cs" />
     <Compile Include="Utils\Interface\ICrud.cs" />
+    <Compile Include="Utils\MyUserControl\ItemProductControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utils\MyUserControl\ItemProductControl.Designer.cs">
+      <DependentUpon>ItemProductControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\MyUserControl\UploadImageControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -207,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Utils\Form\FormAlertNotification.resx">
       <DependentUpon>FormAlertNotification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\MyUserControl\ItemProductControl.resx">
+      <DependentUpon>ItemProductControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utils\MyUserControl\UploadImageControl.resx">
       <DependentUpon>UploadImageControl.cs</DependentUpon>
@@ -307,6 +316,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icon_warning.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\notfound.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
