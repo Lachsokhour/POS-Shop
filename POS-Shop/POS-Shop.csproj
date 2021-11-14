@@ -158,10 +158,10 @@
     <Compile Include="Utils\Interface\BaseEntity.cs" />
     <Compile Include="Utils\Interface\IBehaviorForm.cs" />
     <Compile Include="Utils\Interface\ICrud.cs" />
-    <Compile Include="Utils\UserControl\UploadImageControl.cs">
+    <Compile Include="Utils\MyUserControl\UploadImageControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Utils\UserControl\UploadImageControl.Designer.cs">
+    <Compile Include="Utils\MyUserControl\UploadImageControl.Designer.cs">
       <DependentUpon>UploadImageControl.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Categories\CategoryForm.resx">
@@ -208,7 +208,7 @@
     <EmbeddedResource Include="Utils\Form\FormAlertNotification.resx">
       <DependentUpon>FormAlertNotification.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Utils\UserControl\UploadImageControl.resx">
+    <EmbeddedResource Include="Utils\MyUserControl\UploadImageControl.resx">
       <DependentUpon>UploadImageControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
