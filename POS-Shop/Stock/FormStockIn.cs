@@ -21,6 +21,7 @@ namespace POS_Shop.Stock
         public FormStockIn()
         {
             InitializeComponent();
+            radioBtnYes.Checked = true;
         }
 
         public FormStockIn(bool isAddMode, BindingSource source)
@@ -65,16 +66,38 @@ namespace POS_Shop.Stock
             comboBoxProduct.SelectedIndex = 0;
             dateExpired.Value = DateTime.Now;
             dateIn.Value = DateTime.Now;
+            radioBtnYes.Checked = true;
+            panelDateExpired.Visible = true;
         }
 
         public void SetValueToFieldWhenEditMode()
         {
             if(!isAddMode)
             {
+                
+                if(curStockIn.IsDefindDateExpired)
+                {
+                    radioBtnYes.Checked = true;
+                    panelDateExpired.Visible = true;
+                }
+                else
+                {
+                    radioBtnNo.Checked = true;
+                    panelDateExpired.Visible = false;
+                }
+
+                if(curStockIn.DateExpired == null)
+                {
+                    dateExpired.Value = DateTime.Now;
+                }
+                else
+                {
+                    dateExpired.Value = (DateTime)curStockIn.DateExpired;
+                }
                 txtNote.Text = curStockIn.Note;
                 txtPriceIn.Text = curStockIn.PriceIn.ToString();
                 txtQty.Text = curStockIn.Qty.ToString();
-                dateExpired.Value = curStockIn.DateExpired;
+                
                 dateIn.Value = curStockIn.DateIn;
                 comboBoxProduct.SelectedValue = curStockIn.ProductId;
             }
@@ -115,6 +138,10 @@ namespace POS_Shop.Stock
         private void FormStockIn_Load(object sender, EventArgs e)
         {
             LoadProduct();
+            if(isAddMode)
+            {
+                radioBtnYes.Checked = true;
+            }
         }
 
         private void LoadProduct()
@@ -138,7 +165,7 @@ namespace POS_Shop.Stock
                 txtQty.Focus();
                 return null;
             }
-            else if (dateExpired.Value < dateIn.Value || dateExpired.Value == dateIn.Value)
+            else if (radioBtnYes.Checked == true && (dateExpired.Value < dateIn.Value || dateExpired.Value == dateIn.Value))
             {
                 ShowAlert("Date expired should be bigger \n than date in.", FormAlertNotification.Type.Warning);
                 dateExpired.Focus();
@@ -149,7 +176,15 @@ namespace POS_Shop.Stock
                 var product = (Product)comboBoxProduct.SelectedItem;
                 curStockIn.Note = txtNote.Text.Trim();
                 curStockIn.PriceIn = float.Parse(txtPriceIn.Text);
-                curStockIn.DateExpired = dateExpired.Value;
+                curStockIn.IsDefindDateExpired = radioBtnYes.Checked;
+                if(radioBtnYes.Checked)
+                {
+                    curStockIn.DateExpired = dateExpired.Value;
+                }else
+                {
+                    //MessageBox.Show("Null");
+                    curStockIn.DateExpired = null;
+                }
                 curStockIn.DateIn = dateIn.Value;
                 curStockIn.ProductId = product.Id;
                 curStockIn.Qty = int.Parse(txtQty.Text);
@@ -160,6 +195,16 @@ namespace POS_Shop.Stock
         private void btnClear_Click(object sender, EventArgs e)
         {
             ClearValue();
+        }
+
+        private void radioBtnYes_CheckedChanged(object sender, EventArgs e)
+        {
+            panelDateExpired.Visible = true;
+        }
+
+        private void radioBtnNo_CheckedChanged(object sender, EventArgs e)
+        {
+            panelDateExpired.Visible = false;
         }
     }
 }

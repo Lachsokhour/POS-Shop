@@ -15,6 +15,7 @@ namespace POS_Shop.Utils.Constants
         public const string DateExpired = "@DateExpired";
         public const string Note = "@Note";
         public const string Qty = "@Qty";
+        public const string IsDefindDateExpired = "@IsDefindDateExpired";
 
         public const string CreateUpdateStockInStoreProcedure = "CreateUpdateStockIn";
         public const string SelectStockInStoreProcedure = "SelectAllStockIn";

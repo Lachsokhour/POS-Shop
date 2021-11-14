@@ -29,9 +29,16 @@ namespace POS_Shop.Products
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            ParentForm form = Application.OpenForms["ParentForm"] as ParentForm;
-            if (form != null)
-                form.openChildFormInPanel(new AddNewProduct(false, source));
+            if (source.Count <= 0)
+            {
+                ShowAlert("No Data for edit.", FormAlertNotification.Type.Warning);
+            }
+            else
+            {
+                ParentForm form = Application.OpenForms["ParentForm"] as ParentForm;
+                if (form != null)
+                    form.openChildFormInPanel(new AddNewProduct(false, source));
+            }
         }
 
         private void LoadProduct()
@@ -57,7 +64,7 @@ namespace POS_Shop.Products
             gridProduct.Columns["NameKh"].DisplayIndex = 3;
             gridProduct.Columns["PriceOut"].DisplayIndex = 4;
             gridProduct.Columns["CateName"].DisplayIndex = 5;
-            gridProduct.Columns["Note"].DisplayIndex = gridProduct.ColumnCount -1;
+            gridProduct.Columns["Note"].DisplayIndex = gridProduct.ColumnCount - 1;
 
             // change header name
             gridProduct.Columns["NameEn"].HeaderText = "Name (En)";
@@ -82,16 +89,23 @@ namespace POS_Shop.Products
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            var prod = (Product)source.Current;
-            var confirmResult = MessageBox.Show("Are you sure to delete this item?",
-                                     "Confirm Delete",
-                                     MessageBoxButtons.YesNo);
-            if (confirmResult == DialogResult.Yes)
+            if (source.Count <= 0)
             {
-                var result = new Product().delete(prod.Id);
-                if (result)
+                ShowAlert("No Data for delete.", FormAlertNotification.Type.Warning);
+            }
+            else
+            {
+                var prod = (Product)source.Current;
+                var confirmResult = MessageBox.Show("Are you sure to delete this item?",
+                                         "Confirm Delete",
+                                         MessageBoxButtons.YesNo);
+                if (confirmResult == DialogResult.Yes)
                 {
-                    LoadProduct();
+                    var result = new Product().delete(prod.Id);
+                    if (result)
+                    {
+                        LoadProduct();
+                    }
                 }
             }
         }
@@ -99,6 +113,11 @@ namespace POS_Shop.Products
         private void FormListProduct_Load(object sender, EventArgs e)
         {
             LoadProduct();
+        }
+
+        private void ShowAlert(string msg, FormAlertNotification.Type type)
+        {
+            new FormAlertNotification().ShowAlert(msg, type);
         }
     }
 }

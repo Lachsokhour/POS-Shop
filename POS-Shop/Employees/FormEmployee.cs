@@ -33,16 +33,17 @@ namespace POS_Shop.Employees
         private void btnSave_Click(object sender, EventArgs e)
         {
             Employee emp = SetValue();
-            if(emp != null)
+            if (emp != null)
             {
-                if(addMode)
+                if (addMode)
                 {
                     if (emp.create())
                     {
                         EmployeeLoadValue();
                         ClearValue();
                     }
-                }else
+                }
+                else
                 {
                     if (emp.update())
                     {
@@ -51,12 +52,12 @@ namespace POS_Shop.Employees
                     }
                 }
             }
-            
+
         }
 
         private Employee SetValue()
         {
-            if(txtNameEn.Text == "")
+            if (txtNameEn.Text == "")
             {
                 ShowAlertMsg("Please enter emplyee's username.", FormAlertNotification.Type.Warning);
                 txtNameEn.Focus();
@@ -146,9 +147,16 @@ namespace POS_Shop.Employees
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            addMode = false;
-            SetLabelTitle();
-            SetValueToFieldWhenEditMode();
+            if(source.Count <= 0)
+            {
+                ShowAlertMsg("No Data for edit.", FormAlertNotification.Type.Warning);
+            }
+            else
+            {
+                addMode = false;
+                SetLabelTitle();
+                SetValueToFieldWhenEditMode();
+            }
         }
 
         /// <summary>
@@ -161,7 +169,7 @@ namespace POS_Shop.Employees
 
         private void SetValueToFieldWhenEditMode()
         {
-            if(!addMode)
+            if (!addMode)
             {
                 currentEmp = (Employee)source.Current;
                 txtNameEn.Text = currentEmp.NameEn;
@@ -194,17 +202,24 @@ namespace POS_Shop.Employees
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            var emp = (Employee)source.Current;
-            this.id = emp.Id;
-            var confirmResult = MessageBox.Show("Are you sure to delete this item?",
-                                     "Confirm Delete",
-                                     MessageBoxButtons.YesNo);
-            if (confirmResult == DialogResult.Yes)
+            if (source.Count <= 0)
             {
-                var result = new Employee().delete(id);
-                if (result)
+                ShowAlertMsg("No Data for delete.", FormAlertNotification.Type.Warning);
+            }
+            else
+            {
+                var emp = (Employee)source.Current;
+                this.id = emp.Id;
+                var confirmResult = MessageBox.Show("Are you sure to delete this item?",
+                                         "Confirm Delete",
+                                         MessageBoxButtons.YesNo);
+                if (confirmResult == DialogResult.Yes)
                 {
-                    EmployeeLoadValue();
+                    var result = new Employee().delete(id);
+                    if (result)
+                    {
+                        EmployeeLoadValue();
+                    }
                 }
             }
         }
