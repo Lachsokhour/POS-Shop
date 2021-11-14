@@ -281,5 +281,26 @@
   <ItemGroup>
     <None Include="Resources\icon_info.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_customer_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_key_2_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\today.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

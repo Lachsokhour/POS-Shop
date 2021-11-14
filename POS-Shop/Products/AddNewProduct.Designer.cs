@@ -32,27 +32,27 @@ namespace POS_Shop.Products
         private void InitializeComponent()
         {
             this.groupBoxProduct = new System.Windows.Forms.GroupBox();
+            this.uploadImageControl = new POS_Shop.Utils.UploadImageControl();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtNameKh = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.txtBarcode = new System.Windows.Forms.TextBox();
+            this.txtNameKh = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.txtPriceOut = new System.Windows.Forms.TextBox();
+            this.txtBarcode = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtPriceOut = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtNameEn = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBoxCategory = new System.Windows.Forms.ComboBox();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.txtNote = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.comboBoxCategory = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.uploadImageControl = new POS_Shop.Utils.UploadImageControl();
+            this.txtNameEn = new System.Windows.Forms.TextBox();
             this.groupBoxProduct.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -87,6 +87,19 @@ namespace POS_Shop.Products
             this.groupBoxProduct.TabStop = false;
             this.groupBoxProduct.Text = "Add New Product";
             // 
+            // uploadImageControl
+            // 
+            this.uploadImageControl.FileName = "";
+            this.uploadImageControl.FilePath = "";
+            this.uploadImageControl.Font = new System.Drawing.Font("Kh Battambang", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uploadImageControl.IsAddMode = true;
+            this.uploadImageControl.Location = new System.Drawing.Point(25, 48);
+            this.uploadImageControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uploadImageControl.Name = "uploadImageControl";
+            this.uploadImageControl.PicImage = null;
+            this.uploadImageControl.Size = new System.Drawing.Size(322, 244);
+            this.uploadImageControl.TabIndex = 59;
+            // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -103,9 +116,9 @@ namespace POS_Shop.Products
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(469, 48);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(135, 24);
+            this.label3.Size = new System.Drawing.Size(127, 24);
             this.label3.TabIndex = 45;
-            this.label3.Text = "Product Name* (En)";
+            this.label3.Text = "Product Name (En)";
             // 
             // label2
             // 
@@ -113,20 +126,9 @@ namespace POS_Shop.Products
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(469, 134);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 24);
+            this.label2.Size = new System.Drawing.Size(135, 24);
             this.label2.TabIndex = 46;
-            this.label2.Text = "Product Name (Kh)";
-            // 
-            // txtNameKh
-            // 
-            this.txtNameKh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNameKh.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNameKh.Font = new System.Drawing.Font("Kh Battambang", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNameKh.Location = new System.Drawing.Point(8, 8);
-            this.txtNameKh.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.txtNameKh.Name = "txtNameKh";
-            this.txtNameKh.Size = new System.Drawing.Size(310, 25);
-            this.txtNameKh.TabIndex = 0;
+            this.label2.Text = "Product Name* (Kh)";
             // 
             // panel3
             // 
@@ -139,15 +141,16 @@ namespace POS_Shop.Products
             this.panel3.Size = new System.Drawing.Size(320, 40);
             this.panel3.TabIndex = 48;
             // 
-            // txtBarcode
+            // txtNameKh
             // 
-            this.txtBarcode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBarcode.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBarcode.Location = new System.Drawing.Point(8, 8);
-            this.txtBarcode.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.txtBarcode.Name = "txtBarcode";
-            this.txtBarcode.Size = new System.Drawing.Size(311, 25);
-            this.txtBarcode.TabIndex = 0;
+            this.txtNameKh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNameKh.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNameKh.Font = new System.Drawing.Font("Kh Battambang", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNameKh.Location = new System.Drawing.Point(8, 8);
+            this.txtNameKh.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txtNameKh.Name = "txtNameKh";
+            this.txtNameKh.Size = new System.Drawing.Size(310, 25);
+            this.txtNameKh.TabIndex = 0;
             // 
             // panel5
             // 
@@ -160,15 +163,15 @@ namespace POS_Shop.Products
             this.panel5.Size = new System.Drawing.Size(320, 40);
             this.panel5.TabIndex = 49;
             // 
-            // txtPriceOut
+            // txtBarcode
             // 
-            this.txtPriceOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPriceOut.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPriceOut.Location = new System.Drawing.Point(8, 8);
-            this.txtPriceOut.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.txtPriceOut.Name = "txtPriceOut";
-            this.txtPriceOut.Size = new System.Drawing.Size(311, 25);
-            this.txtPriceOut.TabIndex = 0;
+            this.txtBarcode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBarcode.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBarcode.Location = new System.Drawing.Point(8, 8);
+            this.txtBarcode.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txtBarcode.Name = "txtBarcode";
+            this.txtBarcode.Size = new System.Drawing.Size(311, 25);
+            this.txtBarcode.TabIndex = 0;
             // 
             // panel1
             // 
@@ -181,6 +184,16 @@ namespace POS_Shop.Products
             this.panel1.Size = new System.Drawing.Size(320, 40);
             this.panel1.TabIndex = 50;
             // 
+            // txtPriceOut
+            // 
+            this.txtPriceOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPriceOut.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPriceOut.Location = new System.Drawing.Point(8, 8);
+            this.txtPriceOut.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txtPriceOut.Name = "txtPriceOut";
+            this.txtPriceOut.Size = new System.Drawing.Size(311, 25);
+            this.txtPriceOut.TabIndex = 0;
+            // 
             // label5
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -190,16 +203,6 @@ namespace POS_Shop.Products
             this.label5.Size = new System.Drawing.Size(65, 24);
             this.label5.TabIndex = 47;
             this.label5.Text = "Barcode*";
-            // 
-            // txtNameEn
-            // 
-            this.txtNameEn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNameEn.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNameEn.Location = new System.Drawing.Point(8, 8);
-            this.txtNameEn.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.txtNameEn.Name = "txtNameEn";
-            this.txtNameEn.Size = new System.Drawing.Size(311, 25);
-            this.txtNameEn.TabIndex = 0;
             // 
             // label8
             // 
@@ -211,17 +214,6 @@ namespace POS_Shop.Products
             this.label8.Size = new System.Drawing.Size(69, 24);
             this.label8.TabIndex = 52;
             this.label8.Text = "Category*";
-            // 
-            // comboBoxCategory
-            // 
-            this.comboBoxCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxCategory.FormattingEnabled = true;
-            this.comboBoxCategory.Location = new System.Drawing.Point(8, 4);
-            this.comboBoxCategory.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.comboBoxCategory.Name = "comboBoxCategory";
-            this.comboBoxCategory.Size = new System.Drawing.Size(309, 32);
-            this.comboBoxCategory.TabIndex = 14;
             // 
             // btnBack
             // 
@@ -304,6 +296,17 @@ namespace POS_Shop.Products
             this.panel6.Size = new System.Drawing.Size(320, 40);
             this.panel6.TabIndex = 53;
             // 
+            // comboBoxCategory
+            // 
+            this.comboBoxCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxCategory.FormattingEnabled = true;
+            this.comboBoxCategory.Location = new System.Drawing.Point(8, 4);
+            this.comboBoxCategory.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.comboBoxCategory.Name = "comboBoxCategory";
+            this.comboBoxCategory.Size = new System.Drawing.Size(309, 32);
+            this.comboBoxCategory.TabIndex = 14;
+            // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -315,18 +318,15 @@ namespace POS_Shop.Products
             this.panel2.Size = new System.Drawing.Size(320, 40);
             this.panel2.TabIndex = 51;
             // 
-            // uploadImageControl
+            // txtNameEn
             // 
-            this.uploadImageControl.FileName = null;
-            this.uploadImageControl.FilePath = null;
-            this.uploadImageControl.Font = new System.Drawing.Font("Kh Battambang", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uploadImageControl.IsAddMode = true;
-            this.uploadImageControl.Location = new System.Drawing.Point(25, 48);
-            this.uploadImageControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uploadImageControl.Name = "uploadImageControl";
-            this.uploadImageControl.PicImage = null;
-            this.uploadImageControl.Size = new System.Drawing.Size(322, 244);
-            this.uploadImageControl.TabIndex = 59;
+            this.txtNameEn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNameEn.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNameEn.Location = new System.Drawing.Point(8, 8);
+            this.txtNameEn.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txtNameEn.Name = "txtNameEn";
+            this.txtNameEn.Size = new System.Drawing.Size(311, 25);
+            this.txtNameEn.TabIndex = 0;
             // 
             // AddNewProduct
             // 

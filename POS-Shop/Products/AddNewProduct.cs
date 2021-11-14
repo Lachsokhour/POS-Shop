@@ -65,10 +65,10 @@ namespace POS_Shop.Products
 
         private Product SetValue()
         {
-            if (txtNameEn.Text == "")
+            if (txtNameKh.Text == "")
             {
                 ShowAlert("Please enter product name.", FormAlertNotification.Type.Warning);
-                txtNameEn.Focus();
+                txtNameKh.Focus();
                 return null;
             }
             else if (txtBarcode.Text == "")
