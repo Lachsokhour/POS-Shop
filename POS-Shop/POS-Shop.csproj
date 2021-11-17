@@ -164,6 +164,12 @@
     <Compile Include="Utils\MyUserControl\ItemProductControl.Designer.cs">
       <DependentUpon>ItemProductControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\MyUserControl\RowDataViewItemControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utils\MyUserControl\RowDataViewItemControl.Designer.cs">
+      <DependentUpon>RowDataViewItemControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\MyUserControl\UploadImageControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -216,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Utils\MyUserControl\ItemProductControl.resx">
       <DependentUpon>ItemProductControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\MyUserControl\RowDataViewItemControl.resx">
+      <DependentUpon>RowDataViewItemControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utils\MyUserControl\UploadImageControl.resx">
       <DependentUpon>UploadImageControl.cs</DependentUpon>
@@ -322,6 +331,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\notfound.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_remove.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

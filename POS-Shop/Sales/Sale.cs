@@ -44,7 +44,7 @@ namespace POS_Shop.Sales
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            
         }
 
 
@@ -52,24 +52,34 @@ namespace POS_Shop.Sales
         {
             var category = (Category)comboBoxCategory.SelectedItem;
             var itemProducts = new Product().readAllByCategoryId(category.Id, txtSearch.Text);
-            if(itemProducts.Count != tableLayoutPanel.Controls.Count)
-            {
-                int c = 1, r = 0;
-                tableLayoutPanel.Controls.Clear();
-                tableLayoutPanel.RowStyles.Clear(); ;
-                tableLayoutPanel.ColumnStyles.Clear();
+            int c = 1, r = 0;
+            tableLayoutPanel.Controls.Clear();
+            tableLayoutPanel.RowStyles.Clear(); ;
+            tableLayoutPanel.ColumnStyles.Clear();
 
-                foreach (var item in itemProducts)
+            foreach (var item in itemProducts)
+            {
+                tableLayoutPanel.Controls.Add(item, c, r);
+                var rowDataView = new RowDataViewItemControl();
+                rowDataView.Dock = DockStyle.Top;
+                panelDataView.Controls.Add(rowDataView);
+                c++;
+                if (c > 3)
                 {
-                    tableLayoutPanel.Controls.Add(item, c, r);
-                    c++;
-                    if (c > 3)
-                    {
-                        c = 1;
-                        r++;
-                    }
+                    c = 1;
+                    r++;
                 }
             }
+            /*ItemProductControl.Rows = GetRows();*/
+            if(ItemProductControl.ItemDetailsStatic != null)
+            {
+                var rowDataView = new RowDataViewItemControl();
+                ItemProductControl.ItemDetailsStatic = rowDataView.ItemDetails;
+
+                rowDataView.Dock = DockStyle.Top;
+                panelDataView.Controls.Add(rowDataView);
+            }
+            
         }
 
         private Exchange LoadValue()
@@ -79,7 +89,6 @@ namespace POS_Shop.Sales
 
         private void comboBoxCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MessageBox.Show(e.ToString());
             LoadProducts();
         }
 
@@ -94,5 +103,10 @@ namespace POS_Shop.Sales
             comboBoxCategory.DisplayMember = "Name";
             comboBoxCategory.ValueMember = "Id";
         }
+
+        /*private DataGridViewRowCollection GetRows()
+        {
+            return dgvOrderDetails.Rows;
+        }*/
     }
 }

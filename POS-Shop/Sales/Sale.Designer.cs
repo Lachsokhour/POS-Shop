@@ -36,12 +36,12 @@ namespace POS_Shop.Sales
             this.label10 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.comboBoxCategory = new System.Windows.Forms.ComboBox();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -54,17 +54,25 @@ namespace POS_Shop.Sales
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.panelOrderDetails = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.TableDataHeader = new System.Windows.Forms.TableLayoutPanel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.panelDataView = new System.Windows.Forms.Panel();
             this.panelSearch.SuspendLayout();
             this.panelInfoExchange.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.panelOrderDetails.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.TableDataHeader.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelSearch
@@ -74,7 +82,6 @@ namespace POS_Shop.Sales
             this.panelSearch.Controls.Add(this.panelInfoExchange);
             this.panelSearch.Controls.Add(this.label10);
             this.panelSearch.Controls.Add(this.panel4);
-            this.panelSearch.Controls.Add(this.btnSearch);
             this.panelSearch.Controls.Add(this.panel3);
             this.panelSearch.Location = new System.Drawing.Point(24, 38);
             this.panelSearch.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
@@ -88,7 +95,7 @@ namespace POS_Shop.Sales
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelInfoExchange.Controls.Add(this.labelInfoExchange);
             this.panelInfoExchange.Controls.Add(this.pictureBox1);
-            this.panelInfoExchange.Location = new System.Drawing.Point(712, 6);
+            this.panelInfoExchange.Location = new System.Drawing.Point(622, 6);
             this.panelInfoExchange.Name = "panelInfoExchange";
             this.panelInfoExchange.Size = new System.Drawing.Size(353, 40);
             this.panelInfoExchange.TabIndex = 26;
@@ -141,30 +148,25 @@ namespace POS_Shop.Sales
             this.comboBoxCategory.TabIndex = 14;
             this.comboBoxCategory.SelectedIndexChanged += new System.EventHandler(this.comboBoxCategory_SelectedIndexChanged);
             // 
-            // btnSearch
-            // 
-            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(158)))), ((int)(((byte)(231)))));
-            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnSearch.FlatAppearance.BorderSize = 0;
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(609, 6);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(69, 40);
-            this.btnSearch.TabIndex = 14;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = false;
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.pictureBox2);
             this.panel3.Controls.Add(this.txtSearch);
             this.panel3.Location = new System.Drawing.Point(349, 6);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(254, 40);
             this.panel3.TabIndex = 6;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::POS_Shop.Properties.Resources.search_11;
+            this.pictureBox2.Location = new System.Drawing.Point(224, 5);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(24, 30);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
             // 
             // txtSearch
             // 
@@ -172,7 +174,7 @@ namespace POS_Shop.Sales
             this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSearch.Location = new System.Drawing.Point(10, 8);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(240, 25);
+            this.txtSearch.Size = new System.Drawing.Size(206, 25);
             this.txtSearch.TabIndex = 0;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -185,30 +187,41 @@ namespace POS_Shop.Sales
             this.label1.TabIndex = 0;
             this.label1.Text = "Sale";
             // 
-            // panel1
+            // tableLayoutPanel
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Location = new System.Drawing.Point(643, 105);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(449, 471);
-            this.panel1.TabIndex = 3;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tableLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(4, 4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(442, 251);
-            this.dataGridView1.TabIndex = 18;
+            this.tableLayoutPanel.AutoScroll = true;
+            this.tableLayoutPanel.ColumnCount = 3;
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 185F));
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 185F));
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 190F));
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel.Location = new System.Drawing.Point(24, 105);
+            this.tableLayoutPanel.Name = "tableLayoutPanel";
+            this.tableLayoutPanel.RowCount = 2;
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 230F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 230F));
+            this.tableLayoutPanel.Size = new System.Drawing.Size(560, 459);
+            this.tableLayoutPanel.TabIndex = 4;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(158)))), ((int)(((byte)(231)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(406, 428);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(93, 40);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Check out";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel2
             // 
@@ -224,7 +237,7 @@ namespace POS_Shop.Sales
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(4, 261);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(442, 152);
+            this.panel2.Size = new System.Drawing.Size(479, 152);
             this.panel2.TabIndex = 17;
             // 
             // label3
@@ -329,41 +342,96 @@ namespace POS_Shop.Sales
             this.label2.TabIndex = 21;
             this.label2.Text = "Discount";
             // 
-            // button1
+            // panelOrderDetails
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(158)))), ((int)(((byte)(231)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(353, 428);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(93, 40);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Check out";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.panelOrderDetails.Controls.Add(this.panelDataView);
+            this.panelOrderDetails.Controls.Add(this.TableDataHeader);
+            this.panelOrderDetails.Location = new System.Drawing.Point(1, 4);
+            this.panelOrderDetails.Name = "panelOrderDetails";
+            this.panelOrderDetails.Size = new System.Drawing.Size(498, 255);
+            this.panelOrderDetails.TabIndex = 18;
             // 
-            // tableLayoutPanel
+            // panel1
             // 
-            this.tableLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel.AutoScroll = true;
-            this.tableLayoutPanel.ColumnCount = 5;
-            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 185F));
-            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 185F));
-            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 185F));
-            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tableLayoutPanel.Location = new System.Drawing.Point(24, 105);
-            this.tableLayoutPanel.Name = "tableLayoutPanel";
-            this.tableLayoutPanel.RowCount = 2;
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 230F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 230F));
-            this.tableLayoutPanel.Size = new System.Drawing.Size(603, 459);
-            this.tableLayoutPanel.TabIndex = 4;
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.panelOrderDetails);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Location = new System.Drawing.Point(590, 105);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(502, 471);
+            this.panel1.TabIndex = 3;
+            // 
+            // TableDataHeader
+            // 
+            this.TableDataHeader.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.TableDataHeader.ColumnCount = 4;
+            this.TableDataHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
+            this.TableDataHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.TableDataHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 86F));
+            this.TableDataHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 82F));
+            this.TableDataHeader.Controls.Add(this.label11, 0, 0);
+            this.TableDataHeader.Controls.Add(this.label12, 1, 0);
+            this.TableDataHeader.Controls.Add(this.label13, 2, 0);
+            this.TableDataHeader.Controls.Add(this.label14, 3, 0);
+            this.TableDataHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TableDataHeader.Location = new System.Drawing.Point(0, 0);
+            this.TableDataHeader.Name = "TableDataHeader";
+            this.TableDataHeader.RowCount = 1;
+            this.TableDataHeader.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.TableDataHeader.Size = new System.Drawing.Size(498, 39);
+            this.TableDataHeader.TabIndex = 0;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label11.Location = new System.Drawing.Point(4, 1);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(154, 37);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Product Name";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label12.Location = new System.Drawing.Point(165, 1);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(94, 37);
+            this.label12.TabIndex = 1;
+            this.label12.Text = "Qty";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label13.Location = new System.Drawing.Point(266, 1);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(80, 37);
+            this.label13.TabIndex = 2;
+            this.label13.Text = "Unit Price";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label14.Location = new System.Drawing.Point(353, 1);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(141, 37);
+            this.label14.TabIndex = 3;
+            this.label14.Text = "Total";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panelDataView
+            // 
+            this.panelDataView.Location = new System.Drawing.Point(3, 41);
+            this.panelDataView.Name = "panelDataView";
+            this.panelDataView.Size = new System.Drawing.Size(495, 210);
+            this.panelDataView.TabIndex = 1;
             // 
             // SaleForm
             // 
@@ -387,11 +455,14 @@ namespace POS_Shop.Sales
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel6.ResumeLayout(false);
+            this.panelOrderDetails.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.TableDataHeader.ResumeLayout(false);
+            this.TableDataHeader.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -400,31 +471,37 @@ namespace POS_Shop.Sales
         #endregion
 
         private System.Windows.Forms.Panel panelSearch;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.ComboBox comboBoxDiscount;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label labelSubTotal;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.ComboBox comboBoxCategory;
         private System.Windows.Forms.Panel panelInfoExchange;
         private System.Windows.Forms.Label labelInfoExchange;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.ComboBox comboBoxDiscount;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label labelSubTotal;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panelOrderDetails;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TableLayoutPanel TableDataHeader;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Panel panelDataView;
     }
 }

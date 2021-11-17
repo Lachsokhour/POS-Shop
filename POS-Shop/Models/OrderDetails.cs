@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace POS_Shop.Models
 {
-    class OrderDetails
+    public class OrderDetails
     {
-        public string Barcode { get; set; }
+        public int ProductId { get; set; }
         public string ProductName { get; set; }
         public int Qty { get; set; }
         public double UnitPrice { get; set; }
@@ -16,9 +16,9 @@ namespace POS_Shop.Models
 
         public OrderDetails() { }
 
-        public OrderDetails(string barcode, string productName, int qty, double unitPrice)
+        public OrderDetails(int prodId, string productName, int qty, double unitPrice)
         {
-            Barcode = barcode;
+            ProductId = prodId;
             ProductName = productName;
             Qty = qty;
             UnitPrice = unitPrice;
