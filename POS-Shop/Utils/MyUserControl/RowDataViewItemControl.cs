@@ -1,4 +1,5 @@
-﻿using System;
+﻿using POS_Shop.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,16 @@ namespace POS_Shop.Utils.MyUserControl
         public RowDataViewItemControl()
         {
             InitializeComponent();
+            setValueToProperties();
+            Qty = 0;
+            labelQty.Text = Qty.ToString();
+        }
+
+        public RowDataViewItemControl(OrderDetails orderDetails)
+        {
+            ItemDetails = orderDetails;
+            InitializeComponent();
+            setValueToProperties();
             Qty = 0;
             labelQty.Text = Qty.ToString();
         }
@@ -32,6 +43,17 @@ namespace POS_Shop.Utils.MyUserControl
             {
                 Qty--;
                 labelQty.Text = Qty.ToString();
+            }
+        }
+
+        private void setValueToProperties()
+        {
+            if(ItemDetails != null)
+            {
+                labelProductName.Text = ItemDetails.ProductName;
+                labelQty.Text = ItemDetails.Qty.ToString();
+                labelUnitPrice.Text = ItemDetails.UnitPrice.ToString();
+                labelTotalAmount.Text = ItemDetails.Amount.ToString();
             }
         }
     }

@@ -40,11 +40,12 @@ namespace POS_Shop.Utils.MyUserControl
         {
         }
 
-        private void picOrder_Click(object sender, EventArgs e)
+        public void picOrder_Click(object sender, EventArgs e)
         {
-            Qty++;
-            ItemDetails.Qty = Qty;
+            
+            ItemDetails.Qty = Qty++;
             ItemDetailsStatic = ItemDetails;
+            MessageBox.Show(ItemDetails.ToString());
             //Rows.Add(LabelProductName, LabelPrice, Qty, LabelPrice);    
         }
 

@@ -151,5 +151,6 @@ namespace POS_Shop.Utils.MyUserControl
         public static DataGridViewRowCollection Rows { get; set; }
         public OrderDetails ItemDetails { get; set; }
         public static OrderDetails ItemDetailsStatic { get; set; }
+        public PictureBox PicOrder { get => picOrder; set => picOrder = value; }
     }
 }
