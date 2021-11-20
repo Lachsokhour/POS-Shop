@@ -17,13 +17,14 @@ namespace POS_Shop.Sales
         public SaleForm()
         {
             InitializeComponent();
-            LoadCategory();
-            LoadDicount();
         }
 
         private void SaleForm_Load(object sender, EventArgs e)
         {
+            LoadCategory();
+            LoadDicount();
             LoadProducts();
+            
 
             // Exchange
             var exchange = LoadValue();
@@ -56,22 +57,20 @@ namespace POS_Shop.Sales
             tableLayoutPanel.RowStyles.Clear(); ;
             tableLayoutPanel.ColumnStyles.Clear();
 
-            for (int i = 0; i < itemProducts.Count; i++)
+            foreach (var item in itemProducts)
             {
-                tableLayoutPanel.Controls.Add(itemProducts[i], c, r);
-                itemProducts[i].PicOrder.Click += new EventHandler(UserControl_Click);
-                /*var rowDataView = new RowDataViewItemControl();
+                tableLayoutPanel.Controls.Add(item, c, r);
+                var rowDataView = new RowDataViewItemControl();
                 rowDataView.Dock = DockStyle.Top;
-                panelDataView.Controls.Add(rowDataView);*/
+                panelDataView.Controls.Add(rowDataView);
                 c++;
                 if (c > 3)
                 {
                     c = 1;
                     r++;
                 }
-                
             }
-            /*ItemProductControl.Rows = GetRows();*//*
+            /*ItemProductControl.Rows = GetRows();*/
             if(ItemProductControl.ItemDetailsStatic != null)
             {
                 var rowDataView = new RowDataViewItemControl();
@@ -79,24 +78,8 @@ namespace POS_Shop.Sales
 
                 rowDataView.Dock = DockStyle.Top;
                 panelDataView.Controls.Add(rowDataView);
-            }*/
-            
-        }
-
-        void UserControl_Click(object sender, EventArgs e)
-        {
-
-            //ItemProductControl item = (ItemProductControl)sender;
-            var itemDetails = ItemProductControl.ItemDetailsStatic;
-
-            if (itemDetails != null)
-            {
-                var rowDataView = new RowDataViewItemControl(itemDetails);
-
-
-                rowDataView.Dock = DockStyle.Top;
-                panelDataView.Controls.Add(rowDataView);
             }
+            
         }
 
         private Exchange LoadValue()

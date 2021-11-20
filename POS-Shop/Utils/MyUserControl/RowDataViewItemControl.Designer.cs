@@ -72,8 +72,8 @@ namespace POS_Shop.Utils.MyUserControl
             // 
             // picRemove
             // 
-            this.picRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.picRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.picRemove.Image = global::POS_Shop.Properties.Resources.icon_remove;
             this.picRemove.Location = new System.Drawing.Point(153, 3);
@@ -86,8 +86,8 @@ namespace POS_Shop.Utils.MyUserControl
             // 
             // picAdd
             // 
-            this.picAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.picAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.picAdd.Image = global::POS_Shop.Properties.Resources.add_1;
             this.picAdd.Location = new System.Drawing.Point(208, 3);
@@ -111,8 +111,8 @@ namespace POS_Shop.Utils.MyUserControl
             // 
             // labelUnitPrice
             // 
-            this.labelUnitPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.labelUnitPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelUnitPrice.AutoSize = true;
             this.labelUnitPrice.Location = new System.Drawing.Point(233, 0);
@@ -124,8 +124,8 @@ namespace POS_Shop.Utils.MyUserControl
             // 
             // labelQty
             // 
-            this.labelQty.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.labelQty.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelQty.AutoSize = true;
             this.labelQty.Location = new System.Drawing.Point(178, 0);
@@ -137,8 +137,8 @@ namespace POS_Shop.Utils.MyUserControl
             // 
             // labelTotalAmount
             // 
-            this.labelTotalAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.labelTotalAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelTotalAmount.AutoSize = true;
             this.labelTotalAmount.Location = new System.Drawing.Point(323, 0);
@@ -174,15 +174,19 @@ namespace POS_Shop.Utils.MyUserControl
         private System.Windows.Forms.Label labelTotalAmount;
         private System.Windows.Forms.Label labelQty;
 
-        public OrderDetails ItemDetails
-        {
-            get; set;
-        }
+        public OrderDetails ItemDetails { 
+            get {
+                labelProductName.Text = ItemDetails.ProductName;
+                labelQty.Text = ItemDetails.Qty.ToString();
+                labelUnitPrice.Text = ItemDetails.UnitPrice.ToString();
+                labelTotalAmount.Text = ItemDetails.Amount.ToString();
+                return ItemDetails;
+            } set { } }
         public string ProName { get => labelProductName.Text; set => labelProductName.Text = value; }
         public int ProId { get; set; }
         public string UnitPrice { get => labelUnitPrice.Text; set => labelUnitPrice.Text = value; }
         public int Qty { get => int.Parse(labelQty.Text); set => labelQty.Text = value.ToString(); }
         public string TotalAmount { get => labelTotalAmount.Text; set => labelTotalAmount.Text = value; }
-
+        
     }
 }
