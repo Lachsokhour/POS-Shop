@@ -13,5 +13,10 @@ namespace POS_Shop.Utils
         public const string DateTimeWithoutHour = "dd-MM-yyyy";
         public const string DateTimetHour = "hh:mm:ss";
         public const string FileFilter = "Image Only(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png";
+
+        public static string ConvertStringToCurrency(string value)
+        {
+            return string.Format("${0:#.00}", Convert.ToDecimal(value));
+        }
     }
 }

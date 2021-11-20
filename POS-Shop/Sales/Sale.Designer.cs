@@ -55,13 +55,13 @@ namespace POS_Shop.Sales
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panelOrderDetails = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelDataView = new System.Windows.Forms.Panel();
             this.TableDataHeader = new System.Windows.Forms.TableLayoutPanel();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.panelDataView = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panelSearch.SuspendLayout();
             this.panelInfoExchange.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -71,8 +71,8 @@ namespace POS_Shop.Sales
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panelOrderDetails.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.TableDataHeader.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelSearch
@@ -193,13 +193,15 @@ namespace POS_Shop.Sales
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel.AutoScroll = true;
-            this.tableLayoutPanel.ColumnCount = 3;
+            this.tableLayoutPanel.ColumnCount = 5;
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 185F));
             this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 185F));
-            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 190F));
-            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 185F));
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel.Location = new System.Drawing.Point(24, 105);
+            this.tableLayoutPanel.MaximumSize = new System.Drawing.Size(560, 459);
+            this.tableLayoutPanel.MinimumSize = new System.Drawing.Size(560, 459);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
             this.tableLayoutPanel.RowCount = 2;
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 230F));
@@ -351,25 +353,22 @@ namespace POS_Shop.Sales
             this.panelOrderDetails.Size = new System.Drawing.Size(498, 255);
             this.panelOrderDetails.TabIndex = 18;
             // 
-            // panel1
+            // panelDataView
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.panelOrderDetails);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Location = new System.Drawing.Point(590, 105);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(502, 471);
-            this.panel1.TabIndex = 3;
+            this.panelDataView.AutoScroll = true;
+            this.panelDataView.Location = new System.Drawing.Point(3, 41);
+            this.panelDataView.Name = "panelDataView";
+            this.panelDataView.Size = new System.Drawing.Size(495, 210);
+            this.panelDataView.TabIndex = 1;
             // 
             // TableDataHeader
             // 
             this.TableDataHeader.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.TableDataHeader.ColumnCount = 4;
-            this.TableDataHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
+            this.TableDataHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170F));
             this.TableDataHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.TableDataHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 86F));
-            this.TableDataHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 82F));
+            this.TableDataHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.TableDataHeader.Controls.Add(this.label11, 0, 0);
             this.TableDataHeader.Controls.Add(this.label12, 1, 0);
             this.TableDataHeader.Controls.Add(this.label13, 2, 0);
@@ -388,7 +387,7 @@ namespace POS_Shop.Sales
             this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label11.Location = new System.Drawing.Point(4, 1);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(154, 37);
+            this.label11.Size = new System.Drawing.Size(164, 37);
             this.label11.TabIndex = 0;
             this.label11.Text = "Product Name";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -397,7 +396,7 @@ namespace POS_Shop.Sales
             // 
             this.label12.AutoSize = true;
             this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label12.Location = new System.Drawing.Point(165, 1);
+            this.label12.Location = new System.Drawing.Point(175, 1);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(94, 37);
             this.label12.TabIndex = 1;
@@ -408,7 +407,7 @@ namespace POS_Shop.Sales
             // 
             this.label13.AutoSize = true;
             this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label13.Location = new System.Drawing.Point(266, 1);
+            this.label13.Location = new System.Drawing.Point(276, 1);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(80, 37);
             this.label13.TabIndex = 2;
@@ -419,19 +418,23 @@ namespace POS_Shop.Sales
             // 
             this.label14.AutoSize = true;
             this.label14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label14.Location = new System.Drawing.Point(353, 1);
+            this.label14.Location = new System.Drawing.Point(363, 1);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(141, 37);
+            this.label14.Size = new System.Drawing.Size(131, 37);
             this.label14.TabIndex = 3;
             this.label14.Text = "Total";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panelDataView
+            // panel1
             // 
-            this.panelDataView.Location = new System.Drawing.Point(3, 41);
-            this.panelDataView.Name = "panelDataView";
-            this.panelDataView.Size = new System.Drawing.Size(495, 210);
-            this.panelDataView.TabIndex = 1;
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.panelOrderDetails);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Location = new System.Drawing.Point(590, 105);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(502, 471);
+            this.panel1.TabIndex = 3;
             // 
             // SaleForm
             // 
@@ -460,9 +463,9 @@ namespace POS_Shop.Sales
             this.panel2.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panelOrderDetails.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
             this.TableDataHeader.ResumeLayout(false);
             this.TableDataHeader.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

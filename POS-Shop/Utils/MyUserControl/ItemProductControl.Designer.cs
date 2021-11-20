@@ -144,12 +144,13 @@ namespace POS_Shop.Utils.MyUserControl
 
         public Image ProImage { get => picProImage.Image; set => picProImage.Image = value; }
         public string LabelProductName { get => labelProductName.Text; set => labelProductName.Text = value; }
-        public string LabelPrice { get => labelPrice.Text; set => labelPrice.Text = value; }
+        public string LabelPrice { get => labelPrice.Text; set => labelPrice.Text = FormatUtils.ConvertStringToCurrency(value); }
         public int ProductId { get; set; }
         public int Qty { get; set; }
         public string LabelBarcode { get => labelBarcode.Text; set => labelBarcode.Text = value; }
         public static DataGridViewRowCollection Rows { get; set; }
         public OrderDetails ItemDetails { get; set; }
         public static OrderDetails ItemDetailsStatic { get; set; }
+        public PictureBox PicOrder { get => picOrder; set => picOrder = value; }
     }
 }
