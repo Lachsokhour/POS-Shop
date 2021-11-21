@@ -18,6 +18,7 @@ namespace POS_Shop.Utils.Constants
         public const string PriceOut = "@PriceOut";
         public const string Barcode = "@Barcode";
         public const string Filter = "@Filter";
+        public const string CreatedBy = "@CreatedBy";
 
         public const string CreateProductStoreProcedure = "CreateProduct";
         public const string UpdateProductStoreProcedure = "UpdateProduct";

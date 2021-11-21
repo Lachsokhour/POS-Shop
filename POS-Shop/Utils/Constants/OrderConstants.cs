@@ -13,6 +13,7 @@ namespace POS_Shop.Utils.Constants
         public const string Exchange = "@Exchange";
         public const string SubTotal = "@SubTotal";
         public const string Amount = "@Amount";
+        public const string CreatedBy = "@CreatedBy";
 
         public const string CreateOrderStoreProcedure = "CreateOrder";
     }

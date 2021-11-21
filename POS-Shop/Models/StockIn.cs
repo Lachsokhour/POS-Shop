@@ -73,6 +73,7 @@ namespace POS_Shop.Models
                 sqlCmd.Parameters.AddWithValue(StockInConstants.Note, note);
                 sqlCmd.Parameters.AddWithValue(StockInConstants.ProductId, productId);
                 sqlCmd.Parameters.AddWithValue(StockInConstants.IsDefindDateExpired, isDefindDateExpired);
+                sqlCmd.Parameters.AddWithValue(StockInConstants.CreatedBy, CreatedBy);
                 sqlCmd.ExecuteNonQuery();
                 conn.Close();
                 if (id == 0)

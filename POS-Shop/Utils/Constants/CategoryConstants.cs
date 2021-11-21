@@ -14,11 +14,12 @@ namespace POS_Shop.Utils
         public const string Photo = "@Photo";
         public const string FilePath = "@FilePath";
         public const string Note = "@Note";
+        public const string CreatedBy = "@CreatedBy";
 
-        public static string CreateCategoryStoreProcedure = "CreateCategory";
-        public static string SelectAllCategoryStoreProcedure = "SelectAllCategory";
-        public static string DeleteCategoryStoreProcedure = "DeleteCategoryById";
-        public static string UpdateCategoryStoreProcedure = "UpdateCategory";
-        public static string ValidateCategoryNameStoreProcedure = "ValidateCategoryName";
+        public const string CreateCategoryStoreProcedure = "CreateCategory";
+        public const string SelectAllCategoryStoreProcedure = "SelectAllCategory";
+        public const string DeleteCategoryStoreProcedure = "DeleteCategoryById";
+        public const string UpdateCategoryStoreProcedure = "UpdateCategory";
+        public const string ValidateCategoryNameStoreProcedure = "ValidateCategoryName";
     }
 }

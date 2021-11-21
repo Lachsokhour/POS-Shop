@@ -51,6 +51,7 @@ namespace POS_Shop.Models
                 sqlCmd.Parameters.AddWithValue(OrderConstants.Amount, Order.Amount);
                 sqlCmd.Parameters.AddWithValue(OrderConstants.Discount, Order.Discount);
                 sqlCmd.Parameters.AddWithValue(OrderConstants.Exchange, Order.Exchange);
+                sqlCmd.Parameters.AddWithValue(OrderConstants.CreatedBy, CreatedBy);
                 var result =  (int)sqlCmd.ExecuteScalar();
                 conn.Close();
                 sqlCmd.Dispose();

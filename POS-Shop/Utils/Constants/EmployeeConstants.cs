@@ -16,6 +16,7 @@ namespace POS_Shop.Utils.Constants
         public const string PositionId = "@PositionId";
         public const string Phone = "@Phone";
         public const string Username = "@Username";
+        public const string CreatedBy = "@CreatedBy";
 
         public const string CreateEmployeeStoreProcedure = "CreateEmployee";
         public const string SelectAllEmployeeStoreProcedure = "SelectAllEmployee";

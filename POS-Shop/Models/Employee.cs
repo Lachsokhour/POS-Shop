@@ -87,6 +87,7 @@ namespace POS_Shop.Models
                 sqlCmd.Parameters.AddWithValue(EmployeeConstants.Password, password);
                 sqlCmd.Parameters.AddWithValue(EmployeeConstants.Address, address);
                 sqlCmd.Parameters.AddWithValue(EmployeeConstants.PositionId, positionId);
+                sqlCmd.Parameters.AddWithValue(EmployeeConstants.CreatedBy, CreatedBy);
                 sqlCmd.ExecuteNonQuery();
                 conn.Close();
                 ShowAlert("Created successfully.", FormAlertNotification.Type.Success);
@@ -147,6 +148,7 @@ namespace POS_Shop.Models
                 sqlCmd.Parameters.AddWithValue(EmployeeConstants.Password, password);
                 sqlCmd.Parameters.AddWithValue(EmployeeConstants.Address, address);
                 sqlCmd.Parameters.AddWithValue(EmployeeConstants.PositionId, positionId);
+                sqlCmd.Parameters.AddWithValue(EmployeeConstants.CreatedBy, CreatedBy);
                 sqlCmd.ExecuteNonQuery();
                 conn.Close();
                 ShowAlert("Updated successfully.", FormAlertNotification.Type.Success);

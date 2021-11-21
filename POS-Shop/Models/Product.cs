@@ -83,6 +83,7 @@ namespace POS_Shop.Models
                 sqlCmd.Parameters.AddWithValue(ProductConstants.CategoryId, categoryId);
                 sqlCmd.Parameters.AddWithValue(ProductConstants.Note, note);
                 sqlCmd.Parameters.AddWithValue(ProductConstants.PriceOut, priceOut);
+                sqlCmd.Parameters.AddWithValue(ProductConstants.CreatedBy, CreatedBy);
                 sqlCmd.ExecuteNonQuery();
                 sqlCmd.Dispose();
                 conn.Close();
@@ -113,6 +114,7 @@ namespace POS_Shop.Models
                 sqlCmd.Parameters.AddWithValue(ProductConstants.CategoryId, categoryId);
                 sqlCmd.Parameters.AddWithValue(ProductConstants.Note, note);
                 sqlCmd.Parameters.AddWithValue(ProductConstants.PriceOut, priceOut);
+                sqlCmd.Parameters.AddWithValue(ProductConstants.CreatedBy, CreatedBy);
                 sqlCmd.ExecuteNonQuery();
                 sqlCmd.Dispose();
                 conn.Close();
