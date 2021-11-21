@@ -56,6 +56,7 @@ namespace POS_Shop.Products
             gridProduct.Columns["FilePath"].Visible = false;
             gridProduct.Columns["CategoryId"].Visible = false;
             gridProduct.Columns["UpdatedAt"].Visible = false;
+            gridProduct.Columns["CreatedBy"].Visible = false;
 
             // move index
             gridProduct.Columns["ProImage"].DisplayIndex = 0;

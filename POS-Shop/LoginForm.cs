@@ -54,6 +54,7 @@ namespace POS_Shop
                     Properties.Settings.Default.password = txtPassword.Text;
                     Properties.Settings.Default.isLogin = true;
                     Properties.Settings.Default.position = employee.Position;
+                    Properties.Settings.Default.userId = employee.Id;
                     Properties.Settings.Default.Save();
                     this.Close();
                 }

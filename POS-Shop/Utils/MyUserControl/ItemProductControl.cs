@@ -47,10 +47,5 @@ namespace POS_Shop.Utils.MyUserControl
             LableItemsStatic = int.Parse(labelItems.Text);
             //Rows.Add(LabelProductName, LabelPrice, Qty, LabelPrice);    
         }
-
-        private void labelPrice_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

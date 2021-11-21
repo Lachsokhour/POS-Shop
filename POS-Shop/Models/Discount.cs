@@ -32,7 +32,5 @@ namespace POS_Shop.Models
                 new Discount(0.2, "20%")
             };
         }
-
-
     }
 }

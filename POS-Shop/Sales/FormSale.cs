@@ -43,17 +43,12 @@ namespace POS_Shop.Sales
             comboBoxDiscount.DisplayMember = "Text";
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
 
         private void LoadProducts()
         {
             var category = (Category)comboBoxCategory.SelectedItem;
             var itemProducts = new Product().readAllByCategoryId(category.Id, txtSearch.Text);
-            int c = 1, r = 0;
+            int c = 0, r = 0;
             tableLayoutPanel.Controls.Clear();
             tableLayoutPanel.RowStyles.Clear(); ;
             tableLayoutPanel.ColumnStyles.Clear();
@@ -64,9 +59,9 @@ namespace POS_Shop.Sales
                 itemProducts[i].PicOrder.Click += new EventHandler(UserControl_Click);
 
                 c++;
-                if (c > 3)
+                if (c > 2)
                 {
-                    c = 1;
+                    c = 0;
                     r++;
                 }
             }
@@ -121,7 +116,7 @@ namespace POS_Shop.Sales
             comboBoxCategory.ValueMember = "Id";
         }
 
-        private List<RowDataViewItemControl> rowDataViewItemControls()
+        private List<RowDataViewItemControl> RowDataViewItemControls()
         {
             List<RowDataViewItemControl> items = new List<RowDataViewItemControl>();
             foreach (var control in panelDataView.Controls)
@@ -145,7 +140,7 @@ namespace POS_Shop.Sales
 
         private bool FindProductByIdList(RowDataViewItemControl rowData)
         {
-            var items = rowDataViewItemControls();
+            var items = RowDataViewItemControls();
             for (int i = 0; i < items.Count; i++)
             {
                 if (items[i].ItemDetails.ProductId == rowData.ItemDetails.ProductId)
@@ -160,7 +155,7 @@ namespace POS_Shop.Sales
 
         private void RemoveItem()
         {
-            var items = rowDataViewItemControls();
+            var items = RowDataViewItemControls();
             for (int i = 0; i < items.Count; i++)
             {
                 if (items[i].ItemDetails.Qty == 0)
@@ -173,17 +168,14 @@ namespace POS_Shop.Sales
 
         private void CalcSale()
         {
-            var items = rowDataViewItemControls();
+            var items = RowDataViewItemControls();
             float subTotal = 0;
             var selectedDis = (Discount)comboBoxDiscount.SelectedItem;
             var discount = selectedDis.Value;
             var exchangeRiel = new Exchange().SelectFirstExchange().Riel;
             if (items.Count == 0)
             {
-                labelSubTotal.Text = "$0";
-                labelAmount.Text = "$0";
-                labelDiscounts.Text = "$0";
-                labelRiel.Text = "0 riel";
+                ClearOrder();
             }
             foreach (var item in items)
             {
@@ -208,6 +200,43 @@ namespace POS_Shop.Sales
         private void comboBoxDiscount_SelectedIndexChanged(object sender, EventArgs e)
         {
             CalcSale();
+        }
+
+        private void btnCheckOut_Click(object sender, EventArgs e)
+        {
+            List<OrderDetails> details = new List<OrderDetails>();
+            if(order.Amount > 0)
+            {
+                foreach (var item in RowDataViewItemControls())
+                {
+                    details.Add(item.ItemDetails);
+                }
+
+                Sale saleInvoice = new Sale(order, details);
+                if(saleInvoice.create())
+                {
+                    ClearValue();
+                }
+            }
+            else
+            {
+                ShowAlert("No items.", FormAlertNotification.Type.Warning);
+            }
+        }
+
+        private void ClearValue()
+        {
+            panelDataView.Controls.Clear();
+            ClearOrder();
+        }
+
+        private void ClearOrder()
+        {
+            labelSubTotal.Text = "$0";
+            labelAmount.Text = "$0";
+            labelDiscounts.Text = "$0";
+            labelRiel.Text = "0 riel";
+            order = new Order();
         }
     }
 }

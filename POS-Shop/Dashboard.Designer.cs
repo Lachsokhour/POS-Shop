@@ -34,6 +34,8 @@ namespace POS_Shop.Sales
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panelShowDashboard = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.labelCountProduct = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -45,8 +47,6 @@ namespace POS_Shop.Sales
             this.btnSummaryItem = new System.Windows.Forms.Button();
             this.btnDetailSale = new System.Windows.Forms.Button();
             this.btnStartSale = new System.Windows.Forms.Button();
-            this.labelCountProduct = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.panelShowWelcome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panelShowDashboard.SuspendLayout();
@@ -112,6 +112,27 @@ namespace POS_Shop.Sales
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(200, 84);
             this.panel8.TabIndex = 4;
+            this.panel8.Click += new System.EventHandler(this.panel8_Click);
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.Location = new System.Drawing.Point(56, 57);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(95, 15);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Total Items";
+            // 
+            // labelCountProduct
+            // 
+            this.labelCountProduct.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelCountProduct.Font = new System.Drawing.Font("Fira Mono", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCountProduct.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(93)))), ((int)(((byte)(93)))));
+            this.labelCountProduct.Location = new System.Drawing.Point(86, 20);
+            this.labelCountProduct.Name = "labelCountProduct";
+            this.labelCountProduct.Size = new System.Drawing.Size(34, 24);
+            this.labelCountProduct.TabIndex = 0;
+            this.labelCountProduct.Text = "60";
             // 
             // panel7
             // 
@@ -249,26 +270,6 @@ namespace POS_Shop.Sales
             this.btnStartSale.Click += new System.EventHandler(this.btnStartSale_Click);
             this.btnStartSale.MouseLeave += new System.EventHandler(this.btnStartSale_MouseLeave);
             this.btnStartSale.MouseHover += new System.EventHandler(this.btnStartSale_MouseHover);
-            // 
-            // labelCountProduct
-            // 
-            this.labelCountProduct.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelCountProduct.Font = new System.Drawing.Font("Fira Mono", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCountProduct.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(93)))), ((int)(((byte)(93)))));
-            this.labelCountProduct.Location = new System.Drawing.Point(86, 20);
-            this.labelCountProduct.Name = "labelCountProduct";
-            this.labelCountProduct.Size = new System.Drawing.Size(34, 24);
-            this.labelCountProduct.TabIndex = 0;
-            this.labelCountProduct.Text = "60";
-            // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label6.Location = new System.Drawing.Point(56, 57);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(95, 15);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Total Items";
             // 
             // Dashboard
             // 

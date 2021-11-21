@@ -56,6 +56,7 @@ namespace POS_Shop.Stock
             gridStockIn.Columns["ProductId"].Visible = false;
             gridStockIn.Columns["UpdatedAt"].Visible = false;
             gridStockIn.Columns["IsDefindDateExpired"].Visible = false;
+            gridStockIn.Columns["CreatedBy"].Visible = false;
 
             // Change format
             gridStockIn.Columns["DateIn"].DefaultCellStyle.Format = FormatUtils.dateTime;

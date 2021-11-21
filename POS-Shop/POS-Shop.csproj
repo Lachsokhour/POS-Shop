@@ -70,6 +70,7 @@
     <Compile Include="Models\OrderDetails.cs" />
     <Compile Include="Models\Position.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Sale.cs" />
     <Compile Include="Models\StockIn.cs" />
     <Compile Include="Models\UserLogin.cs" />
     <Compile Include="ParentForm.cs">
@@ -117,11 +118,11 @@
     <Compile Include="Reports\ReportForm.Designer.cs">
       <DependentUpon>ReportForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sales\Sale.cs">
+    <Compile Include="Sales\FormSale.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sales\Sale.Designer.cs">
-      <DependentUpon>Sale.cs</DependentUpon>
+    <Compile Include="Sales\FormSale.Designer.cs">
+      <DependentUpon>FormSale.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings\FormExchange.cs">
       <SubType>Form</SubType>
@@ -143,6 +144,8 @@
     </Compile>
     <Compile Include="Utils\Constants\EmployeeConstants.cs" />
     <Compile Include="Utils\Constants\ExchangeConstants.cs" />
+    <Compile Include="Utils\Constants\OrderConstants.cs" />
+    <Compile Include="Utils\Constants\OrderDetailsConstants.cs" />
     <Compile Include="Utils\Constants\ProductConstants.cs" />
     <Compile Include="Utils\Constants\StockInConstants.cs" />
     <Compile Include="Utils\FileStorageUtils.cs" />
@@ -205,8 +208,8 @@
     <EmbeddedResource Include="Reports\ReportForm.resx">
       <DependentUpon>ReportForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sales\Sale.resx">
-      <DependentUpon>Sale.cs</DependentUpon>
+    <EmbeddedResource Include="Sales\FormSale.resx">
+      <DependentUpon>FormSale.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\FormExchange.resx">
       <DependentUpon>FormExchange.cs</DependentUpon>

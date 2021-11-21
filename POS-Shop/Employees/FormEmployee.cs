@@ -110,6 +110,7 @@ namespace POS_Shop.Employees
             gridEmployee.Columns["PositionId"].Visible = false;
             gridEmployee.Columns["Password"].Visible = false;
             gridEmployee.Columns["UpdatedAt"].Visible = false;
+            gridEmployee.Columns["CreatedBy"].Visible = false;
 
             // change header name
             gridEmployee.Columns["NameEn"].HeaderText = "Username (En)";

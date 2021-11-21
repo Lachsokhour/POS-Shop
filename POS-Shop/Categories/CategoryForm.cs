@@ -124,6 +124,7 @@ namespace POS_Shop.Categories
             gridCategory.Columns["FilePath"].Visible = false;
             gridCategory.Columns["Photo"].Visible = false;
             gridCategory.Columns["UpdatedAt"].Visible = false;
+            gridCategory.Columns["CreatedBy"].Visible = false;
 
             // change header
             gridCategory.Columns["CateImage"].HeaderText = "Photo";
