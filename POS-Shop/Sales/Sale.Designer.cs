@@ -270,44 +270,47 @@ namespace POS_Shop.Sales
             this.comboBoxDiscount.Name = "comboBoxDiscount";
             this.comboBoxDiscount.Size = new System.Drawing.Size(223, 32);
             this.comboBoxDiscount.TabIndex = 14;
+            this.comboBoxDiscount.SelectedIndexChanged += new System.EventHandler(this.comboBoxDiscount_SelectedIndexChanged);
             // 
             // labelAmount
             // 
             this.labelAmount.AutoSize = true;
-            this.labelAmount.Font = new System.Drawing.Font("Kh Battambang", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAmount.Font = new System.Drawing.Font("Kh Battambang", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAmount.ForeColor = System.Drawing.Color.LightSeaGreen;
             this.labelAmount.Location = new System.Drawing.Point(99, 113);
             this.labelAmount.Name = "labelAmount";
-            this.labelAmount.Size = new System.Drawing.Size(62, 29);
+            this.labelAmount.Size = new System.Drawing.Size(33, 29);
             this.labelAmount.TabIndex = 19;
-            this.labelAmount.Text = "$20.00";
+            this.labelAmount.Text = "$0";
             // 
             // labelSubTotal
             // 
             this.labelSubTotal.AutoSize = true;
             this.labelSubTotal.Location = new System.Drawing.Point(100, 81);
             this.labelSubTotal.Name = "labelSubTotal";
-            this.labelSubTotal.Size = new System.Drawing.Size(49, 24);
+            this.labelSubTotal.Size = new System.Drawing.Size(24, 24);
             this.labelSubTotal.TabIndex = 19;
-            this.labelSubTotal.Text = "$20.00";
+            this.labelSubTotal.Text = "$0";
             // 
             // labelRiel
             // 
             this.labelRiel.AutoSize = true;
-            this.labelRiel.Font = new System.Drawing.Font("Kh Battambang", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRiel.Font = new System.Drawing.Font("Kh Battambang", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRiel.ForeColor = System.Drawing.Color.LightSeaGreen;
             this.labelRiel.Location = new System.Drawing.Point(344, 113);
             this.labelRiel.Name = "labelRiel";
-            this.labelRiel.Size = new System.Drawing.Size(81, 29);
+            this.labelRiel.Size = new System.Drawing.Size(52, 29);
             this.labelRiel.TabIndex = 19;
-            this.labelRiel.Text = "80000 riel";
+            this.labelRiel.Text = "0 riel";
             // 
             // labelDiscounts
             // 
             this.labelDiscounts.AutoSize = true;
             this.labelDiscounts.Location = new System.Drawing.Point(345, 81);
             this.labelDiscounts.Name = "labelDiscounts";
-            this.labelDiscounts.Size = new System.Drawing.Size(49, 24);
+            this.labelDiscounts.Size = new System.Drawing.Size(24, 24);
             this.labelDiscounts.TabIndex = 19;
-            this.labelDiscounts.Text = "$20.00";
+            this.labelDiscounts.Text = "$0";
             // 
             // label6
             // 
@@ -358,6 +361,7 @@ namespace POS_Shop.Sales
             // 
             this.panelDataView.AutoScroll = true;
             this.panelDataView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelDataView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panelDataView.Location = new System.Drawing.Point(0, 39);
             this.panelDataView.Name = "panelDataView";
             this.panelDataView.Size = new System.Drawing.Size(498, 216);

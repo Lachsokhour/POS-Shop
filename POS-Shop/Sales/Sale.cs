@@ -15,6 +15,7 @@ namespace POS_Shop.Sales
 {
     public partial class SaleForm : Form
     {
+        private Order order = new Order();
         public SaleForm()
         {
             InitializeComponent();
@@ -82,7 +83,7 @@ namespace POS_Shop.Sales
                 rowDataView.PicAdd.Click += new EventHandler(IncreseProduct_Click);
                 rowDataView.PicRemove.Click += new EventHandler(RemoveProduct_Click);
 
-                if(ItemProductControl.LableItemsStatic == 0)
+                if (ItemProductControl.LableItemsStatic == 0)
                 {
                     ShowAlert("Item is not avaiable in stock.", FormAlertNotification.Type.Info);
                 }
@@ -92,9 +93,9 @@ namespace POS_Shop.Sales
                     {
                         panelDataView.Controls.Add(rowDataView);
                     }
-                }
-                
 
+                }
+                CalcSale();
             }
         }
 
@@ -139,7 +140,7 @@ namespace POS_Shop.Sales
 
         private void IncreseProduct_Click(object sender, EventArgs e)
         {
-            
+            CalcSale();
         }
 
         private bool FindProductByIdList(RowDataViewItemControl rowData)
@@ -167,11 +168,46 @@ namespace POS_Shop.Sales
                     panelDataView.Controls.Remove(items[i]);
                 }
             }
+            CalcSale();
         }
-        
+
+        private void CalcSale()
+        {
+            var items = rowDataViewItemControls();
+            float subTotal = 0;
+            var selectedDis = (Discount)comboBoxDiscount.SelectedItem;
+            var discount = selectedDis.Value;
+            var exchangeRiel = new Exchange().SelectFirstExchange().Riel;
+            if (items.Count == 0)
+            {
+                labelSubTotal.Text = "$0";
+                labelAmount.Text = "$0";
+                labelDiscounts.Text = "$0";
+                labelRiel.Text = "0 riel";
+            }
+            foreach (var item in items)
+            {
+                
+                var perTotal = (item.ItemDetails.Amount.ToString(FormatUtils.dollar)).TrimStart('$');
+                subTotal += float.Parse(perTotal);
+                var discounts = subTotal * discount;
+                order = new Order(0, discounts, subTotal);
+                labelSubTotal.Text = (order.SubTotal).ToString(FormatUtils.dollar);
+                labelDiscounts.Text = (order.Discount).ToString(FormatUtils.dollar);
+                labelAmount.Text = (order.Amount).ToString(FormatUtils.dollar);
+                labelRiel.Text = (order.Amount * int.Parse(order.Exchange)).ToString(FormatUtils.riel);
+            }
+
+        }
+
         private void ShowAlert(string msg, FormAlertNotification.Type type)
         {
             new FormAlertNotification().ShowAlert(msg, type);
+        }
+
+        private void comboBoxDiscount_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CalcSale();
         }
     }
 }

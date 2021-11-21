@@ -9,6 +9,7 @@ namespace POS_Shop.Utils
     static class FormatUtils
     {
         public const string dollar = "$#,##0.00";
+        public const string riel = "#,#00";
         public const string dateTime = "dd-MM-yyyy hh:mm:ss";
         public const string DateTimeWithoutHour = "dd-MM-yyyy";
         public const string DateTimetHour = "hh:mm:ss";

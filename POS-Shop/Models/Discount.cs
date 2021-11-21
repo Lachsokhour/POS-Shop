@@ -26,10 +26,10 @@ namespace POS_Shop.Models
         {
             return new List<Discount> {
                 new Discount(0, "0%"),
-                new Discount(0.5, "5%"),
-                new Discount(1, "10%"),
-                new Discount(1.5, "15%"),
-                new Discount(2, "20%")
+                new Discount(0.05, "5%"),
+                new Discount(0.1, "10%"),
+                new Discount(0.15, "15%"),
+                new Discount(0.2, "20%")
             };
         }
 
