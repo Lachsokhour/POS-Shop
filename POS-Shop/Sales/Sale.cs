@@ -1,4 +1,5 @@
 ﻿using POS_Shop.Models;
+using POS_Shop.Utils;
 using POS_Shop.Utils.MyUserControl;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,6 @@ namespace POS_Shop.Sales
         private void SaleForm_Load(object sender, EventArgs e)
         {
             LoadProducts();
-            
 
             // Exchange
             var exchange = LoadValue();
@@ -44,7 +44,7 @@ namespace POS_Shop.Sales
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
 
@@ -57,7 +57,7 @@ namespace POS_Shop.Sales
             tableLayoutPanel.RowStyles.Clear(); ;
             tableLayoutPanel.ColumnStyles.Clear();
 
-            for(int i = 0; i < itemProducts.Count; i++)
+            for (int i = 0; i < itemProducts.Count; i++)
             {
                 tableLayoutPanel.Controls.Add(itemProducts[i], c, r);
                 itemProducts[i].PicOrder.Click += new EventHandler(UserControl_Click);
@@ -69,26 +69,32 @@ namespace POS_Shop.Sales
                     r++;
                 }
             }
-            /*ItemProductControl.Rows = GetRows();*/
-            if(ItemProductControl.ItemDetailsStatic != null)
-            {
-                var rowDataView = new RowDataViewItemControl();
-                ItemProductControl.ItemDetailsStatic = rowDataView.ItemDetails;
-
-                rowDataView.Dock = DockStyle.Top;
-                panelDataView.Controls.Add(rowDataView);
-            }
-            
         }
 
         private void UserControl_Click(object sender, EventArgs e)
         {
             var itemDetails = ItemProductControl.ItemDetailsStatic;
-            if(itemDetails != null)
+            if (itemDetails != null)
             {
                 var rowDataView = new RowDataViewItemControl(itemDetails);
                 rowDataView.Dock = DockStyle.Top;
-                panelDataView.Controls.Add(rowDataView);
+                rowDataView.No = panelDataView.Controls.Count + 1 + "";
+                rowDataView.PicAdd.Click += new EventHandler(IncreseProduct_Click);
+                rowDataView.PicRemove.Click += new EventHandler(RemoveProduct_Click);
+
+                if(ItemProductControl.LableItemsStatic == 0)
+                {
+                    ShowAlert("Item is not avaiable in stock.", FormAlertNotification.Type.Info);
+                }
+                else
+                {
+                    if (!FindProductByIdList(rowDataView))
+                    {
+                        panelDataView.Controls.Add(rowDataView);
+                    }
+                }
+                
+
             }
         }
 
@@ -114,9 +120,58 @@ namespace POS_Shop.Sales
             comboBoxCategory.ValueMember = "Id";
         }
 
-        /*private DataGridViewRowCollection GetRows()
+        private List<RowDataViewItemControl> rowDataViewItemControls()
         {
-            return dgvOrderDetails.Rows;
-        }*/
+            List<RowDataViewItemControl> items = new List<RowDataViewItemControl>();
+            foreach (var control in panelDataView.Controls)
+            {
+                var item = (RowDataViewItemControl)control;
+                items.Add(item);
+
+            }
+            return items;
+        }
+
+        private void RemoveProduct_Click(object sender, EventArgs e)
+        {
+            RemoveItem();
+        }
+
+        private void IncreseProduct_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private bool FindProductByIdList(RowDataViewItemControl rowData)
+        {
+            var items = rowDataViewItemControls();
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (items[i].ItemDetails.ProductId == rowData.ItemDetails.ProductId)
+                {
+                    rowData.No = i + 1 + "";
+                    panelDataView.Controls[i].Controls.Add(rowData);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private void RemoveItem()
+        {
+            var items = rowDataViewItemControls();
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (items[i].ItemDetails.Qty == 0)
+                {
+                    panelDataView.Controls.Remove(items[i]);
+                }
+            }
+        }
+        
+        private void ShowAlert(string msg, FormAlertNotification.Type type)
+        {
+            new FormAlertNotification().ShowAlert(msg, type);
+        }
     }
 }

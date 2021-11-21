@@ -38,7 +38,7 @@ namespace POS_Shop.Utils.MyUserControl
             labelProductName.Text = ItemDetails.ProductName;
             labelQty.Text = ItemDetails.Qty.ToString();
             labelUnitPrice.Text = ItemDetails.UnitPrice.ToString(FormatUtils.dollar);
-            labelTotalAmount.Text = FormatUtils.ConvertStringToCurrency(ItemDetails.Amount.ToString());
+            labelTotalAmount.Text = ItemDetails.Amount.ToString(FormatUtils.dollar);
         }
 
         private void picRemove_Click(object sender, EventArgs e)

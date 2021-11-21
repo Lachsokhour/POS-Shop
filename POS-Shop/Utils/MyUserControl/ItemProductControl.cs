@@ -44,6 +44,7 @@ namespace POS_Shop.Utils.MyUserControl
         {
             ItemDetails.Qty++;
             ItemDetailsStatic = ItemDetails;
+            LableItemsStatic = int.Parse(labelItems.Text);
             //Rows.Add(LabelProductName, LabelPrice, Qty, LabelPrice);    
         }
 

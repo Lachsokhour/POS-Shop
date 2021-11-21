@@ -46,10 +46,10 @@ namespace POS_Shop.Sales
             this.label3 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.comboBoxDiscount = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.labelAmount = new System.Windows.Forms.Label();
             this.labelSubTotal = new System.Windows.Forms.Label();
+            this.labelRiel = new System.Windows.Forms.Label();
+            this.labelDiscounts = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -61,6 +61,7 @@ namespace POS_Shop.Sales
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelSearch.SuspendLayout();
             this.panelInfoExchange.SuspendLayout();
@@ -229,17 +230,17 @@ namespace POS_Shop.Sales
             // 
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.panel6);
-            this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.labelAmount);
             this.panel2.Controls.Add(this.labelSubTotal);
+            this.panel2.Controls.Add(this.labelRiel);
+            this.panel2.Controls.Add(this.labelDiscounts);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(4, 261);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(479, 152);
+            this.panel2.Size = new System.Drawing.Size(495, 152);
             this.panel2.TabIndex = 17;
             // 
             // label3
@@ -270,43 +271,43 @@ namespace POS_Shop.Sales
             this.comboBoxDiscount.Size = new System.Drawing.Size(223, 32);
             this.comboBoxDiscount.TabIndex = 14;
             // 
-            // label9
+            // labelAmount
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Kh Battambang", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(99, 113);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(62, 29);
-            this.label9.TabIndex = 19;
-            this.label9.Text = "$20.00";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(100, 81);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(49, 24);
-            this.label8.TabIndex = 19;
-            this.label8.Text = "$20.00";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Kh Battambang", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(344, 113);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(81, 29);
-            this.label7.TabIndex = 19;
-            this.label7.Text = "80000 riel";
+            this.labelAmount.AutoSize = true;
+            this.labelAmount.Font = new System.Drawing.Font("Kh Battambang", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAmount.Location = new System.Drawing.Point(99, 113);
+            this.labelAmount.Name = "labelAmount";
+            this.labelAmount.Size = new System.Drawing.Size(62, 29);
+            this.labelAmount.TabIndex = 19;
+            this.labelAmount.Text = "$20.00";
             // 
             // labelSubTotal
             // 
             this.labelSubTotal.AutoSize = true;
-            this.labelSubTotal.Location = new System.Drawing.Point(345, 81);
+            this.labelSubTotal.Location = new System.Drawing.Point(100, 81);
             this.labelSubTotal.Name = "labelSubTotal";
             this.labelSubTotal.Size = new System.Drawing.Size(49, 24);
             this.labelSubTotal.TabIndex = 19;
             this.labelSubTotal.Text = "$20.00";
+            // 
+            // labelRiel
+            // 
+            this.labelRiel.AutoSize = true;
+            this.labelRiel.Font = new System.Drawing.Font("Kh Battambang", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRiel.Location = new System.Drawing.Point(344, 113);
+            this.labelRiel.Name = "labelRiel";
+            this.labelRiel.Size = new System.Drawing.Size(81, 29);
+            this.labelRiel.TabIndex = 19;
+            this.labelRiel.Text = "80000 riel";
+            // 
+            // labelDiscounts
+            // 
+            this.labelDiscounts.AutoSize = true;
+            this.labelDiscounts.Location = new System.Drawing.Point(345, 81);
+            this.labelDiscounts.Name = "labelDiscounts";
+            this.labelDiscounts.Size = new System.Drawing.Size(49, 24);
+            this.labelDiscounts.TabIndex = 19;
+            this.labelDiscounts.Text = "$20.00";
             // 
             // label6
             // 
@@ -356,23 +357,26 @@ namespace POS_Shop.Sales
             // panelDataView
             // 
             this.panelDataView.AutoScroll = true;
-            this.panelDataView.Location = new System.Drawing.Point(3, 41);
+            this.panelDataView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelDataView.Location = new System.Drawing.Point(0, 39);
             this.panelDataView.Name = "panelDataView";
-            this.panelDataView.Size = new System.Drawing.Size(495, 210);
+            this.panelDataView.Size = new System.Drawing.Size(498, 216);
             this.panelDataView.TabIndex = 1;
             // 
             // TableDataHeader
             // 
             this.TableDataHeader.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.TableDataHeader.ColumnCount = 4;
+            this.TableDataHeader.ColumnCount = 5;
+            this.TableDataHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.TableDataHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170F));
             this.TableDataHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.TableDataHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 86F));
             this.TableDataHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.TableDataHeader.Controls.Add(this.label11, 0, 0);
-            this.TableDataHeader.Controls.Add(this.label12, 1, 0);
-            this.TableDataHeader.Controls.Add(this.label13, 2, 0);
-            this.TableDataHeader.Controls.Add(this.label14, 3, 0);
+            this.TableDataHeader.Controls.Add(this.label11, 1, 0);
+            this.TableDataHeader.Controls.Add(this.label12, 2, 0);
+            this.TableDataHeader.Controls.Add(this.label13, 3, 0);
+            this.TableDataHeader.Controls.Add(this.label14, 4, 0);
+            this.TableDataHeader.Controls.Add(this.label15, 0, 0);
             this.TableDataHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.TableDataHeader.Location = new System.Drawing.Point(0, 0);
             this.TableDataHeader.Name = "TableDataHeader";
@@ -385,7 +389,7 @@ namespace POS_Shop.Sales
             // 
             this.label11.AutoSize = true;
             this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label11.Location = new System.Drawing.Point(4, 1);
+            this.label11.Location = new System.Drawing.Point(40, 1);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(164, 37);
             this.label11.TabIndex = 0;
@@ -396,7 +400,7 @@ namespace POS_Shop.Sales
             // 
             this.label12.AutoSize = true;
             this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label12.Location = new System.Drawing.Point(175, 1);
+            this.label12.Location = new System.Drawing.Point(211, 1);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(94, 37);
             this.label12.TabIndex = 1;
@@ -407,7 +411,7 @@ namespace POS_Shop.Sales
             // 
             this.label13.AutoSize = true;
             this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label13.Location = new System.Drawing.Point(276, 1);
+            this.label13.Location = new System.Drawing.Point(312, 1);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(80, 37);
             this.label13.TabIndex = 2;
@@ -418,12 +422,23 @@ namespace POS_Shop.Sales
             // 
             this.label14.AutoSize = true;
             this.label14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label14.Location = new System.Drawing.Point(363, 1);
+            this.label14.Location = new System.Drawing.Point(399, 1);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(131, 37);
+            this.label14.Size = new System.Drawing.Size(95, 37);
             this.label14.TabIndex = 3;
             this.label14.Text = "Total";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label15.Location = new System.Drawing.Point(4, 1);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(29, 37);
+            this.label15.TabIndex = 4;
+            this.label15.Text = "No";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
             // 
@@ -490,10 +505,10 @@ namespace POS_Shop.Sales
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.ComboBox comboBoxDiscount;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label labelAmount;
         private System.Windows.Forms.Label labelSubTotal;
+        private System.Windows.Forms.Label labelRiel;
+        private System.Windows.Forms.Label labelDiscounts;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -506,5 +521,6 @@ namespace POS_Shop.Sales
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel panelDataView;
+        private System.Windows.Forms.Label label15;
     }
 }

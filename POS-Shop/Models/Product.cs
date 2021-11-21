@@ -248,6 +248,7 @@ namespace POS_Shop.Models
                     itemProduct.LabelProductName = proName;
                     itemProduct.ProductId = int.Parse(reader["cate_id"].ToString());
                     itemProduct.LabelPrice = reader["price_out"].ToString();
+                    itemProduct.LableItems = reader["stockin"].ToString();
 
                     itemProduct.ItemDetails = new OrderDetails(
                         int.Parse(reader["id"].ToString()), 

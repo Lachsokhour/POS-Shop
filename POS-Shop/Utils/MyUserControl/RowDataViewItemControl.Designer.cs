@@ -39,6 +39,7 @@ namespace POS_Shop.Utils.MyUserControl
             this.labelUnitPrice = new System.Windows.Forms.Label();
             this.labelQty = new System.Windows.Forms.Label();
             this.labelTotalAmount = new System.Windows.Forms.Label();
+            this.labelNo = new System.Windows.Forms.Label();
             this.RowTablePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picRemove)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAdd)).BeginInit();
@@ -48,19 +49,20 @@ namespace POS_Shop.Utils.MyUserControl
             // 
             this.RowTablePanel.BackColor = System.Drawing.SystemColors.Control;
             this.RowTablePanel.ColumnCount = 7;
+            this.RowTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.RowTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.RowTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.RowTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.RowTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.RowTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.RowTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
             this.RowTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.RowTablePanel.Controls.Add(this.picRemove, 1, 0);
-            this.RowTablePanel.Controls.Add(this.picAdd, 3, 0);
-            this.RowTablePanel.Controls.Add(this.labelProductName, 0, 0);
-            this.RowTablePanel.Controls.Add(this.labelUnitPrice, 4, 0);
-            this.RowTablePanel.Controls.Add(this.labelQty, 2, 0);
-            this.RowTablePanel.Controls.Add(this.labelTotalAmount, 5, 0);
+            this.RowTablePanel.Controls.Add(this.picRemove, 2, 0);
+            this.RowTablePanel.Controls.Add(this.picAdd, 4, 0);
+            this.RowTablePanel.Controls.Add(this.labelProductName, 1, 0);
+            this.RowTablePanel.Controls.Add(this.labelUnitPrice, 5, 0);
+            this.RowTablePanel.Controls.Add(this.labelQty, 3, 0);
+            this.RowTablePanel.Controls.Add(this.labelTotalAmount, 6, 0);
+            this.RowTablePanel.Controls.Add(this.labelNo, 0, 0);
             this.RowTablePanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RowTablePanel.Font = new System.Drawing.Font("Kh Battambang", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RowTablePanel.Location = new System.Drawing.Point(0, 0);
@@ -72,11 +74,11 @@ namespace POS_Shop.Utils.MyUserControl
             // 
             // picRemove
             // 
-            this.picRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.picRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.picRemove.Image = global::POS_Shop.Properties.Resources.icon_remove;
-            this.picRemove.Location = new System.Drawing.Point(153, 3);
+            this.picRemove.Location = new System.Drawing.Point(188, 3);
             this.picRemove.Name = "picRemove";
             this.picRemove.Size = new System.Drawing.Size(19, 29);
             this.picRemove.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -86,11 +88,11 @@ namespace POS_Shop.Utils.MyUserControl
             // 
             // picAdd
             // 
-            this.picAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.picAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.picAdd.Image = global::POS_Shop.Properties.Resources.add_1;
-            this.picAdd.Location = new System.Drawing.Point(208, 3);
+            this.picAdd.Location = new System.Drawing.Point(243, 3);
             this.picAdd.Name = "picAdd";
             this.picAdd.Size = new System.Drawing.Size(19, 29);
             this.picAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -102,7 +104,7 @@ namespace POS_Shop.Utils.MyUserControl
             // 
             this.labelProductName.AutoSize = true;
             this.labelProductName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelProductName.Location = new System.Drawing.Point(3, 0);
+            this.labelProductName.Location = new System.Drawing.Point(38, 0);
             this.labelProductName.Name = "labelProductName";
             this.labelProductName.Size = new System.Drawing.Size(144, 35);
             this.labelProductName.TabIndex = 0;
@@ -111,11 +113,11 @@ namespace POS_Shop.Utils.MyUserControl
             // 
             // labelUnitPrice
             // 
-            this.labelUnitPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.labelUnitPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelUnitPrice.AutoSize = true;
-            this.labelUnitPrice.Location = new System.Drawing.Point(233, 0);
+            this.labelUnitPrice.Location = new System.Drawing.Point(268, 0);
             this.labelUnitPrice.Name = "labelUnitPrice";
             this.labelUnitPrice.Size = new System.Drawing.Size(84, 35);
             this.labelUnitPrice.TabIndex = 3;
@@ -124,11 +126,11 @@ namespace POS_Shop.Utils.MyUserControl
             // 
             // labelQty
             // 
-            this.labelQty.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.labelQty.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelQty.AutoSize = true;
-            this.labelQty.Location = new System.Drawing.Point(178, 0);
+            this.labelQty.Location = new System.Drawing.Point(213, 0);
             this.labelQty.Name = "labelQty";
             this.labelQty.Size = new System.Drawing.Size(24, 35);
             this.labelQty.TabIndex = 5;
@@ -137,16 +139,25 @@ namespace POS_Shop.Utils.MyUserControl
             // 
             // labelTotalAmount
             // 
-            this.labelTotalAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelTotalAmount.AutoSize = true;
-            this.labelTotalAmount.Location = new System.Drawing.Point(323, 0);
+            this.labelTotalAmount.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelTotalAmount.Location = new System.Drawing.Point(358, 0);
             this.labelTotalAmount.Name = "labelTotalAmount";
             this.labelTotalAmount.Size = new System.Drawing.Size(84, 35);
             this.labelTotalAmount.TabIndex = 4;
             this.labelTotalAmount.Text = "Total";
             this.labelTotalAmount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelNo
+            // 
+            this.labelNo.AutoSize = true;
+            this.labelNo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelNo.Location = new System.Drawing.Point(3, 0);
+            this.labelNo.Name = "labelNo";
+            this.labelNo.Size = new System.Drawing.Size(29, 35);
+            this.labelNo.TabIndex = 6;
+            this.labelNo.Text = "1";
+            this.labelNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // RowDataViewItemControl
             // 
@@ -173,11 +184,13 @@ namespace POS_Shop.Utils.MyUserControl
         private System.Windows.Forms.Label labelUnitPrice;
         private System.Windows.Forms.Label labelTotalAmount;
         private System.Windows.Forms.Label labelQty;
+        private Label labelNo;
 
         public OrderDetails ItemDetails
         {
             get; set;
         }
+        public string No { get => labelNo.Text; set => labelNo.Text = value; }
         public string ProName { get => labelProductName.Text; set => labelProductName.Text = value; }
         public int ProId { get; set; }
         public string UnitPrice { get => labelUnitPrice.Text; set => labelUnitPrice.Text = value; }
