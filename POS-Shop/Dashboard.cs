@@ -40,16 +40,6 @@ namespace POS_Shop.Sales
             myBtn.onMouseLeave(btnDetailSale);
         }
 
-        private void btnSummaryItem_MouseHover(object sender, EventArgs e)
-        {
-            myBtn.onMouseHover(btnSummaryItem);
-        }
-
-        private void btnSummaryItem_MouseLeave(object sender, EventArgs e)
-        {
-            myBtn.onMouseLeave(btnSummaryItem);
-        }
-
         private void btnStartSale_Click(object sender, EventArgs e)
         {
             ParentForm form = Application.OpenForms["ParentForm"] as ParentForm;
@@ -60,6 +50,7 @@ namespace POS_Shop.Sales
         private void Dashboard_Load(object sender, EventArgs e)
         {
             labelCountProduct.Text = new Product().CountAllProduct().ToString();
+            labelCountSale.Text = new StockIn().CountCurrentSale().ToString();
         }
 
         private void panel8_Click(object sender, EventArgs e)

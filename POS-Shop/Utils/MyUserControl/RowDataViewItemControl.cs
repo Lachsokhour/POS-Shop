@@ -27,6 +27,7 @@ namespace POS_Shop.Utils.MyUserControl
 
         private void picAdd_Click(object sender, EventArgs e)
         {
+            
             Qty++;
             ItemDetails.Qty++;
             labelQty.Text = Qty.ToString();

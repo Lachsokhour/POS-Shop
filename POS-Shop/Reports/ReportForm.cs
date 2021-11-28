@@ -16,5 +16,15 @@ namespace POS_Shop.Reports
         {
             InitializeComponent();
         }
+
+        private void ReportForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

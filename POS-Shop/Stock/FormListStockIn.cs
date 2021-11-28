@@ -51,6 +51,8 @@ namespace POS_Shop.Stock
             gridStockIn.AllowUserToAddRows = false;
             gridStockIn.RowTemplate.Height = 30;
 
+            var tempQtyOut = gridStockIn.Columns["QtyOut"];
+
             // Hidden Column
             gridStockIn.Columns["Id"].Visible = false;
             gridStockIn.Columns["ProductId"].Visible = false;
@@ -63,6 +65,8 @@ namespace POS_Shop.Stock
             gridStockIn.Columns["DateExpired"].DefaultCellStyle.Format = FormatUtils.dateTime;
             gridStockIn.Columns["PriceIn"].DefaultCellStyle.Format = FormatUtils.dollar;
             gridStockIn.Columns["CreatedAt"].DefaultCellStyle.Format = FormatUtils.dateTime;
+            tempQtyOut.DefaultCellStyle.ForeColor = Color.Red;
+            tempQtyOut.DefaultCellStyle.Font = new Font(gridStockIn.Font, FontStyle.Bold);
 
             // Change header column name
             gridStockIn.Columns["DateExpired"].HeaderText = "Date Expired";
@@ -70,15 +74,19 @@ namespace POS_Shop.Stock
             gridStockIn.Columns["ProductName"].HeaderText = "Product Name";
             gridStockIn.Columns["PriceIn"].HeaderText = "Price In";
             gridStockIn.Columns["CreatedAt"].HeaderText = "Created At";
+            gridStockIn.Columns["Qty"].HeaderText = "Qty In";
+            tempQtyOut.HeaderText = "Qty Out";
 
             // Move index
             gridStockIn.Columns["ProductName"].DisplayIndex = 0;
             gridStockIn.Columns["PriceIn"].DisplayIndex = 1;
             gridStockIn.Columns["Qty"].DisplayIndex = 2;
+            tempQtyOut.DisplayIndex = 3;
             gridStockIn.Columns["Note"].DisplayIndex = gridStockIn.Columns.Count - 1;
 
             // Change width
-            gridStockIn.Columns["Qty"].Width = 50;
+            gridStockIn.Columns["Qty"].Width = 80;
+            tempQtyOut.Width = 80;
             gridStockIn.Columns["PriceIn"].Width = 80;
             gridStockIn.Columns["DateIn"].Width = 135;
             gridStockIn.Columns["DateExpired"].Width = 135;

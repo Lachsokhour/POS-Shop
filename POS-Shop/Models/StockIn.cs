@@ -22,6 +22,7 @@ namespace POS_Shop.Models
         private int qty;
         private string productName;
         private bool isDefindDateExpired;
+        private int qtyOut;
 
         public StockIn() { }
         public StockIn(
@@ -33,7 +34,8 @@ namespace POS_Shop.Models
             string note,
             int qty, string proName, 
             DateTime createdAt,
-            bool isDefindDateExpired)
+            bool isDefindDateExpired,
+            int qtyOut)
         {
             this.id = id;
             this.productId = proId;
@@ -45,6 +47,7 @@ namespace POS_Shop.Models
             this.note = note;
             base.CreatedAt = createdAt;
             this.isDefindDateExpired = isDefindDateExpired;
+            this.qtyOut = qtyOut;
         }
 
         public int Id { get => id; set => id = value; }
@@ -54,6 +57,7 @@ namespace POS_Shop.Models
         public DateTime? DateExpired { get => dateExpired; set => dateExpired = value; }
         public string Note { get => note; set => note = value; }
         public int Qty { get => qty; set => qty = value; }
+        public int QtyOut { get => qtyOut; set => qtyOut = value; }
         public string ProductName { get => productName; set => productName = value; }
 
         public bool IsDefindDateExpired { get => isDefindDateExpired; set => isDefindDateExpired = value; }
@@ -123,7 +127,8 @@ namespace POS_Shop.Models
                             int.Parse(reader["qty"].ToString()),
                             reader["pro_name_en"].ToString(),
                             DateTime.Parse(reader["created_at"].ToString()),
-                            (bool)reader["is_defind_date_expired"]
+                            (bool)reader["is_defind_date_expired"],
+                            (int)reader["qty_out"]
                             )
                         );
                 }
@@ -156,6 +161,25 @@ namespace POS_Shop.Models
             {
                 ShowAlert(ex.Message, FormAlertNotification.Type.Error);
                 return false;
+            }
+        }
+
+        public int CountCurrentSale()
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand sqlCmd = new SqlCommand(StockInConstants.CountCurrentSaleStoreProcedure, conn);
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                int result = (int)sqlCmd.ExecuteScalar();
+                conn.Close();
+                sqlCmd.Dispose();
+                return result;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return -1;
             }
         }
 

@@ -81,7 +81,7 @@ namespace POS_Shop.Utils.MyUserControl
             this.labelItems.Location = new System.Drawing.Point(112, 160);
             this.labelItems.Name = "labelItems";
             this.labelItems.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.labelItems.Size = new System.Drawing.Size(38, 25);
+            this.labelItems.Size = new System.Drawing.Size(43, 25);
             this.labelItems.TabIndex = 8;
             this.labelItems.Text = "100";
             this.labelItems.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

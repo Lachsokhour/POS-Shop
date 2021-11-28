@@ -43,9 +43,11 @@ namespace POS_Shop.Utils.MyUserControl
         private void picOrder_Click(object sender, EventArgs e)
         {
             ItemDetails.Qty++;
-            ItemDetailsStatic = ItemDetails;
-            LableItemsStatic = int.Parse(labelItems.Text);
-            //Rows.Add(LabelProductName, LabelPrice, Qty, LabelPrice);    
+            if (int.Parse(LableItems) != ItemDetails.Qty)
+            {
+                ItemDetailsStatic = ItemDetails;
+                LableItemsStatic = int.Parse(labelItems.Text);
+            }
         }
     }
 }

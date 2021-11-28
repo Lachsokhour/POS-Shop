@@ -216,6 +216,7 @@ namespace POS_Shop.Sales
                 if(saleInvoice.create())
                 {
                     ClearValue();
+                    LoadProducts();
                 }
             }
             else

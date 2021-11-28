@@ -31,6 +31,13 @@ namespace POS_Shop.Stock
         {
             this.label2 = new System.Windows.Forms.Label();
             this.groupFormStockIn = new System.Windows.Forms.GroupBox();
+            this.panelDateExpired = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.dateExpired = new System.Windows.Forms.DateTimePicker();
+            this.labelDateExpired = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioBtnNo = new System.Windows.Forms.RadioButton();
+            this.radioBtnYes = new System.Windows.Forms.RadioButton();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
@@ -48,21 +55,14 @@ namespace POS_Shop.Stock
             this.panel6 = new System.Windows.Forms.Panel();
             this.comboBoxProduct = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioBtnYes = new System.Windows.Forms.RadioButton();
-            this.radioBtnNo = new System.Windows.Forms.RadioButton();
-            this.panelDateExpired = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.dateExpired = new System.Windows.Forms.DateTimePicker();
-            this.labelDateExpired = new System.Windows.Forms.Label();
             this.groupFormStockIn.SuspendLayout();
+            this.panelDateExpired.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.panelDateExpired.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
@@ -100,6 +100,80 @@ namespace POS_Shop.Stock
             this.groupFormStockIn.TabIndex = 6;
             this.groupFormStockIn.TabStop = false;
             this.groupFormStockIn.Text = "Add New Stock";
+            // 
+            // panelDateExpired
+            // 
+            this.panelDateExpired.Controls.Add(this.panel5);
+            this.panelDateExpired.Controls.Add(this.labelDateExpired);
+            this.panelDateExpired.Location = new System.Drawing.Point(453, 129);
+            this.panelDateExpired.Name = "panelDateExpired";
+            this.panelDateExpired.Size = new System.Drawing.Size(310, 80);
+            this.panelDateExpired.TabIndex = 64;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.Controls.Add(this.dateExpired);
+            this.panel5.Location = new System.Drawing.Point(-1, 35);
+            this.panel5.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(310, 40);
+            this.panel5.TabIndex = 64;
+            // 
+            // dateExpired
+            // 
+            this.dateExpired.CustomFormat = "dd-MM-yyyy";
+            this.dateExpired.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateExpired.Location = new System.Drawing.Point(2, 4);
+            this.dateExpired.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.dateExpired.Name = "dateExpired";
+            this.dateExpired.Size = new System.Drawing.Size(305, 32);
+            this.dateExpired.TabIndex = 62;
+            // 
+            // labelDateExpired
+            // 
+            this.labelDateExpired.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelDateExpired.AutoSize = true;
+            this.labelDateExpired.Location = new System.Drawing.Point(0, 6);
+            this.labelDateExpired.Name = "labelDateExpired";
+            this.labelDateExpired.Size = new System.Drawing.Size(90, 24);
+            this.labelDateExpired.TabIndex = 63;
+            this.labelDateExpired.Text = "Date Expired*";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.radioBtnNo);
+            this.groupBox1.Controls.Add(this.radioBtnYes);
+            this.groupBox1.Location = new System.Drawing.Point(455, 42);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(305, 81);
+            this.groupBox1.TabIndex = 63;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Defind date expired.";
+            // 
+            // radioBtnNo
+            // 
+            this.radioBtnNo.AutoSize = true;
+            this.radioBtnNo.Location = new System.Drawing.Point(158, 33);
+            this.radioBtnNo.Name = "radioBtnNo";
+            this.radioBtnNo.Size = new System.Drawing.Size(44, 28);
+            this.radioBtnNo.TabIndex = 0;
+            this.radioBtnNo.TabStop = true;
+            this.radioBtnNo.Text = "No";
+            this.radioBtnNo.UseVisualStyleBackColor = true;
+            this.radioBtnNo.CheckedChanged += new System.EventHandler(this.radioBtnNo_CheckedChanged);
+            // 
+            // radioBtnYes
+            // 
+            this.radioBtnYes.AutoSize = true;
+            this.radioBtnYes.Location = new System.Drawing.Point(25, 33);
+            this.radioBtnYes.Name = "radioBtnYes";
+            this.radioBtnYes.Size = new System.Drawing.Size(50, 28);
+            this.radioBtnYes.TabIndex = 0;
+            this.radioBtnYes.TabStop = true;
+            this.radioBtnYes.Text = "Yes";
+            this.radioBtnYes.UseVisualStyleBackColor = true;
+            this.radioBtnYes.CheckedChanged += new System.EventHandler(this.radioBtnYes_CheckedChanged);
             // 
             // btnBack
             // 
@@ -177,7 +251,7 @@ namespace POS_Shop.Stock
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.Controls.Add(this.dateIn);
-            this.panel3.Location = new System.Drawing.Point(11, 358);
+            this.panel3.Location = new System.Drawing.Point(12, 358);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(310, 40);
@@ -294,80 +368,6 @@ namespace POS_Shop.Stock
             this.label1.TabIndex = 47;
             this.label1.Text = "Product*";
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.radioBtnNo);
-            this.groupBox1.Controls.Add(this.radioBtnYes);
-            this.groupBox1.Location = new System.Drawing.Point(455, 42);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(305, 81);
-            this.groupBox1.TabIndex = 63;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Defind date expired.";
-            // 
-            // radioBtnYes
-            // 
-            this.radioBtnYes.AutoSize = true;
-            this.radioBtnYes.Location = new System.Drawing.Point(25, 33);
-            this.radioBtnYes.Name = "radioBtnYes";
-            this.radioBtnYes.Size = new System.Drawing.Size(50, 28);
-            this.radioBtnYes.TabIndex = 0;
-            this.radioBtnYes.TabStop = true;
-            this.radioBtnYes.Text = "Yes";
-            this.radioBtnYes.UseVisualStyleBackColor = true;
-            this.radioBtnYes.CheckedChanged += new System.EventHandler(this.radioBtnYes_CheckedChanged);
-            // 
-            // radioBtnNo
-            // 
-            this.radioBtnNo.AutoSize = true;
-            this.radioBtnNo.Location = new System.Drawing.Point(158, 33);
-            this.radioBtnNo.Name = "radioBtnNo";
-            this.radioBtnNo.Size = new System.Drawing.Size(44, 28);
-            this.radioBtnNo.TabIndex = 0;
-            this.radioBtnNo.TabStop = true;
-            this.radioBtnNo.Text = "No";
-            this.radioBtnNo.UseVisualStyleBackColor = true;
-            this.radioBtnNo.CheckedChanged += new System.EventHandler(this.radioBtnNo_CheckedChanged);
-            // 
-            // panelDateExpired
-            // 
-            this.panelDateExpired.Controls.Add(this.panel5);
-            this.panelDateExpired.Controls.Add(this.labelDateExpired);
-            this.panelDateExpired.Location = new System.Drawing.Point(453, 129);
-            this.panelDateExpired.Name = "panelDateExpired";
-            this.panelDateExpired.Size = new System.Drawing.Size(310, 80);
-            this.panelDateExpired.TabIndex = 64;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.Controls.Add(this.dateExpired);
-            this.panel5.Location = new System.Drawing.Point(-1, 35);
-            this.panel5.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(310, 40);
-            this.panel5.TabIndex = 64;
-            // 
-            // dateExpired
-            // 
-            this.dateExpired.CustomFormat = "dd-MM-yyyy";
-            this.dateExpired.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateExpired.Location = new System.Drawing.Point(2, 4);
-            this.dateExpired.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.dateExpired.Name = "dateExpired";
-            this.dateExpired.Size = new System.Drawing.Size(305, 32);
-            this.dateExpired.TabIndex = 62;
-            // 
-            // labelDateExpired
-            // 
-            this.labelDateExpired.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelDateExpired.AutoSize = true;
-            this.labelDateExpired.Location = new System.Drawing.Point(0, 6);
-            this.labelDateExpired.Name = "labelDateExpired";
-            this.labelDateExpired.Size = new System.Drawing.Size(90, 24);
-            this.labelDateExpired.TabIndex = 63;
-            this.labelDateExpired.Text = "Date Expired*";
-            // 
             // FormStockIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 24F);
@@ -382,17 +382,17 @@ namespace POS_Shop.Stock
             this.Load += new System.EventHandler(this.FormStockIn_Load);
             this.groupFormStockIn.ResumeLayout(false);
             this.groupFormStockIn.PerformLayout();
+            this.panelDateExpired.ResumeLayout(false);
+            this.panelDateExpired.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel6.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.panelDateExpired.ResumeLayout(false);
-            this.panelDateExpired.PerformLayout();
-            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
