@@ -18,8 +18,6 @@ namespace POS_Shop.Models
         private float dollar;
         private string riel;
 
-        private SqlConnection conn = SingletonDB.Instance.GetDBConnection();
-
         public Exchange() { }
         public Exchange(int id, float dollar, string riel)
         {
