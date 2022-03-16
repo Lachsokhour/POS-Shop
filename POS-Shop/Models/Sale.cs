@@ -17,7 +17,6 @@ namespace POS_Shop.Models
         public Order Order { get; set; }
         public List<OrderDetails> OrderDetails { get; set; }
 
-        private SqlConnection conn = SingletonDB.Instance.GetDBConnection();
 
         public Sale() { }
         public Sale(Order order, List<OrderDetails> orderDetails)

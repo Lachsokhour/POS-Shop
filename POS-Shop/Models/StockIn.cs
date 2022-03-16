@@ -25,8 +25,6 @@ namespace POS_Shop.Models
         private bool isDefindDateExpired;
         private int qtyOut;
 
-        private SqlConnection conn = SingletonDB.Instance.GetDBConnection();
-
         public StockIn() { }
         public StockIn(
             int id,

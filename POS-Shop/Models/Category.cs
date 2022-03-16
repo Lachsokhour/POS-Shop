@@ -22,8 +22,6 @@ namespace POS_Shop.Models
         private string note;
         private Image cateImage;
 
-        private SqlConnection conn = SingletonDB.Instance.GetDBConnection();
-
         public Category() { }
         public Category(int id, string photo, string filePath, string name, string note)
         {
