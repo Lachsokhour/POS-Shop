@@ -14,7 +14,8 @@ namespace POS_Shop.Utils
         /// <summary>
         /// Connect to DB server.
         /// </summary>
-        public SqlConnection conn = Connection.getConnection();
+        public SqlConnection conn = SingletonDB.Instance.GetDBConnection();
+
         public virtual bool create() { throw new NotImplementedException(); }
 
         public virtual bool delete(int id) { throw new NotImplementedException(); }

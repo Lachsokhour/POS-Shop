@@ -1,4 +1,5 @@
-﻿using POS_Shop.Utils;
+﻿using POS_Shop.DB;
+using POS_Shop.Utils;
 using POS_Shop.Utils.Constants;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace POS_Shop.Models
     {
         public Order Order { get; set; }
         public List<OrderDetails> OrderDetails { get; set; }
+
 
         public Sale() { }
         public Sale(Order order, List<OrderDetails> orderDetails)

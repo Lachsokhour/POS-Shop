@@ -28,6 +28,7 @@ namespace POS_Shop.Models
         private string filePath;
         private Image proImage;
         private string cateName;
+
         public Product() { }
         public Product(
             int id,

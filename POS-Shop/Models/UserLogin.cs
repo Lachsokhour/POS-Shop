@@ -22,7 +22,7 @@ namespace POS_Shop.Models
             this.password = password;
         }
 
-        private SqlConnection conn = Connection.getConnection();
+        private SqlConnection conn = SingletonDB.Instance.GetDBConnection();
 
         public string Username { get => username; set => username = value; }
         public string Password { get => password; set => password = value; }
