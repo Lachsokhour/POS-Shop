@@ -1,4 +1,5 @@
 ﻿using POS_Shop.DB;
+using POS_Shop.Utils;
 using POS_Shop.Utils.Constants;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace POS_Shop.Models
 {
-    class UserLogin
+    class UserLogin : AbstractCrud<UserLogin>
     {
         private string username;
         private string password;
@@ -21,8 +22,6 @@ namespace POS_Shop.Models
             this.username = username;
             this.password = password;
         }
-
-        private SqlConnection conn = SingletonDB.Instance.GetDBConnection();
 
         public string Username { get => username; set => username = value; }
         public string Password { get => password; set => password = value; }

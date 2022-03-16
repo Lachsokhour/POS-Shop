@@ -54,7 +54,6 @@
     <Compile Include="Categories\CategoryForm.Designer.cs">
       <DependentUpon>CategoryForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DB\Connection.cs" />
     <Compile Include="DB\DBConfig.cs" />
     <Compile Include="DB\SingletonDB.cs" />
     <Compile Include="Employees\FormEmployee.cs">
