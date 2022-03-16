@@ -28,6 +28,8 @@ namespace POS_Shop.Models
         private string filePath;
         private Image proImage;
         private string cateName;
+
+        private SqlConnection conn = SingletonDB.Instance.GetDBConnection();
         public Product() { }
         public Product(
             int id,

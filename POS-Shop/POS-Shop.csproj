@@ -56,6 +56,7 @@
     </Compile>
     <Compile Include="DB\Connection.cs" />
     <Compile Include="DB\DBConfig.cs" />
+    <Compile Include="DB\SingletonDB.cs" />
     <Compile Include="Employees\FormEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,6 +234,7 @@
     <EmbeddedResource Include="Utils\MyUserControl\UploadImageControl.resx">
       <DependentUpon>UploadImageControl.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram5.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

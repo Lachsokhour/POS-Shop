@@ -1,4 +1,5 @@
-﻿using POS_Shop.Utils;
+﻿using POS_Shop.DB;
+using POS_Shop.Utils;
 using POS_Shop.Utils.Constants;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,8 @@ namespace POS_Shop.Models
         private string productName;
         private bool isDefindDateExpired;
         private int qtyOut;
+
+        private SqlConnection conn = SingletonDB.Instance.GetDBConnection();
 
         public StockIn() { }
         public StockIn(

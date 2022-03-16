@@ -23,6 +23,8 @@ namespace POS_Shop.Models
         protected int positionId;
         protected string position;
 
+        //private SqlConnection conn = SingletonDB.Instance.GetDBConnection();
+
         public Employee() { }
 
         public Employee(int id, string nameEn, string nameKh, string phone, string address, string password, int positionId)
